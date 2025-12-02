@@ -1,14 +1,8 @@
 // Test if script is loading
 console.log('Script loaded successfully!');
 
-// Define API base URL - dynamically get hostname and use port 5000 for backend
-function getApiBaseUrl() {
-  // Get the current hostname (IP address when accessed from network)
-  const hostname = window.location.hostname;
-  // Use port 5000 for the backend API
-  return `http://${hostname}:5000`;
-}
-const API_BASE_URL = getApiBaseUrl();
+// Define API base URL - point to deployed backend on Render
+const API_BASE_URL = 'https://research-repository2.onrender.com';
 
 // Error and success message functions
 function showFormError(form, message) {
