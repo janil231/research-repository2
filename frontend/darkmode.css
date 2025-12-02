@@ -1,0 +1,2109 @@
+/* Dark Mode Styles */
+
+/* Dark mode CSS variables */
+:root[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --bg-tertiary: #252525;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --border-color: #333333;
+}
+
+/* Dark mode for the entire dashboard */
+body[data-theme="dark"],
+[data-theme="dark"] body {
+  background: linear-gradient(135deg, #0d1117 0%, #1a1a1a 70%, #1e1e1e 100%) !important;
+}
+
+:root[data-theme="dark"] .modern-admin-dashboard {
+  background: linear-gradient(135deg, #0d1117 0%, #1a1a1a 70%, #1e1e1e 100%) !important;
+}
+
+/* Dark mode for navigation */
+:root[data-theme="dark"] .modern-nav {
+  background: rgba(30, 30, 30, 0.95);
+  border-right: 1px solid #333;
+}
+
+:root[data-theme="dark"] .modern-nav-link {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .modern-nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="dark"] .modern-nav-link.active {
+  background: rgba(226, 232, 240, 0.15); /* was rgba(100, 108, 255, 0.2) --> now light gray translucent */
+  color: #fff; /* was #6366f1 --> now white for highlight */
+}
+
+/* Dark mode for sidebar */
+:root[data-theme="dark"] .modern-sidebar {
+  background: var(--bg-secondary) !important;
+  border-right: 1px solid var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .modern-sidebar .nav-section-title {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .modern-sidebar .nav-section-title:hover,
+:root[data-theme="dark"] .modern-sidebar .nav-section-title:active,
+:root[data-theme="dark"] .modern-sidebar .nav-section-title:focus,
+:root[data-theme="dark"] .modern-sidebar .nav-section-title:visited {
+  color: var(--text-primary) !important;
+}
+
+/* Dark mode for stat cards */
+:root[data-theme="dark"] .stat-card {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .stat-card h3 {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .stat-card p {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .stat-content {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .stat-content h3 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .stat-content p {
+  color: var(--text-secondary) !important;
+}
+
+/* Dark mode for stat icons */
+:root[data-theme="dark"] .stat-icon {
+  background: rgba(226, 232, 240, 0.15) !important; /* was rgba(99, 102, 241, 0.2) --> now light gray translucent */
+}
+
+:root[data-theme="dark"] .stat-icon i {
+  color: #fff !important; /* was #6366f1 --> now white */
+}
+
+/* Dark mode for chart cards */
+:root[data-theme="dark"] .chart-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+:root[data-theme="dark"] .chart-card h4 {
+  color: var(--text-primary);
+}
+
+/* Dark mode for section headers */
+:root[data-theme="dark"] .section-header {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .section-header h2 {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .section-header p {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .section-header .section-title h2 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .section-header .section-title p .section-actions {
+  color: var(--text-secondary) !important;
+}
+
+/* Dark mode for admin sections */
+:root[data-theme="dark"] .admin-section {
+  color: var(--text-primary);
+}
+
+/* Dark mode for buttons */
+:root[data-theme="dark"] .btn-primary {
+  background: #fff; /* was #6366f1 --> now white */
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .btn-primary:hover {
+  background: #e2e8f0; /* was #4f46e5 --> now light gray */
+}
+
+:root[data-theme="dark"] .btn-accent {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white !important;
+}
+
+:root[data-theme="dark"] .btn-accent:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+}
+
+:root[data-theme="dark"] .approve-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white !important;
+}
+
+:root[data-theme="dark"] .reject-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white !important;
+}
+
+:root[data-theme="dark"] .delete-btn,
+:root[data-theme="dark"] .archive-btn {
+  background: var(--bg-tertiary) !important;
+  color: #ef4444 !important;
+  border-color: #ef4444 !important;
+}
+
+:root[data-theme="dark"] .delete-btn:hover,
+:root[data-theme="dark"] .archive-btn:hover {
+  background: #ef4444 !important;
+  color: white !important;
+}
+
+:root[data-theme="dark"] .action-btn {
+  border-color: var(--border-color) !important;
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .action-btn:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Dark mode for Export Data button specifically */
+:root[data-theme="dark"] .action-btn.secondary,
+:root[data-theme="dark"] .btn-outline-primary,
+:root[data-theme="dark"] #exportDataBtn {
+  color: #fff !important;
+  border-color: #4b5563 !important;
+  background: var(--bg-tertiary) !important;
+}
+
+:root[data-theme="dark"] .action-btn.secondary:hover,
+:root[data-theme="dark"] .btn-outline-primary:hover,
+:root[data-theme="dark"] #exportDataBtn:hover {
+  color: #fff !important;
+  background: var(--bg-secondary) !important;
+  border-color: #6b7280 !important;
+}
+
+/* Dark mode for Export Data button text and icon */
+:root[data-theme="dark"] #exportDataBtn,
+:root[data-theme="dark"] #exportDataBtn *,
+:root[data-theme="dark"] #exportDataBtn i,
+:root[data-theme="dark"] #exportDataBtn span {
+  color: #fff !important;
+}
+
+:root[data-theme="dark"] .modern-logout-btn {
+  background: #ef4444 !important;
+  color: white !important;
+}
+
+:root[data-theme="dark"] .modern-logout-btn:hover {
+  background: #dc2626 !important;
+}
+
+/* Dark mode for search cards */
+:root[data-theme="dark"] .search-card {
+  background: linear-gradient(135deg, #1e1e1e, #252525);
+}
+
+:root[data-theme="dark"] .search-card-unified {
+  background: linear-gradient(135deg, #1e1e1e, #252525) !important;
+}
+
+
+
+:root[data-theme="dark"] .search-card-unified h3,
+:root[data-theme="dark"] .search-card-unified .section-title h2 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .search-card-unified p,
+:root[data-theme="dark"] .search-card-unified .section-title p {
+  color: var(--text-secondary) !important;
+}
+
+/* Dark mode for result cards */
+:root[data-theme="dark"] .result-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding-bottom: 84px !important;
+}
+
+:root[data-theme="dark"] .result-card h4 {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .result-card p {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .results-grid .result-item {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .results-grid .result-item h4 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .results-grid .result-item p {
+  color: var(--text-secondary) !important;
+}
+
+/* Dark mode for settings cards */
+:root[data-theme="dark"] .settings-card,
+:root[data-theme="dark"] .wizard-card,
+:root[data-theme="dark"] .modern-tabs,
+:root[data-theme="dark"] .account-section,
+:root[data-theme="dark"] .filter-tabs,
+:root[data-theme="dark"] .search-toolbar{
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+:root[data-theme="dark"] .settings-card h3 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .settings-card h3 i {
+  color: #fff !important; /* was #6366f1, now white for all icons */
+}
+
+:root[data-theme="dark"] .settings-card p {
+  color: var(--text-secondary) !important;
+}
+
+/* Dark mode for settings content container */
+:root[data-theme="dark"] .settings-content {
+  background: transparent !important;
+}
+
+/* Dark mode for settings card buttons */
+:root[data-theme="dark"] .settings-card .btn {
+  background: linear-gradient(135deg, #1e293b 0%, #374151 100%) !important; /* Dark blue-gray gradient */
+  color: #ffffff !important; /* Bright white text */
+  border: 2px solid #4b5563 !important; /* Visible border */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important; /* Strong shadow for depth */
+  font-weight: 600 !important; /* Bold text */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important; /* Text shadow for readability */
+  transition: all 0.3s ease !important; /* Smooth transitions */
+}
+
+:root[data-theme="dark"] .settings-card .btn:hover {
+  background: linear-gradient(135deg, #374151 0%, #4b5563 100%) !important; /* Lighter gradient on hover */
+  color: #ffffff !important; /* Keep white text */
+  border-color: #6b7280 !important; /* Lighter border on hover */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4) !important; /* Stronger shadow on hover */
+  transform: translateY(-2px) !important; /* Slight lift effect */
+}
+
+:root[data-theme="dark"] .settings-card .btn:active {
+  transform: translateY(0) !important; /* Reset transform when clicked */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3) !important; /* Reduce shadow when clicked */
+}
+
+:root[data-theme="dark"] .settings-card .btn i {
+  color: #ffffff !important; /* Bright white icons */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important; /* Icon shadow for readability */
+  margin-right: 8px !important; /* Proper spacing */
+}
+
+/* Dark mode for specific settings card icons */
+:root[data-theme="dark"] .settings-card h3 .fa-moon {
+  color: #fff !important; /* was #6366f1, now white */
+}
+
+:root[data-theme="dark"] .settings-card h3 .fa-database {
+  color: #fff !important; /* was #3b82f6, now white */
+}
+
+:root[data-theme="dark"] .settings-card h3 .fa-archive {
+  color: #fff !important; /* was #f59e0b, now white */
+}
+
+/* Dark mode for settings card button icons */
+:root[data-theme="dark"] .settings-card .btn .fa-download,
+:root[data-theme="dark"] .settings-card .btn .fa-box-archive {
+  color: #ffffff !important; /* Bright white icons */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important; /* Icon shadow for readability */
+}
+
+/* Specific button styling for different types */
+:root[data-theme="dark"] .settings-card .btn-primary {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important; /* Blue gradient for primary actions */
+  border-color: #3b82f6 !important;
+}
+
+:root[data-theme="dark"] .settings-card .btn-primary:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%) !important; /* Lighter blue on hover */
+  border-color: #60a5fa !important;
+}
+
+:root[data-theme="dark"] .settings-card .btn-accent {
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%) !important; /* Orange gradient for accent actions */
+  border-color: #f59e0b !important;
+}
+
+:root[data-theme="dark"] .settings-card .btn-accent:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%) !important; /* Lighter orange on hover */
+  border-color: #fbbf24 !important;
+}
+
+/* Ensure button text is always visible */
+:root[data-theme="dark"] .settings-card .btn span {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  font-weight: 600 !important;
+}
+
+/* Dark mode for toggle switch in settings */
+:root[data-theme="dark"] .settings-card .toggle-switch {
+  background: var(--bg-tertiary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .settings-card .toggle-slider {
+  background: var(--text-primary) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+}
+
+:root[data-theme="dark"] .settings-card .toggle-text {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .settings-card .toggle-label {
+  color: var(--text-primary) !important;
+}
+
+/* Dark mode for toggle switch when checked in settings */
+:root[data-theme="dark"] .settings-card #darkModeToggle:checked + .toggle-switch {
+  background: #fff !important; /* was #6366f1, now white */
+  border-color: #fff !important;
+}
+
+:root[data-theme="dark"] .settings-card #darkModeToggle:checked + .toggle-switch .toggle-slider {
+  background: var(--bg-primary) !important;
+  transform: translateX(28px) !important;
+}
+
+/* Dark mode for header */
+:root[data-theme="dark"] .modern-admin-header {
+  background: rgba(30, 30, 30, 0.98) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+:root[data-theme="dark"] .modern-admin-header h1,
+:root[data-theme="dark"] .modern-admin-header .title {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .modern-admin-header .subtitle {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .user-info {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .user-info .user-name {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .user-info .user-role {
+  color: var(--text-secondary) !important;
+}
+
+/* Dark mode for filters */
+:root[data-theme="dark"] #analyticsYearFilter,
+:root[data-theme="dark"] #analyticsSemesterFilter {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+:root[data-theme="dark"] #analyticsYearFilter option,
+:root[data-theme="dark"] #analyticsSemesterFilter option {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .analytics-filters-row select,
+:root[data-theme="dark"] .analytics-filters-row option,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] input[type='text'],
+:root[data-theme="dark"] input[type='number'] {
+  background: #23272f !important;
+
+  border-color: #4b5563 !important;
+}
+
+/* Dark mode for tables */
+:root[data-theme="dark"] .modern-table-container {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .modern-table th {
+  background: linear-gradient(135deg, #1e293b 0%, #6b7280 100%) !important; /* replaced violet gradient with dark blue/gray gradient */
+  color: white !important;
+}
+
+:root[data-theme="dark"] .modern-table td {
+  color: var(--text-primary) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .modern-table td * {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .modern-table td a {
+  color: #fff !important; /* was #6366f1 --> now white */
+}
+
+:root[data-theme="dark"] .modern-table tbody tr {
+  background: var(--bg-secondary) !important;
+}
+
+:root[data-theme="dark"] .modern-table tbody tr:nth-child(odd) {
+  background: var(--bg-tertiary) !important;
+}
+
+:root[data-theme="dark"] .modern-table tbody tr:hover {
+  background: rgba(226, 232, 240, 0.1) !important; /* was rgba(99, 102, 241, 0.1) --> now light gray translucent */
+}
+
+:root[data-theme="dark"] .users-table th,
+:root[data-theme="dark"] .research-table th {
+  background: linear-gradient(135deg, #1e293b 0%, #6b7280 100%) !important; /* replaced violet gradient with dark blue/gray gradient */
+  color: white !important;
+}
+
+:root[data-theme="dark"] .users-table td,
+:root[data-theme="dark"] .research-table td {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .users-table td *,
+:root[data-theme="dark"] .research-table td * {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .users-table tbody tr,
+:root[data-theme="dark"] .research-table tbody tr {
+  background: var(--bg-secondary) !important;
+}
+
+:root[data-theme="dark"] .users-table tbody tr:hover,
+:root[data-theme="dark"] .research-table tbody tr:hover {
+  background: rgba(226, 232, 240, 0.1) !important; /* was rgba(99, 102, 241, 0.1) --> now light gray translucent */
+}
+
+/* Dark mode for inputs */
+:root[data-theme="dark"] input[type='text'],
+:root[data-theme="dark"] input[type='number'],
+:root[data-theme="dark"] input[type='email'],
+:root[data-theme="dark"] input[type='password'],
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] input[type='text']::placeholder,
+:root[data-theme="dark"] input[type='number']::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] input[type='text']:focus,
+:root[data-theme="dark"] input[type='number']:focus,
+:root[data-theme="dark"] input[type='email']:focus,
+:root[data-theme="dark"] input[type='password']:focus,
+:root[data-theme="dark"] textarea:focus,
+:root[data-theme="dark"] select:focus {
+  border-color: #e2e8f0 !important; /* was #6366f1, now light gray border */
+  background: var(--bg-tertiary) !important;
+}
+
+/* Dark mode for cards in admin sections */
+:root[data-theme="dark"] .upload-section,
+:root[data-theme="dark"] .research-form-container,
+:root[data-theme="dark"] .research-form-card {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .research-form-card h3 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .research-form-card p {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .form-group label {
+  color: var(--text-primary) !important;
+}
+
+/* Dark mode for badges and status indicators */
+:root[data-theme="dark"] .status-badge,
+:root[data-theme="dark"] .badge {
+  color: white !important;
+}
+
+:root[data-theme="dark"] .status-badge.approved {
+  background: #166534 !important;
+  color: white !important;
+}
+
+:root[data-theme="dark"] .status-badge.pending {
+  background: #92400e !important;
+  color: white !important;
+}
+
+:root[data-theme="dark"] .status-badge.rejected {
+  background: #991b1b !important;
+  color: white !important;
+}
+
+/* Dark mode for icons */
+:root[data-theme="dark"] .nav-section-title,
+:root[data-theme="dark"] .modern-nav i {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .modern-nav-link i {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .modern-nav-link.active i {
+  color: #fff !important; /* was #6366f1 --> now white */
+}
+
+/* Dark mode for tabs */
+:root[data-theme="dark"] .tab-btn,
+:root[data-theme="dark"] .modern-tabs .tab-btn {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .tab-btn.active,
+:root[data-theme="dark"] .modern-tabs .tab-btn.active {
+  background: linear-gradient(135deg, #1e293b 0%, #6b7280 100%) !important; /* replaced gradient with blue/gray */
+  color: white !important;
+}
+
+:root[data-theme="dark"] .tab-btn:hover,
+:root[data-theme="dark"] .modern-tabs .tab-btn:hover {
+  background: var(--bg-tertiary) !important;
+}
+
+:root[data-theme="dark"] .filter-tab {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .filter-tab.active {
+  background: linear-gradient(135deg, #1e293b 0%, #6b7280 100%) !important; /* replaced gradient for active tab */
+  color: white !important;
+}
+
+/* Dark mode for loading and empty states */
+:root[data-theme="dark"] .loading-state,
+:root[data-theme="dark"] .empty-state {
+  color: var(--text-secondary) !important;
+}
+
+/* Dark mode for pager */
+:root[data-theme="dark"] .pager button {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .pager button:hover {
+  background: var(--bg-tertiary) !important;
+}
+
+:root[data-theme="dark"] .pager button:disabled {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-secondary) !important;
+  opacity: 0.5;
+}
+
+/* Toggle switch styles */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+  background: #ddd;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.toggle-text {
+  margin-left: 12px;
+  font-weight: 500;
+  color: #1e293b;
+  transition: color 0.3s ease;
+}
+
+#darkModeToggle:checked + .toggle-switch {
+  background: #fff; /* was #6366f1 --> now white */
+}
+
+#darkModeToggle:checked + .toggle-switch .toggle-slider {
+  transform: translateX(28px);
+  background: white;
+}
+
+:root[data-theme="dark"] .toggle-text {
+  color: var(--text-primary);
+}
+
+/* Smooth transitions for dark mode */
+body,
+.modern-nav,
+.modern-nav-link,
+.stat-card,
+.chart-card,
+.section-header,
+.search-card,
+.result-card,
+.settings-card,
+.modern-admin-header,
+.modern-table,
+.modern-table th,
+.modern-table td,
+div,
+input,
+textarea,
+select {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+:root[data-theme="dark"] .chartjs-render-monitor,
+:root[data-theme="dark"] .chart-legend,
+:root[data-theme="dark"] .chart-container ul,
+:root[data-theme="dark"] ul[role="listbox"],
+:root[data-theme="dark"] .legend-label,
+:root[data-theme="dark"] .chart-legend li,
+:root[data-theme="dark"] .chartjs-table,
+:root[data-theme="dark"] .legend-list,
+:root[data-theme="dark"] .chart-legend-list,
+:root[data-theme="dark"] .chartjs-legend-list {
+  background: #23272f !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 8px !important;
+  border: 1px solid #4b5563 !important;
+}
+:root[data-theme="dark"] .chart-legend li span,
+:root[data-theme="dark"] .chart-legend td,
+:root[data-theme="dark"] .chart-legend th {
+  background: transparent !important;
+  color: #fff !important;
+}
+:root[data-theme="dark"] .chart-legend::-webkit-scrollbar,
+:root[data-theme="dark"] .chart-container ul::-webkit-scrollbar,
+:root[data-theme="dark"] ul[role="listbox"]::-webkit-scrollbar {
+  width: 8px;
+  background: #1a1a1a;
+  border-radius: 6px;
+}
+:root[data-theme="dark"] .chart-legend::-webkit-scrollbar-thumb,
+:root[data-theme="dark"] .chart-container ul::-webkit-scrollbar-thumb,
+:root[data-theme="dark"] ul[role="listbox"]::-webkit-scrollbar-thumb {
+  background: #444a54;
+  border-radius: 6px;
+}
+
+:root[data-theme='dark'] .chart-card ul,
+:root[data-theme='dark'] .chart-container ul,
+:root[data-theme='dark'] .chart-card .chart-legend ul,
+:root[data-theme='dark'] .chart-legend ul,
+:root[data-theme='dark'] .chart-card table,
+:root[data-theme='dark'] .chart-legend table,
+:root[data-theme='dark'] .chart-legend tr,
+:root[data-theme='dark'] .chart-legend td,
+:root[data-theme='dark'] .chart-legend th,
+:root[data-theme='dark'] .chart-legend li,
+:root[data-theme='dark'] .chart-card li,
+:root[data-theme='dark'] .dept-summary,
+:root[data-theme='dark'] .topAuthorsList{
+  background: #23272f !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-weight: 600;
+}
+
+/* Dark mode for Top Authors and Top Keywords tables */
+:root[data-theme='dark'] .top-authors-table,
+:root[data-theme='dark'] .top-keywords-table,
+:root[data-theme='dark'] .top-authors-list,
+:root[data-theme='dark'] .top-keywords-list,
+:root[data-theme='dark'] .authors-table,
+:root[data-theme='dark'] .keywords-table {
+  background: #23272f !important;
+  color: #fff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 8px !important;
+}
+
+:root[data-theme='dark'] .top-authors-table tr,
+:root[data-theme='dark'] .top-keywords-table tr,
+:root[data-theme='dark'] .top-authors-list li,
+:root[data-theme='dark'] .top-keywords-list li,
+:root[data-theme='dark'] .authors-table tr,
+:root[data-theme='dark'] .keywords-table tr {
+  background: #23272f !important;
+  color: #fff !important;
+  border-bottom: 1px solid #4b5563 !important;
+}
+
+:root[data-theme='dark'] .top-authors-table td,
+:root[data-theme='dark'] .top-keywords-table td,
+:root[data-theme='dark'] .top-authors-list span,
+:root[data-theme='dark'] .top-keywords-list span,
+:root[data-theme='dark'] .authors-table td,
+:root[data-theme='dark'] .keywords-table td {
+  background: #23272f !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 8px 12px !important;
+}
+
+:root[data-theme='dark'] .top-authors-table th,
+:root[data-theme='dark'] .top-keywords-table th,
+:root[data-theme='dark'] .authors-table th,
+:root[data-theme='dark'] .keywords-table th {
+  background: linear-gradient(135deg, #1e293b 0%, #6b7280 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+/* Dark mode for list items in top authors/keywords */
+:root[data-theme='dark'] .top-authors-list li,
+:root[data-theme='dark'] .top-keywords-list li {
+  background: #23272f !important;
+  color: #fff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 6px !important;
+  margin-bottom: 4px !important;
+  padding: 8px 12px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+:root[data-theme='dark'] .top-authors-list li:hover,
+:root[data-theme='dark'] .top-keywords-list li:hover {
+  background: #374151 !important;
+  border-color: #6b7280 !important;
+}
+
+/* Dark mode for ranking numbers and counts */
+:root[data-theme='dark'] .top-authors-list .rank,
+:root[data-theme='dark'] .top-keywords-list .rank,
+:root[data-theme='dark'] .top-authors-list .count,
+:root[data-theme='dark'] .top-keywords-list .count {
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+
+/* Dark mode for author names and keywords */
+:root[data-theme='dark'] .top-authors-list .author-name,
+:root[data-theme='dark'] .top-keywords-list .keyword {
+  color: #fff !important;
+  font-weight: 500 !important;
+}
+
+/* Generic dark mode for any remaining table/list elements in analytics */
+:root[data-theme='dark'] .analytics-section table,
+:root[data-theme='dark'] .analytics-section tbody,
+:root[data-theme='dark'] .analytics-section thead,
+:root[data-theme='dark'] .analytics-section tr,
+:root[data-theme='dark'] .analytics-section td,
+:root[data-theme='dark'] .analytics-section th,
+:root[data-theme='dark'] .analytics-section li,
+:root[data-theme='dark'] .analytics-section ul,
+:root[data-theme='dark'] .analytics-section ol {
+  background: #23272f !important;
+  color: #fff !important;
+  border-color: #4b5563 !important;
+}
+
+/* Dark mode for any div containers that might contain the lists */
+:root[data-theme='dark'] .analytics-section div[class*="list"],
+:root[data-theme='dark'] .analytics-section div[class*="table"],
+:root[data-theme='dark'] .analytics-section div[class*="authors"],
+:root[data-theme='dark'] .analytics-section div[class*="keywords"] {
+  background: #23272f !important;
+  color: #fff !important;
+}
+
+/* Dark mode for any remaining white backgrounds in analytics */
+:root[data-theme='dark'] .analytics-section * {
+  background-color: #23272f !important;
+  color: #fff !important;
+}
+
+/* Override any specific white backgrounds that might be set inline */
+:root[data-theme='dark'] .analytics-section [style*="background: white"],
+:root[data-theme='dark'] .analytics-section [style*="background-color: white"],
+:root[data-theme='dark'] .analytics-section [style*="background: #fff"],
+:root[data-theme='dark'] .analytics-section [style*="background-color: #fff"] {
+  background: #23272f !important;
+  color: #fff !important;
+}
+
+/* More aggressive targeting for stubborn white backgrounds */
+:root[data-theme='dark'] .chart-card *,
+:root[data-theme='dark'] .chart-container *,
+:root[data-theme='dark'] .analytics-section *,
+:root[data-theme='dark'] .top-authors *,
+:root[data-theme='dark'] .top-keywords *,
+:root[data-theme='dark'] .authors *,
+:root[data-theme='dark'] .keywords * {
+  background-color: #23272f !important;
+  color: #fff !important;
+}
+
+/* Target any element with white or light backgrounds */
+:root[data-theme='dark'] *[style*="background-color: white"],
+:root[data-theme='dark'] *[style*="background: white"],
+:root[data-theme='dark'] *[style*="background-color: #fff"],
+:root[data-theme='dark'] *[style*="background: #fff"],
+:root[data-theme='dark'] *[style*="background-color: #ffffff"],
+:root[data-theme='dark'] *[style*="background: #ffffff"] {
+  background-color: #23272f !important;
+  color: #fff !important;
+}
+
+/* Force dark backgrounds on any remaining light elements */
+:root[data-theme='dark'] .chart-card div,
+:root[data-theme='dark'] .chart-container div,
+:root[data-theme='dark'] .analytics-section div,
+:root[data-theme='dark'] .top-authors div,
+:root[data-theme='dark'] .top-keywords div {
+  background-color: #23272f !important;
+  color: #fff !important;
+}
+
+/* Target specific chart elements that might be generated by Chart.js */
+:root[data-theme='dark'] .chartjs-size-monitor,
+:root[data-theme='dark'] .chartjs-render-monitor,
+:root[data-theme='dark'] .chartjs-legend,
+:root[data-theme='dark'] .chartjs-legend ul,
+:root[data-theme='dark'] .chartjs-legend li,
+:root[data-theme='dark'] .chartjs-legend span {
+  background-color: #23272f !important;
+  color: #fff !important;
+}
+
+/* Target the specific stat-list elements for top authors and keywords */
+:root[data-theme='dark'] .stat-list,
+:root[data-theme='dark'] #topAuthorsList,
+:root[data-theme='dark'] #topKeywordsList,
+:root[data-theme='dark'] .stat-list *,
+:root[data-theme='dark'] #topAuthorsList *,
+:root[data-theme='dark'] #topKeywordsList * {
+  background-color: #23272f !important;
+  color: #fff !important;
+}
+
+/* Target any div elements within the stat lists */
+:root[data-theme='dark'] .stat-list div,
+:root[data-theme='dark'] #topAuthorsList div,
+:root[data-theme='dark'] #topKeywordsList div {
+  background-color: #23272f !important;
+  color: #fff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 6px !important;
+  margin-bottom: 4px !important;
+  padding: 8px 12px !important;
+}
+
+/* Target any span elements within the stat lists */
+:root[data-theme='dark'] .stat-list span,
+:root[data-theme='dark'] #topAuthorsList span,
+:root[data-theme='dark'] #topKeywordsList span {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
+/* Force override for any remaining white backgrounds */
+:root[data-theme='dark'] .chart-card .stat-list,
+:root[data-theme='dark'] .chart-card #topAuthorsList,
+:root[data-theme='dark'] .chart-card #topKeywordsList {
+  background-color: #23272f !important;
+  color: #fff !important;
+}
+
+:root[data-theme='dark'] .chart-card .stat-list *,
+:root[data-theme='dark'] .chart-card #topAuthorsList *,
+:root[data-theme='dark'] .chart-card #topKeywordsList * {
+  background-color: #23272f !important;
+  color: #fff !important;
+}
+
+/* Dark mode for Search & View module */
+:root[data-theme='dark'] .search-module,
+:root[data-theme='dark'] .search-section {
+  background: transparent !important;
+}
+
+/* Dark mode for search input */
+:root[data-theme='dark'] .search-input,
+:root[data-theme='dark'] #searchInput,
+:root[data-theme='dark'] input[type="text"][placeholder*="keyword"] {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border: 2px solid #4b5563 !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+
+:root[data-theme='dark'] .search-input:focus,
+:root[data-theme='dark'] #searchInput:focus,
+:root[data-theme='dark'] input[type="text"][placeholder*="keyword"]:focus {
+  border-color: #60a5fa !important;
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1) !important;
+}
+
+:root[data-theme='dark'] .search-input::placeholder,
+:root[data-theme='dark'] #searchInput::placeholder,
+:root[data-theme='dark'] input[type="text"][placeholder*="keyword"]::placeholder {
+  color: var(--text-secondary) !important;
+  font-weight: 400 !important;
+}
+
+/* Dark mode for search filters */
+:root[data-theme='dark'] .search-filters,
+:root[data-theme='dark'] .filter-row,
+:root[data-theme='dark'] .filters-container {
+  background: transparent !important;
+}
+
+:root[data-theme='dark'] .search-filters select,
+:root[data-theme='dark'] .filter-row select,
+:root[data-theme='dark'] .filters-container select,
+:root[data-theme='dark'] #departmentFilter,
+:root[data-theme='dark'] #yearFilter,
+:root[data-theme='dark'] #semesterFilter {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border: 2px solid #4b5563 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+:root[data-theme='dark'] .search-filters select:focus,
+:root[data-theme='dark'] .filter-row select:focus,
+:root[data-theme='dark'] .filters-container select:focus,
+:root[data-theme='dark'] #departmentFilter:focus,
+:root[data-theme='dark'] #yearFilter:focus,
+:root[data-theme='dark'] #semesterFilter:focus {
+  border-color: #60a5fa !important;
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1) !important;
+}
+
+:root[data-theme='dark'] .search-filters option,
+:root[data-theme='dark'] .filter-row option,
+:root[data-theme='dark'] .filters-container option,
+:root[data-theme='dark'] #departmentFilter option,
+:root[data-theme='dark'] #yearFilter option,
+:root[data-theme='dark'] #semesterFilter option {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  padding: 8px 12px !important;
+}
+
+/* Dark mode for research cards */
+:root[data-theme='dark'] .research-card,
+:root[data-theme='dark'] .result-card,
+:root[data-theme='dark'] .card {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+:root[data-theme='dark'] .research-card:hover,
+:root[data-theme='dark'] .result-card:hover,
+:root[data-theme='dark'] .card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+  border-color: #60a5fa !important;
+}
+
+/* Dark mode for research card titles */
+:root[data-theme='dark'] .research-card h3,
+:root[data-theme='dark'] .research-card h4,
+:root[data-theme='dark'] .result-card h3,
+:root[data-theme='dark'] .result-card h4,
+:root[data-theme='dark'] .card h3,
+:root[data-theme='dark'] .card h4 {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  line-height: 1.4 !important;
+  margin-bottom: 8px !important;
+}
+
+/* Dark mode for research card details */
+:root[data-theme='dark'] .research-card .card-details,
+:root[data-theme='dark'] .research-card .card-info,
+:root[data-theme='dark'] .result-card .card-details,
+:root[data-theme='dark'] .result-card .card-info,
+:root[data-theme='dark'] .card .card-details,
+:root[data-theme='dark'] .card .card-info {
+  color: var(--text-secondary) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+/* Dark mode for research card metadata */
+:root[data-theme='dark'] .research-card .card-meta,
+:root[data-theme='dark'] .research-card .metadata,
+:root[data-theme='dark'] .result-card .card-meta,
+:root[data-theme='dark'] .result-card .metadata,
+:root[data-theme='dark'] .card .card-meta,
+:root[data-theme='dark'] .card .metadata {
+  color: var(--text-secondary) !important;
+  font-size: 13px !important;
+  margin-bottom: 4px !important;
+}
+
+/* Dark mode for author tags */
+:root[data-theme='dark'] .author-tag,
+:root[data-theme='dark'] .author-badge,
+:root[data-theme='dark'] .tag,
+:root[data-theme='dark'] .badge {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 16px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin: 2px !important;
+  display: inline-block !important;
+}
+
+:root[data-theme='dark'] .author-tag:hover,
+:root[data-theme='dark'] .author-badge:hover,
+:root[data-theme='dark'] .tag:hover,
+:root[data-theme='dark'] .badge:hover {
+  background: #374151 !important;
+  border-color: #6b7280 !important;
+}
+
+/* Dark mode for archive buttons */
+:root[data-theme='dark'] .archive-btn,
+:root[data-theme='dark'] .btn-archive {
+  background: #ef4444 !important;
+  color: white !important;
+  border: 1px solid #dc2626 !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: all 0.3s ease !important;
+}
+
+:root[data-theme='dark'] .archive-btn:hover,
+:root[data-theme='dark'] .btn-archive:hover {
+  background: #dc2626 !important;
+  border-color: #b91c1c !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3) !important;
+}
+
+:root[data-theme='dark'] .archive-btn i,
+:root[data-theme='dark'] .btn-archive i {
+  color: white !important;
+  margin-right: 6px !important;
+}
+
+/* Dark mode for search results grid */
+:root[data-theme='dark'] .results-grid,
+:root[data-theme='dark'] .cards-grid,
+:root[data-theme='dark'] .research-grid {
+  background: transparent !important;
+  gap: 20px !important;
+}
+
+/* Dark mode for empty state */
+:root[data-theme='dark'] .empty-state,
+:root[data-theme='dark'] .no-results {
+  color: var(--text-secondary) !important;
+  text-align: center !important;
+  padding: 40px 20px !important;
+  font-size: 16px !important;
+}
+
+/* Dark mode for loading state */
+:root[data-theme='dark'] .loading-state,
+:root[data-theme='dark'] .loading {
+  color: var(--text-secondary) !important;
+  text-align: center !important;
+  padding: 20px !important;
+}
+
+:root[data-theme='dark'] .loading-state i,
+:root[data-theme='dark'] .loading i {
+  color: #60a5fa !important;
+  margin-right: 8px !important;
+}
+
+
+
+/* Enhanced visibility for all buttons and icons */
+:root[data-theme='dark'] .btn,
+:root[data-theme='dark'] button {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  border: 2px solid transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+:root[data-theme='dark'] .btn:hover,
+:root[data-theme='dark'] button:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Enhanced visibility for primary buttons */
+:root[data-theme='dark'] .btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+  color: #ffffff !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3) !important;
+}
+
+:root[data-theme='dark'] .btn-primary:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+  border-color: #1d4ed8 !important;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Enhanced visibility for secondary buttons */
+:root[data-theme='dark'] .btn-secondary,
+:root[data-theme='dark'] .btn-outline-primary {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 2px solid #4b5563 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+:root[data-theme='dark'] .btn-secondary:hover,
+:root[data-theme='dark'] .btn-outline-primary:hover {
+  background: #374151 !important;
+  border-color: #6b7280 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Enhanced visibility for danger buttons */
+:root[data-theme='dark'] .btn-danger,
+:root[data-theme='dark'] .btn-red {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+  color: #ffffff !important;
+  border-color: #ef4444 !important;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3) !important;
+}
+
+:root[data-theme='dark'] .btn-danger:hover,
+:root[data-theme='dark'] .btn-red:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+  border-color: #dc2626 !important;
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* Enhanced visibility for all icons */
+:root[data-theme='dark'] i,
+:root[data-theme='dark'] .fas,
+:root[data-theme='dark'] .far,
+:root[data-theme='dark'] .fab,
+:root[data-theme='dark'] .fa {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)) !important;
+}
+
+/* Enhanced visibility for user profile icon */
+:root[data-theme='dark'] .user-avatar,
+:root[data-theme='dark'] .user-avatar i,
+:root[data-theme='dark'] .user-info .user-avatar,
+:root[data-theme='dark'] .user-info .user-avatar i {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+  color: #ffffff !important;
+  border: 2px solid #60a5fa !important;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3) !important;
+  border-radius: 50% !important;
+  padding: 8px !important;
+}
+
+:root[data-theme='dark'] .user-avatar:hover,
+:root[data-theme='dark'] .user-info .user-avatar:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Enhanced visibility for navigation icons */
+:root[data-theme='dark'] .modern-nav i,
+:root[data-theme='dark'] .modern-nav-link i {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)) !important;
+  font-size: 16px !important;
+}
+
+:root[data-theme='dark'] .modern-nav-link:hover i {
+  color: #60a5fa !important;
+  text-shadow: 0 1px 2px rgba(96, 165, 250, 0.5) !important;
+}
+
+:root[data-theme='dark'] .modern-nav-link.active i {
+  color: #60a5fa !important;
+  text-shadow: 0 1px 2px rgba(96, 165, 250, 0.5) !important;
+  filter: drop-shadow(0 1px 2px rgba(96, 165, 250, 0.3)) !important;
+}
+
+/* Enhanced visibility for header icons */
+:root[data-theme='dark'] .modern-admin-header i,
+:root[data-theme='dark'] .header-content i {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)) !important;
+}
+
+/* Enhanced visibility for search icons */
+:root[data-theme='dark'] .search-input i,
+:root[data-theme='dark'] #searchInput i,
+:root[data-theme='dark'] input[type="text"] i {
+  color: #60a5fa !important;
+  text-shadow: 0 1px 2px rgba(96, 165, 250, 0.5) !important;
+  filter: drop-shadow(0 1px 2px rgba(96, 165, 250, 0.3)) !important;
+}
+
+/* Enhanced visibility for dropdown icons */
+:root[data-theme='dark'] select i,
+:root[data-theme='dark'] .dropdown i,
+:root[data-theme='dark'] .filter-row i {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)) !important;
+}
+
+/* Enhanced visibility for card icons */
+:root[data-theme='dark'] .card i,
+:root[data-theme='dark'] .research-card i,
+:root[data-theme='dark'] .result-card i {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)) !important;
+}
+
+/* Enhanced visibility for button icons */
+:root[data-theme='dark'] .btn i,
+:root[data-theme='dark'] button i {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)) !important;
+  margin-right: 6px !important;
+}
+
+/* Enhanced visibility for notification badges */
+:root[data-theme='dark'] .badge,
+:root[data-theme='dark'] .notification-badge {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.4) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+}
+
+/* Enhanced visibility for toggle buttons */
+:root[data-theme='dark'] .toggle-btn,
+:root[data-theme='dark'] .sidebar-toggle {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 2px solid #4b5563 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+:root[data-theme='dark'] .toggle-btn:hover,
+:root[data-theme='dark'] .sidebar-toggle:hover {
+  background: #374151 !important;
+  border-color: #6b7280 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Enhanced visibility for action buttons */
+:root[data-theme='dark'] .action-btn {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 2px solid #4b5563 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+  font-weight: 600 !important;
+}
+
+:root[data-theme='dark'] .action-btn:hover {
+  background: #374151 !important;
+  border-color: #6b7280 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+
+:root[data-theme='dark'] .search-keyword-row,
+:root[data-theme='dark'] .tag-input{
+  background-color: transparent !important;
+  border: transparent !important;
+}
+
+/* Dark mode for pending research author names */
+:root[data-theme='dark'] .pending-research-table .author-name,
+:root[data-theme='dark'] .pending-research-table .author-tag,
+:root[data-theme='dark'] .pending-research-table .author-badge,
+:root[data-theme='dark'] .pending-research-table .author-pill,
+:root[data-theme='dark'] .pending-research-table span[class*="author"],
+:root[data-theme='dark'] .pending-research-table div[class*="author"] {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 16px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin: 2px !important;
+  display: inline-block !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+}
+
+/* Dark mode for all table author elements */
+:root[data-theme='dark'] .modern-table .author-name,
+:root[data-theme='dark'] .modern-table .author-tag,
+:root[data-theme='dark'] .modern-table .author-badge,
+:root[data-theme='dark'] .modern-table .author-pill,
+:root[data-theme='dark'] .modern-table span[class*="author"],
+:root[data-theme='dark'] .modern-table div[class*="author"],
+:root[data-theme='dark'] .modern-table td .author-name,
+:root[data-theme='dark'] .modern-table td .author-tag,
+:root[data-theme='dark'] .modern-table td .author-badge,
+:root[data-theme='dark'] .modern-table td .author-pill,
+:root[data-theme='dark'] .modern-table td span[class*="author"],
+:root[data-theme='dark'] .modern-table td div[class*="author"] {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 16px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin: 2px !important;
+  display: inline-block !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+}
+
+/* Dark mode for any pill-shaped elements in tables */
+:root[data-theme='dark'] .modern-table .pill,
+:root[data-theme='dark'] .modern-table .tag,
+:root[data-theme='dark'] .modern-table .badge,
+:root[data-theme='dark'] .modern-table .chip,
+:root[data-theme='dark'] .modern-table span[style*="background"],
+:root[data-theme='dark'] .modern-table div[style*="background"] {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 16px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin: 2px !important;
+  display: inline-block !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+}
+
+/* Force override for any inline styles on author elements */
+:root[data-theme='dark'] .modern-table *[style*="background-color: white"],
+:root[data-theme='dark'] .modern-table *[style*="background: white"],
+:root[data-theme='dark'] .modern-table *[style*="background-color: #fff"],
+:root[data-theme='dark'] .modern-table *[style*="background: #fff"],
+:root[data-theme='dark'] .modern-table *[style*="color: white"],
+:root[data-theme='dark'] .modern-table *[style*="color: #fff"] {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 16px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin: 2px !important;
+  display: inline-block !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+}
+
+/* Dark mode for table cells containing author information */
+:root[data-theme='dark'] .modern-table td {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] .modern-table td * {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+}
+
+/* Specific targeting for pending research table */
+:root[data-theme='dark'] .pending-research-table,
+:root[data-theme='dark'] .pending-research-table * {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] .pending-research-table td {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] .pending-research-table td * {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+}
+
+/* Essential Dark Mode Color System */
+:root[data-theme="dark"] {
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --bg-quaternary: #3a3a3a;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --text-tertiary: #808080;
+  --border-color: #404040;
+  --border-light: #606060;
+  --accent-primary: #3b82f6;
+  --accent-secondary: #10b981;
+  --accent-danger: #ef4444;
+  --accent-warning: #f59e0b;
+  --shadow-light: rgba(0,0,0,0.2);
+  --shadow-medium: rgba(0,0,0,0.3);
+  --shadow-heavy: rgba(0,0,0,0.5);
+}
+
+/* Core Dark Mode Application */
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .modern-admin-dashboard {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .modern-nav,
+:root[data-theme="dark"] .modern-sidebar,
+:root[data-theme="dark"] .modern-admin-header {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .stat-card,
+:root[data-theme="dark"] .chart-card,
+:root[data-theme="dark"] .settings-card,
+:root[data-theme="dark"] .research-card,
+:root[data-theme="dark"] .result-card,
+:root[data-theme="dark"] .search-card {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 4px 12px var(--shadow-medium) !important;
+}
+
+:root[data-theme="dark"] .modern-table,
+:root[data-theme="dark"] .modern-table-container,
+:root[data-theme="dark"] .pending-research-table {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .modern-table th {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .modern-table td {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Essential Button Styling */
+:root[data-theme="dark"] .btn-primary {
+  background: var(--accent-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--accent-primary) !important;
+}
+
+:root[data-theme="dark"] .btn-secondary {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] .btn-success {
+  background: var(--accent-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--accent-secondary) !important;
+}
+
+:root[data-theme="dark"] .btn-danger {
+  background: var(--accent-danger) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--accent-danger) !important;
+}
+
+/* Essential Input Styling */
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border: 2px solid var(--border-color) !important;
+}
+
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] textarea:focus,
+:root[data-theme="dark"] select:focus {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Essential Navigation Styling */
+:root[data-theme="dark"] .modern-nav-link {
+  color: var(--text-primary) !important;
+  background: transparent !important;
+}
+
+:root[data-theme="dark"] .modern-nav-link:hover {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .modern-nav-link.active {
+  background: var(--bg-quaternary) !important;
+  color: var(--accent-primary) !important;
+}
+
+/* Essential Text Styling */
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] h5,
+:root[data-theme="dark"] h6 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] span,
+:root[data-theme="dark"] div {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .text-muted,
+:root[data-theme="dark"] .text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+/* Essential Icon Styling */
+:root[data-theme="dark"] i,
+:root[data-theme="dark"] .fas,
+:root[data-theme="dark"] .far,
+:root[data-theme="dark"] .fab,
+:root[data-theme="dark"] .fa {
+  color: var(--text-primary) !important;
+}
+
+/* Essential Hover States */
+:root[data-theme="dark"] .btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px var(--shadow-medium) !important;
+}
+
+:root[data-theme="dark"] .btn-primary:hover {
+  background: #2563eb !important;
+}
+
+:root[data-theme="dark"] .btn-secondary:hover {
+  background: var(--bg-quaternary) !important;
+}
+
+:root[data-theme="dark"] .btn-success:hover {
+  background: #059669 !important;
+}
+
+:root[data-theme="dark"] .btn-danger:hover {
+  background: #dc2626 !important;
+}
+
+/* Essential Transitions */
+:root[data-theme="dark"] * {
+  transition: all 0.3s ease !important;
+}
+
+/* Override Inconsistencies */
+:root[data-theme="dark"] [style*="background-color: white"],
+:root[data-theme="dark"] [style*="background: white"],
+:root[data-theme="dark"] [style*="background-color: #fff"],
+:root[data-theme="dark"] [style*="background: #fff"],
+:root[data-theme="dark"] [style*="color: black"],
+:root[data-theme="dark"] [style*="color: #000"] {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] .user-details {
+  display: flex !important;
+  flex-direction: column !important;
+  color: white !important;
+}
+
+:root[data-theme='dark'] .user-avatar {
+  height: 25px;
+  width: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: white !important;
+  font-size: 1.2rem !important;
+  border: none !important;
+}
+
+/* Enhanced visibility for adviser and author names in research cards */
+:root[data-theme='dark'] .research-card .author-name,
+:root[data-theme='dark'] .research-card .adviser-name,
+:root[data-theme='dark'] .research-card .author-tag,
+:root[data-theme='dark'] .research-card .adviser-tag,
+:root[data-theme='dark'] .research-card .author-badge,
+:root[data-theme='dark'] .research-card .adviser-badge,
+:root[data-theme='dark'] .research-card .author-pill,
+:root[data-theme='dark'] .research-card .adviser-pill,
+:root[data-theme='dark'] .research-card span[class*="author"],
+:root[data-theme='dark'] .research-card span[class*="adviser"],
+:root[data-theme='dark'] .research-card div[class*="author"],
+:root[data-theme='dark'] .research-card div[class*="adviser"] {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 16px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin: 2px !important;
+  display: inline-block !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+}
+
+:root[data-theme='dark'] .research-card .author-name:hover,
+:root[data-theme='dark'] .research-card .adviser-name:hover,
+:root[data-theme='dark'] .research-card .author-tag:hover,
+:root[data-theme='dark'] .research-card .adviser-tag:hover,
+:root[data-theme='dark'] .research-card .author-badge:hover,
+:root[data-theme='dark'] .research-card .adviser-badge:hover,
+:root[data-theme='dark'] .research-card .author-pill:hover,
+:root[data-theme='dark'] .research-card .adviser-pill:hover {
+  background: var(--bg-quaternary) !important;
+  border-color: #6b7280 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+}
+
+/* Enhanced visibility for person icons in research cards */
+:root[data-theme='dark'] .research-card .fa-user,
+:root[data-theme='dark'] .research-card .fa-users,
+:root[data-theme='dark'] .research-card .fa-user-tie,
+:root[data-theme='dark'] .research-card .fa-user-graduate,
+:root[data-theme='dark'] .research-card i[class*="user"],
+:root[data-theme='dark'] .research-card i[class*="person"] {
+  color: #60a5fa !important;
+  text-shadow: 0 1px 2px rgba(96, 165, 250, 0.5) !important;
+  filter: drop-shadow(0 1px 2px rgba(96, 165, 250, 0.3)) !important;
+  font-size: 14px !important;
+  margin-right: 4px !important;
+}
+
+/* Enhanced visibility for any pill-shaped elements in research cards */
+:root[data-theme='dark'] .research-card .pill,
+:root[data-theme='dark'] .research-card .tag,
+:root[data-theme='dark'] .research-card .badge,
+:root[data-theme='dark'] .research-card .chip,
+:root[data-theme='dark'] .research-card span[style*="background"],
+:root[data-theme='dark'] .research-card div[style*="background"] {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 16px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin: 2px !important;
+  display: inline-block !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+}
+
+/* Force override for any inline styles on author/adviser elements */
+:root[data-theme='dark'] .research-card *[style*="background-color: white"],
+:root[data-theme='dark'] .research-card *[style*="background: white"],
+:root[data-theme='dark'] .research-card *[style*="background-color: #fff"],
+:root[data-theme='dark'] .research-card *[style*="background: #fff"],
+:root[data-theme='dark'] .research-card *[style*="color: white"],
+:root[data-theme='dark'] .research-card *[style*="color: #fff"] {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 16px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin: 2px !important;
+  display: inline-block !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+}
+
+/* Enhanced visibility for research card content */
+:root[data-theme='dark'] .research-card .card-content,
+:root[data-theme='dark'] .research-card .card-body,
+:root[data-theme='dark'] .research-card .card-details {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] .research-card .card-content *,
+:root[data-theme='dark'] .research-card .card-body *,
+:root[data-theme='dark'] .research-card .card-details * {
+  color: var(--text-primary) !important;
+}
+
+/* Specific targeting for author/adviser sections */
+:root[data-theme='dark'] .research-card .authors-section,
+:root[data-theme='dark'] .research-card .advisers-section,
+:root[data-theme='dark'] .research-card .people-section {
+  background: transparent !important;
+}
+
+:root[data-theme='dark'] .research-card .authors-section *,
+:root[data-theme='dark'] .research-card .advisers-section *,
+:root[data-theme='dark'] .research-card .people-section * {
+  background: var(--bg-tertiary) !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 16px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin: 2px !important;
+  display: inline-block !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+} 
+
+/* Better adviser and author name visibility in Search & View research cards */
+:root[data-theme='dark'] .result-card .author-name,
+:root[data-theme='dark'] .result-card .adviser-name,
+:root[data-theme='dark'] .result-card .author-tag,
+:root[data-theme='dark'] .result-card .adviser-tag,
+:root[data-theme='dark'] .result-card .author-badge,
+:root[data-theme='dark'] .result-card .adviser-badge {
+  background: #23272f !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-radius: 14px !important;
+  font-size: 14px !important;
+  padding: 5px 16px !important;
+  box-shadow: 0 2px 8px rgba(30,30,40,0.35) !important;
+  margin: 2px 4px !important;
+  border: 1px solid #33364a !important;
+  transition: background 0.2s, color 0.2s;
+}
+:root[data-theme='dark'] .result-card .author-name:hover,
+:root[data-theme='dark'] .result-card .adviser-name:hover,
+:root[data-theme='dark'] .result-card .author-tag:hover,
+:root[data-theme='dark'] .result-card .adviser-tag:hover,
+:root[data-theme='dark'] .result-card .author-badge:hover,
+:root[data-theme='dark'] .result-card .adviser-badge:hover {
+  background: #3a4051 !important;
+  color: #fff !important;
+}
+
+:root[data-theme='dark'] .result-card .adviser-chip,
+:root[data-theme='dark'] .result-card .author-chip {
+  background: #23272f !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+  font-size: 1em !important;
+  padding: 5px 14px !important;
+  box-shadow: 0 2px 8px rgba(30,30,40,0.24) !important;
+  border: 1.5px solid #3b4151 !important;
+  letter-spacing: 0.01em !important;
+  text-shadow: 0 1.5px 3px rgba(0,0,0,0.23) !important;
+  margin: 2px 4px !important;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+:root[data-theme='dark'] .result-card .author-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #232a37 !important; /* very dark blue-gray, readable on dark */
+  color: #fff !important;
+  font-size: .82rem;
+  border: 1px solid #39597f !important; /* muted blue border for separation */
+}
+:root[data-theme='dark'] .result-card .adviser-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #1f3430 !important; /* deep green-tinted dark */
+  color: #a9fed0 !important; /* light green text with good contrast on dark */
+  font-size: .82rem;
+  border: 1px solid #32e2a2 !important; /* pastel green border for separation */
+}
+
+:root[data-theme='dark'] .result-card .author-chip,
+:root[data-theme='dark'] .result-card .adviser-chip { font-size: .78rem !important; padding: 3px 8px !important; }
+
+:root[data-theme='dark'] .result-card .adviser-row,
+:root[data-theme='dark'] .result-card .author-row { margin-bottom: 6px !important; }
+
+:root[data-theme='dark'] .charts-section,
+:root[data-theme='dark'] .modal-content{
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Dark mode for QR Code Modal */
+:root[data-theme='dark'] #qrCodeModalOverlay {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Dark mode - Make QR modal grid responsive */
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="grid-template-columns"] {
+  grid-template-columns: 1fr 1fr !important;
+}
+
+/* Responsive grid for QR modal - stack on smaller screens */
+@media (max-width: 768px) {
+  :root[data-theme='dark'] #qrCodeModalOverlay div[style*="grid-template-columns"],
+  #qrCodeModalOverlay div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  :root[data-theme='dark'] #qrCodeModalOverlay > div,
+  #qrCodeModalOverlay > div {
+    max-width: 95% !important;
+    padding: 1.5rem !important;
+  }
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay > div {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay h2 {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay p {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay p strong {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background: #e3f2fd"],
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background-color: #e3f2fd"] {
+  background: rgba(59, 130, 246, 0.2) !important;
+  border-left-color: #3b82f6 !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background: #e3f2fd"] p,
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background-color: #e3f2fd"] p {
+  color: #60a5fa !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background: #f9f9f9"],
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background-color: #f9f9f9"] {
+  background: var(--bg-tertiary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background: #f9f9f9"] p,
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background-color: #f9f9f9"] p {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background: #f9f9f9"] p[style*="color: #333"],
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background-color: #f9f9f9"] p[style*="color: #333"] {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background: #f9f9f9"] p[style*="color: #666"],
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background-color: #f9f9f9"] p[style*="color: #666"] {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background: white"],
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background-color: white"],
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background: #fff"],
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background-color: #fff"] {
+  background: var(--bg-tertiary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="border: 2px dashed #ddd"],
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="border: 2px dashed"] {
+  border-color: var(--border-color) !important;
+  background: var(--bg-secondary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay details {
+  background: var(--bg-tertiary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay details summary {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay details div {
+  background: var(--bg-tertiary) !important;
+  border-top-color: var(--border-color) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay details p {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay details div[style*="background: white"],
+:root[data-theme='dark'] #qrCodeModalOverlay details div[style*="background-color: white"] {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay details div[style*="font-family: monospace"] {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background: #fff3cd"],
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background-color: #fff3cd"] {
+  background: rgba(245, 158, 11, 0.2) !important;
+  border-left-color: #f59e0b !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background: #fff3cd"] p,
+:root[data-theme='dark'] #qrCodeModalOverlay div[style*="background-color: #fff3cd"] p {
+  color: #fbbf24 !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay button {
+  background: var(--accent-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--accent-primary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay button:hover {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+}
+
+/* Override any white text colors in QR modal */
+:root[data-theme='dark'] #qrCodeModalOverlay *[style*="color: #333"],
+:root[data-theme='dark'] #qrCodeModalOverlay *[style*="color: #666"],
+:root[data-theme='dark'] #qrCodeModalOverlay *[style*="color: #888"],
+:root[data-theme='dark'] #qrCodeModalOverlay *[style*="color: #856404"] {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme='dark'] #qrCodeModalOverlay *[style*="color: #1565c0"] {
+  color: #60a5fa !important;
+}

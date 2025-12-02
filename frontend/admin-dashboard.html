@@ -1,0 +1,2712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Research Repository</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="darkmode.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="ecalogo.png">
+  <style>
+  /* Allow statistics section, charts, and cards to shrink/grow fully with layout */
+  .admin-content-area, .charts-section, .chart-card, .chart-row, .chart-container {
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .charts-section {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
+  }
+  /* Force yearly chart row to span full width */
+  .charts-section.yearly-full { grid-template-columns: 1fr !important; }
+  /* Decrease height for the yearly (line) chart */
+  .charts-section.yearly-full .chart-container { height: 300px !important; aspect-ratio: auto !important; }
+  @media (max-width: 1100px) {
+    .charts-section { grid-template-columns: 1fr !important; }
+  }
+  .chart-card {
+    flex: 1 1 0 !important;
+  }
+  .chart-container {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  canvas {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+  /* Prevent chart canvas from overflowing its card when parent shrinks */
+  .charts-section, .chart-row, .chart-card, .chart-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .chart-container {
+    position: relative !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+  </style>
+</head>
+<body class="sidebar-collapsed">
+  <div class="modern-admin-dashboard">
+    <!-- Modern Header -->
+    <header class="modern-admin-header">
+      <div class="header-content">
+        <div class="header-left">
+          <button id="sidebarToggle" class="sidebar-toggle btn btn-outline-primary" aria-label="Toggle sidebar">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="logo-section">
+            <i class="fas fa-shield-alt"></i>
+            <div class="logo-text">
+      <h1>Admin Dashboard</h1>
+              <span class="subtitle">Research Repository Management</span>
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="user-info">
+            <div class="user-avatar">
+              <i class="fas fa-user-shield"></i>
+            </div>
+            <div class="user-details">
+              <span class="user-name" id="adminName">Admin User</span>
+              <span class="user-role">Administrator</span>
+            </div>
+          </div>
+          <button id="logoutBtn" class="modern-logout-btn btn btn-primary">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+    </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="admin-main-content">
+      <!-- Modern Sidebar Navigation -->
+      <nav class="modern-sidebar">
+        <div class="nav-section">
+          <h3 class="nav-section-title">Management</h3>
+          <a href="#users" class="modern-nav-link active" data-section="users">
+            <i class="fas fa-users"></i>
+            <span>User Management</span>
+          <span id="resetRequestsBadge" class="notification-badge" style="display: none;">0</span>
+        </a>
+          <a href="#research" class="modern-nav-link" data-section="research">
+            <i class="fas fa-file-upload"></i>
+            <span>Research Upload</span>
+          </a>
+          <a href="#pending-research" class="modern-nav-link" data-section="pending-research">
+            <i class="fas fa-clock"></i>
+            <span>Pending Research</span>
+            <span id="pendingResearchBadge" class="notification-badge" style="display: none;">0</span>
+          </a>
+          <a href="#search" class="modern-nav-link" data-section="search">
+            <i class="fas fa-search"></i>
+            <span>Search & View</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <h3 class="nav-section-title">Analytics</h3>
+          <a href="#statistics" class="modern-nav-link" data-section="statistics">
+            <i class="fas fa-chart-bar"></i>
+            <span>Analytics</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <h3 class="nav-section-title">System</h3>
+          <a href="#settings" class="modern-nav-link" data-section="settings">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Content Area -->
+      <div class="admin-content-area">
+        <!-- Users Management Section -->
+        <div id="users" class="admin-section active">
+          <div class="section-header">
+            <div class="section-title">
+              <h2><i class="fas fa-users"></i> User Management</h2>
+              <p>Manage student and admin accounts, approve registrations, and handle password resets</p>
+            </div>
+            <div class="section-actions">
+              <button class="action-btn primary btn btn-primary" onclick="openCreateAdminModal()">
+                <i class="fas fa-plus"></i> Create Admin
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Stats Cards -->
+          <div class="stats-cards">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <div class="stat-content">
+                <h3 id="totalStudents">0</h3>
+                <p>Total Students</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-user-shield"></i>
+              </div>
+              <div class="stat-content">
+                <h3 id="totalAdmins">0</h3>
+                <p>Total Admins</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="stat-content">
+                <h3 id="pendingApprovals">0</h3>
+                <p>Pending Approvals</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-key"></i>
+              </div>
+              <div class="stat-content">
+                <h3 id="resetRequests">0</h3>
+                <p>Reset Requests</p>
+              </div>
+            </div>
+      </div>
+          
+          <!-- Account Type Tabs -->
+          <div class="modern-tabs">
+            <button class="tab-btn active" onclick="showAccountType('students')">
+              <i class="fas fa-user-graduate"></i> Students
+            </button>
+            <button class="tab-btn" onclick="showAccountType('admins')">
+              <i class="fas fa-user-shield"></i> Admins
+            </button>
+            <button class="tab-btn" onclick="showAccountType('resetRequests')">
+              <i class="fas fa-key"></i> Reset Requests
+              <span id="resetRequestsBadge" class="notification-badge" style="display: none;">0</span>
+            </button>
+          </div>
+          
+          <!-- Students Section -->
+          <div id="studentsSection" class="account-section">
+            <div class="section-controls">
+              <div class="filter-controls">
+              <div class="filter-tabs">
+                <button class="filter-tab active" onclick="filterStudents('all')">All Students</button>
+                  <button class="filter-tab" onclick="filterStudents('pending')">Pending</button>
+                <button class="filter-tab" onclick="filterStudents('approved')">Approved</button>
+                <button class="filter-tab" onclick="filterStudents('rejected')">Rejected</button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Loading State -->
+            <div id="studentsLoading" class="loading-state" style="display: none;">
+              <div class="loading-spinner"></div>
+              <p>Loading students...</p>
+            </div>
+            
+            <!-- Error State -->
+            <div id="studentsError" class="error-state" style="display: none;">
+              <div class="error-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <p>Failed to load students. Please try again.</p>
+              <button onclick="loadUsers()" class="retry-btn btn btn-primary">
+                <i class="fas fa-redo"></i> Retry
+              </button>
+            </div>
+            
+            <!-- Students Table -->
+            <div id="studentsTable" class="modern-table-container">
+              <table class="modern-table">
+                <thead>
+                  <tr>
+                    <th><i class="fas fa-id-card"></i> ID</th>
+                    <th><i class="fas fa-user"></i> Name</th>
+                    <th><i class="fas fa-graduation-cap"></i> School ID</th>
+                    <th><i class="fas fa-building"></i> Department</th>
+                    <th><i class="fas fa-info-circle"></i> Status</th>
+                    <th><i class="fas fa-cog"></i> Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="studentsTableBody">
+                  <!-- Students will be loaded here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Admins Section -->
+          <div id="adminsSection" class="account-section" style="display: none;">
+            <div class="section-controls">
+            </div>
+            
+            <!-- Loading State -->
+            <div id="adminsLoading" class="loading-state" style="display: none;">
+              <div class="loading-spinner"></div>
+              <p>Loading admins...</p>
+            </div>
+            
+            <!-- Error State -->
+            <div id="adminsError" class="error-state" style="display: none;">
+              <div class="error-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <p>Failed to load admins. Please try again.</p>
+              <button onclick="loadUsers()" class="retry-btn btn btn-primary">
+                <i class="fas fa-redo"></i> Retry
+              </button>
+            </div>
+            
+            <!-- Admins Table -->
+            <div id="adminsTable" class="modern-table-container">
+              <table class="modern-table">
+                <thead>
+                  <tr>
+                    <th><i class="fas fa-id-card"></i> ID</th>
+                    <th><i class="fas fa-user"></i> Name</th>
+                    <th><i class="fas fa-at"></i> Username</th>
+                    <th><i class="fas fa-cog"></i> Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminsTableBody">
+                  <!-- Admins will be loaded here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Reset Requests Section -->
+          <div id="resetRequestsSection" class="account-section" style="display: none;">
+            <div class="section-controls">
+              <div class="filter-controls">
+                <div class="filter-tabs">
+                  <button class="filter-tab active" onclick="filterResetRequests('all')">All Requests</button>
+                  <button class="filter-tab" onclick="filterResetRequests('pending')">Pending</button>
+                  <button class="filter-tab" onclick="filterResetRequests('approved')">Approved</button>
+                  <button class="filter-tab" onclick="filterResetRequests('rejected')">Rejected</button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Loading State -->
+            <div id="resetRequestsLoading" class="loading-state" style="display: none;">
+              <div class="loading-spinner"></div>
+              <p>Loading reset requests...</p>
+            </div>
+            
+            <!-- Error State -->
+            <div id="resetRequestsError" class="error-state" style="display: none;">
+              <div class="error-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <p>Failed to load reset requests. Please try again.</p>
+              <button onclick="loadResetRequests()" class="retry-btn btn btn-primary">
+                <i class="fas fa-redo"></i> Retry
+              </button>
+            </div>
+            
+            <!-- Reset Requests Table -->
+            <div id="resetRequestsTable" class="modern-table-container">
+              <table class="modern-table">
+                <thead>
+                  <tr>
+                    <th><i class="fas fa-id-card"></i> ID</th>
+                    <th><i class="fas fa-user"></i> Student Name</th>
+                    <th><i class="fas fa-graduation-cap"></i> School ID</th>
+                    <th><i class="fas fa-building"></i> Department</th>
+                    <th><i class="fas fa-calendar"></i> Request Date</th>
+                    <th><i class="fas fa-info-circle"></i> Status</th>
+                    <th><i class="fas fa-cog"></i> Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="resetRequestsTableBody">
+                  <!-- Reset requests will be loaded here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Create Admin Modal -->
+        <div id="createAdminModal" class="modal" style="display:none;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3><i class="fas fa-user-shield"></i> Create Admin</h3>
+              <button class="modal-close" onclick="closeCreateAdminModal()">&times;</button>
+            </div>
+            <form id="createAdminForm" class="modern-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="adminFirstName"><i class="fas fa-user"></i> First Name</label>
+                  <input type="text" id="adminFirstName" required>
+                </div>
+                <div class="form-group">
+                  <label for="adminLastName"><i class="fas fa-user"></i> Last Name</label>
+                  <input type="text" id="adminLastName" required>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="adminUsername"><i class="fas fa-at"></i> Username</label>
+                  <input type="text" id="adminUsername" required>
+                </div>
+                <div class="form-group" style="position: relative;">
+                  <label for="adminPassword"><i class="fas fa-key"></i> Password</label>
+                  <input type="password" id="adminPassword" required style="padding-right: 36px;" />
+                  <button type="button" class="toggle-password-visibility" aria-label="Show/Hide password" data-target="adminPassword" style="position: absolute; right: 8px; top: 41px; background: none; border: none; cursor: pointer; color: #6b7280; font-size: 1.1rem; padding: 0;"><i class="fas fa-eye"></i></button>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group" style="position: relative;">
+                  <label for="adminPassword2"><i class="fas fa-key"></i> Confirm Password</label>
+                  <input type="password" id="adminPassword2" required style="padding-right: 36px;" />
+                  <button type="button" class="toggle-password-visibility" aria-label="Show/Hide password" data-target="adminPassword2" style="position: absolute; right: 8px; top: 41px; background: none; border: none; cursor: pointer; color: #6b7280; font-size: 1.1rem; padding: 0;"><i class="fas fa-eye"></i></button>
+                </div>
+              </div>
+              <div class="modal-actions">
+                <button type="button" class="action-btn secondary btn btn-outline-primary" onclick="closeCreateAdminModal()"><i class="fas fa-times"></i> Cancel</button>
+                <button type="submit" class="action-btn primary btn btn-primary"><i class="fas fa-save"></i> Create</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Archived Research Modal -->
+        <div id="archivedModal" class="modal" style="display:none;">
+          <div class="modal-content" style="max-width:900px;">
+            <div class="modal-header">
+              <h3><i class="fas fa-archive"></i> Archived Research</h3>
+              <button class="modal-close" onclick="document.getElementById('archivedModal').style.display='none'">&times;</button>
+            </div>
+            <div id="archivedBody" class="modern-table-container">
+              <table class="modern-table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Authors</th>
+                    <th>Department</th>
+                    <th>Year</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="archivedTableBody">
+                  <tr>
+                    <td colspan="6" style="text-align: center; padding: 2rem; color: #64748b;">
+                      <i class="fas fa-spinner fa-spin" style="margin-right: 0.5rem;"></i>
+                      Loading archived research...
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Upload Section -->
+        <div id="research" class="admin-section">
+          <div class="section-header">
+            <div class="section-title">
+              <h2><i class="fas fa-file-upload"></i> Research Management</h2>
+              <p>Upload and manage research papers in the repository</p>
+            </div>
+          </div>
+          
+          <!-- Multi-Step Wizard -->
+          <div class="wizard-section">
+            <div class="wizard-card">
+              <!-- Progress Indicator -->
+              <div class="wizard-progress">
+                <div class="wizard-step-label active" data-step="1">
+                  <div class="step-number">1</div>
+                  <div class="step-title">Basic Info</div>
+                </div>
+                <div class="wizard-progress-line"></div>
+                <div class="wizard-step-label" data-step="2">
+                  <div class="step-number">2</div>
+                  <div class="step-title">Details</div>
+                  </div>
+                <div class="wizard-progress-line"></div>
+                <div class="wizard-step-label" data-step="3">
+                  <div class="step-number">3</div>
+                  <div class="step-title">Upload</div>
+              </div>
+                </div>
+
+              <!-- Wizard Form -->
+              <form id="uploadWizardForm" class="modern-form" enctype="multipart/form-data">
+                <!-- Step 1: Basic Information -->
+                <div class="wizard-step wizard-step-active" id="uploadStep1">
+                  <div class="wizard-step-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Basic Information</h3>
+                  </div>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                      <label for="wizardTitle">Title *</label>
+                      <input type="text" id="wizardTitle" name="title" placeholder="Enter research title" required>
+                    </div>
+                  <div class="form-group full-width">
+                      <label for="wizardAdviserInput">Adviser(s) *
+                        <span class="help-icon" data-help="adviser-help">
+                          <i class="fas fa-question-circle"></i>
+                          <div class="help-tooltip" id="adviser-help">
+                            <strong>Instructions for Adviser(s):</strong>
+                            <ul>
+                              <li>Type each adviser's full name and press Enter to add</li>
+                              <li>For multiple advisers, add them one by one</li>
+                              <li>Do not include titles (e.g., Dr, Ma'am, Sir)</li>
+                              <li>Use the format: First Name Middle Name Last Name</li>
+                              <li>Example: "Ana Reyes", "Luis Ramos"</li>
+                            </ul>
+                          </div>
+                        </span>
+                      </label>
+                      <div class="tag-input-container">
+                        <input type="text" id="wizardAdviserInput" placeholder="Type adviser name and press Enter or Comma">
+                        <input type="hidden" id="wizardAdviser" name="adviser" required>
+                        <div id="wizardAdviserTags" class="tags-container"></div>
+                      </div>
+
+              </div>
+                <div class="form-group">
+                      <label for="wizardYear">Year *</label>
+                      <select id="wizardYear" name="year" required>
+                        <option value="">Select year</option>
+                      </select>
+                  </div>
+                    <div class="form-group">
+                      <label for="wizardSemester">Semester *</label>
+                      <select id="wizardSemester" name="semester" required>
+                        <option value="">Select semester</option>
+                        <option value="1st Semester">1st Semester</option>
+                        <option value="2nd Semester">2nd Semester</option>
+                        <option value="Summer">Summer</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                      <label for="wizardDepartment">Department *</label>
+                      <select id="wizardDepartment" name="department" required>
+                    <option value="">Select Department</option>
+                    <option value="Marine Engineering">Marine Engineering</option>
+                    <option value="Marine Transportation">Marine Transportation</option>
+                    <option value="Criminology">Criminology</option>
+                    <option value="Tourism Management">Tourism Management</option>
+                    <option value="Technical-Vocational Teacher Education">Technical-Vocational Teacher Education</option>
+                    <option value="Early Childhood Education">Early Childhood Education</option>
+                    <option value="Information System">Information System</option>
+                    <option value="Entrepreneurship">Entrepreneurship</option>
+                    <option value="Management Accounting">Management Accounting</option>
+                    <option value="Nursing">Nursing</option>
+                    <option value="Humanities and Social Sciences (HUMSS)">Humanities and Social Sciences (HUMSS)</option>
+                    <option value="Accountancy, Business and Management (ABM)">Accountancy, Business and Management (ABM)</option>
+                    <option value="Science, Technology, Engineering and Mathematics (STEM)">Science, Technology, Engineering and Mathematics (STEM)</option>
+                    <option value="General Academic Strand (GAS)">General Academic Strand (GAS)</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                  </div>
+                  <div class="wizard-actions">
+                    <button type="button" class="btn btn-primary" onclick="nextStep1()">
+                      Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                  </div>
+              </div>
+              
+                <!-- Step 2: Research Details -->
+                <div class="wizard-step" id="uploadStep2">
+                  <div class="wizard-step-header">
+                    <i class="fas fa-edit"></i>
+                    <h3>Research Details</h3>
+                  </div>
+                  <div class="form-grid">
+              <div class="form-group">
+                      <label for="wizardAuthorsInput">
+                        Author(s) *
+                        <span class="help-icon" data-help="authors-help">
+                          <i class="fas fa-question-circle"></i>
+                          <div class="help-tooltip" id="authors-help">
+                            <strong>Instructions for Authors:</strong>
+                      <ul>
+                        <li>Enter the full name of each author (e.g., "John Michael Smith")</li>
+                        <li>For multiple authors, add each one separately by pressing Enter after each name</li>
+                        <li>Include all co-authors, research partners, and contributors</li>
+                        <li>Use the format: First Name Middle Name Last Name</li>
+                        <li>Example: "Maria Santos", "Juan Carlos Rodriguez", "Dr. Anna Lee"</li>
+                      </ul>
+                    </div>
+                        </span>
+                      </label>
+                      <div class="tag-input-container">
+                        <input type="text" id="wizardAuthorsInput" placeholder="Type authors(s) and press enter to add">
+                        <input type="hidden" id="wizardAuthors" name="authors" required>
+                        <div id="wizardAuthorsTags" class="tags-container"></div>
+              </div>
+                  </div>
+                    <div class="form-group">
+                      <label for="wizardKeywordsInput">
+                        Keywords
+                        <span class="help-icon" data-help="keywords-help">
+                          <i class="fas fa-question-circle"></i>
+                          <div class="help-tooltip" id="keywords-help">
+                            <strong>Instructions for Keywords:</strong>
+                      <ul>
+                        <li>Enter 3-10 relevant keywords that describe your research topic</li>
+                        <li>Use specific terms that researchers might search for</li>
+                        <li>Include both general and specific terms (e.g., "machine learning", "neural networks", "image recognition")</li>
+                        <li>Use single words or short phrases (2-3 words maximum per keyword)</li>
+                        <li>Separate each keyword by pressing Space or Enter</li>
+                        <li>Examples: "artificial intelligence", "data analysis", "sustainability", "education", "healthcare"</li>
+                      </ul>
+                          </div>
+                        </span>
+                      </label>
+                      <div class="tag-input-container">
+                        <input type="text" id="wizardKeywordsInput" placeholder="Type keywords and press comma or enter to add">
+                        <input type="hidden" id="wizardKeywords" name="keywords">
+                        <div id="wizardKeywordsTags" class="tags-container"></div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="wizard-actions">
+                    <button type="button" class="btn btn-secondary" onclick="backStep2()">
+                      <i class="fas fa-arrow-left"></i> Back
+                </button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep2()">
+                      Next <i class="fas fa-arrow-right"></i>
+                    </button>
+            </div>
+          </div>
+          
+                <!-- Step 3: Upload File -->
+                <div class="wizard-step" id="uploadStep3">
+                  <div class="wizard-step-header">
+                    <i class="fas fa-file-upload"></i>
+                    <h3>Upload File</h3>
+                </div>
+                  <div class="form-group full-width">
+                    <label for="wizardPdf">PDF File *</label>
+                    <div class="file-upload-area" id="wizardFileUploadArea">
+                      <div class="file-upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag and drop your PDF file here, or <span class="file-upload-link">click to browse</span></p>
+                        <p class="file-upload-info">Maximum file size: 200MB</p>
+              </div>
+                      <input type="file" id="wizardPdf" name="file" accept=".pdf" required style="display: none;">
+            </div>
+                    <div id="wizardFileDisplay" class="file-display" style="display: none;">
+                      <div class="file-info">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="file-name"></span>
+                        <span class="file-size"></span>
+            </div>
+                      <button type="button" class="file-remove" onclick="removeWizardFile()">
+                        <i class="fas fa-times"></i>
+                      </button>
+              </div>
+                  </div>
+                  <div class="wizard-actions">
+                    <button type="button" class="btn btn-secondary" onclick="backStep3()">
+                      <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitResearch">
+                      <i class="fas fa-upload"></i> Upload Research
+              </button>
+            </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pending Research Section -->
+        <div id="pending-research" class="admin-section">
+          <div class="section-header">
+            <div class="section-title">
+              <h2><i class="fas fa-clock"></i> Pending Research Approval</h2>
+              <p>Review and approve research papers uploaded by students</p>
+            </div>
+            <div class="section-actions">
+              <button class="action-btn secondary btn btn-outline-primary" onclick="loadPendingResearch()">
+                <i class="fas fa-refresh"></i> Refresh
+              </button>
+          </div>
+          </div>
+          
+          <div class="table-container">
+            <div id="pendingResearchLoading" class="loading-state" style="display:none;">
+              <div class="loading-spinner"></div>
+              <p>Loading pending research...</p>
+            </div>
+            <div id="pendingResearchError" class="error-state" style="display:none;">
+              <i class="fas fa-exclamation-triangle"></i>
+              <p>Error loading pending research. Please try again.</p>
+            </div>
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Authors</th>
+                  <th>Department</th>
+                  <th>Year</th>
+                  <th>Uploaded By</th>
+                  <th>Upload Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="pendingResearchTableBody">
+                <tr>
+                  <td colspan="8" class="no-results">No pending research papers.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Search Section -->
+        <div id="search" class="admin-section">
+          <div class="search-module">
+            <div class="search-card-unified">
+                
+            <div class="search-toolbar">
+              <div class="search-keyword-row">
+                <div id="searchTagInput" class="tag-input">
+                  <div id="searchTags" class="tags"></div>
+                  <input id="searchInput" class="tags-editor" type="text" placeholder="Type keyword and press comma/space">
+                </div>
+              </div>
+              <div class="search-controls-row">
+                <select id="filterDepartment">
+                      <option value="">All Departments</option>
+                      <option value="Marine Engineering">Marine Engineering</option>
+                      <option value="Marine Transportation">Marine Transportation</option>
+                      <option value="Criminology">Criminology</option>
+                      <option value="Tourism Management">Tourism Management</option>
+                      <option value="Technical-Vocational Teacher Education">Technical-Vocational Teacher Education</option>
+                      <option value="Early Childhood Education">Early Childhood Education</option>
+                      <option value="Information System">Information System</option>
+                      <option value="Entrepreneurship">Entrepreneurship</option>
+                      <option value="Management Accounting">Management Accounting</option>
+                      <option value="Nursing">Nursing</option>
+                      <option value="Humanities and Social Sciences (HUMSS)">Humanities and Social Sciences (HUMSS)</option>
+                      <option value="Accountancy, Business and Management (ABM)">Accountancy, Business and Management (ABM)</option>
+                      <option value="Science, Technology, Engineering and Mathematics (STEM)">Science, Technology, Engineering and Mathematics (STEM)</option>
+                      <option value="General Academic Strand (GAS)">General Academic Strand (GAS)</option>
+                      <option value="Other">Other</option>
+                    </select>
+                <select id="filterYear">
+                        <option value="">All Years</option>
+                      </select>
+                <select id="filterSemester">
+                  <option value="">All Semesters</option>
+                  <option value="1st Semester">1st Semester</option>
+                  <option value="2nd Semester">2nd Semester</option>
+                  <option value="Summer">Summer</option>
+                </select>
+                <button id="doSearch" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+                </div>
+              </div>
+                  </div>
+            <div id="searchLoading" class="loading-state" style="display:none;">
+              <div class="loading-spinner"></div>
+              <p>Searching...</p>
+            </div>
+            <div id="noResults" class="no-results" style="display:none;">No results found</div>
+            <div id="resultsGrid" class="results-grid"></div>
+            <div id="pager" class="pager" style="display:none;"></div>
+          </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div id="statistics" class="admin-section">
+          <div class="section-header">
+            <div class="section-title">
+              <h2><i class="fas fa-chart-bar"></i> Analytics Overview</h2>
+              <p>Comprehensive overview of research uploads and activity.</p>
+            </div>
+            <div class="section-actions">
+              <button class="action-btn secondary btn btn-outline-primary" onclick="exportPdfReport()" id="exportDataBtn">
+                <i class="fas fa-download"></i> Export Data
+                <span id="exportDataLoading" style="display: none; margin-left: 10px;"><i class="fas fa-spinner fa-spin"></i></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Top Summary Cards (Total Research, Total Archived) -->
+          <div class="stats-grid">
+            <div class="stat-card large">
+              <div class="stat-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="stat-content">
+                <h3 id="totalResearchPapers">0</h3>
+                <p>Total Research Uploaded</p>
+              </div>
+              <div class="analytics-filters-row">
+                <select id="analyticsYearFilter"><option value="">All Years</option></select>
+                <select id="analyticsSemesterFilter">
+                  <option value="">All Semesters</option>
+                  <option value="1st Semester">1st Semester</option>
+                  <option value="2nd Semester">2nd Semester</option>
+                  <option value="Summer">Summer</option>
+                </select>
+              </div>
+            </div>
+            <div class="stat-card large">
+              <div class="stat-icon">
+                <i class="fas fa-archive"></i>
+              </div>
+              <div class="stat-content">
+                <h3 id="totalArchivedResearch">0</h3>
+                <p>Total Archived Research</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Section: two pie charts side-by-side with filters -->
+          <div class="charts-section">
+            <div class="chart-card">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <h3><i class="fas fa-chart-pie"></i> Research Uploaded by Department</h3>
+                <!-- Removed individual department chart filters -->
+              </div>
+              <div class="chart-row" style="display:flex; gap:16px; align-items:flex-start;">
+                <div class="chart-container" style="flex:1 1 auto;">
+                  <canvas id="departmentChart"></canvas>
+                </div>
+                <div id="departmentLegend" class="dept-summary" style="min-width: 260px;"></div>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <h3><i class="fas fa-user-tie"></i>Research Submissions by Advisee Students</h3>
+                <!-- Removed individual adviser chart filters -->
+              </div>
+              <div class="chart-row" style="display:flex; gap:16px; align-items:flex-start;">
+                <div class="chart-container" style="flex:1 1 auto;">
+                  <canvas id="adviserChart"></canvas>
+                </div>
+                <div id="adviserLegend" class="dept-summary" style="min-width: 260px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Full width area chart: uploads per year -->
+          <div class="charts-section yearly-full">
+            <div class="chart-card">
+              <h3><i class="fas fa-chart-area"></i> Research Uploads per Year</h3>
+              <div class="chart-container" style="height:220px;">
+                <canvas id="yearlyChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top Authors & Top Keywords Cards -->
+          <div class="charts-section">
+            <div class="chart-card">
+              <h3><i class="fas fa-users"></i> Top Authors</h3>
+              <select id="topAuthorsLimit">
+                <option value="5">Top 5</option>
+                <option value="10" selected>Top 10</option>
+                <option value="20">Top 20</option>
+              </select>
+              <div class='stat-list' id='topAuthorsList'></div>
+            </div>
+            <div class="chart-card">
+              <h3><i class="fas fa-tags"></i> Top Keywords</h3>
+              <select id="topKeywordsLimit">
+                <option value="5">Top 5</option>
+                <option value="10" selected>Top 10</option>
+                <option value="20">Top 20</option>
+              </select>
+              <div class='stat-list' id='topKeywordsList'></div>
+            </div>
+          </div>
+          <!-- End Top Authors & Keywords -->
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="admin-section">
+          <div class="section-header">
+            <div class="section-title">
+              <h2><i class="fas fa-cog"></i> System Settings</h2>
+              <p>Configure system preferences and settings</p>
+            </div>
+          </div>
+          
+          <div class="settings-content" style="padding: 2rem;">
+            <div class="settings-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+              <h3 style="margin-bottom: 1rem; color: #1e293b; font-size: 1.25rem;">
+                <i class="fas fa-moon" style="margin-right: 0.5rem; color: #6366f1;"></i>
+                Appearance
+              </h3>
+              <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.6;">
+                Switch between light and dark mode for a personalized viewing experience.
+              </p>
+              <div class="dark-mode-toggle">
+                <label class="toggle-label">
+                  <input type="checkbox" id="darkModeToggle" class="toggle-input">
+                  <span class="toggle-switch">
+                    <span class="toggle-slider"></span>
+                  </span>
+                  <span class="toggle-text">Dark Mode</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+              <h3 style="margin-bottom: 1rem; color: #1e293b; font-size: 1.25rem;">
+                <i class="fas fa-database" style="margin-right: 0.5rem; color: #3b82f6;"></i>
+                Data Backup
+              </h3>
+              <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.6;">
+                Download all research PDF files as a ZIP archive. Includes all uploaded research papers and metadata.
+              </p>
+              <button id="backupBtn" class="btn btn-primary" style="background: #3b82f6; color: white; padding: 12px 24px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(59,130,246,0.3);">
+                <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
+                Download Research Backup
+              </button>
+              <span id="backupLoading" style="display: none; margin-left: 0.75rem; color: #64748b;">
+                <i class="fas fa-spinner fa-spin" style="margin-right: 0.4rem;"></i>
+                Downloading...
+              </span>
+
+              <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
+                <h4 style="margin-bottom: 0.75rem; color: #1e293b; font-size: 1.1rem;">
+                  <i class="fas fa-upload" style="margin-right: 0.5rem; color: #10b981;"></i>
+                  Restore From Backup
+                </h4>
+                <p style="color: #64748b; margin-bottom: 0.75rem;">Upload a previously downloaded ZIP to restore research and PDFs.</p>
+                <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+                  <input id="restoreInput" type="file" accept=".zip" style="padding: 8px 12px; border: 1px solid #e5e7eb; border-radius: 8px;" />
+                  <button id="restoreBtn" class="btn btn-accent" style="background: #10b981; color: white; padding: 10px 18px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(16,185,129,0.3);">
+                    <i class="fas fa-rotate" style="margin-right: 0.5rem;"></i>
+                    Restore Backup
+                  </button>
+                  <span id="restoreLoading" style="display: none; margin-left: 0.5rem; color: #64748b;">
+                    <i class="fas fa-spinner fa-spin" style="margin-right: 0.4rem;"></i>
+                    Restoring...
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+              <h3 style="margin-bottom: 1rem; color: #1e293b; font-size: 1.25rem;">
+                <i class="fas fa-archive" style="margin-right: 0.5rem; color: #f59e0b;"></i>
+                Archived Research
+              </h3>
+              <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.6;">
+                View and manage archived research papers. Archived items are hidden from the main search but can be restored if needed.
+              </p>
+              <button id="viewArchivedBtn" class="btn btn-accent" style="background: #f59e0b; color: white; padding: 12px 24px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(245,158,11,0.3);">
+                <i class="fas fa-box-archive" style="margin-right: 0.5rem;"></i>
+                View Archived Research
+              </button>
+            </div>
+
+            <div class="settings-card" style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+              <h3 style="margin-bottom: 1rem; color: #9a3412; font-size: 1.25rem;">
+                <i class="fas fa-triangle-exclamation" style="margin-right: 0.5rem; color: #dc2626;"></i>
+                Danger Zone
+              </h3>
+              <p style="color: #9a3412; margin-bottom: 1rem; line-height: 1.6;">
+                Permanently delete all research records. You can optionally keep the existing PDF files on disk.
+              </p>
+              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <label style="display: inline-flex; align-items: center; gap: 0.5rem; color: #7c2d12;">
+                  <input id="keepFilesCheckbox" type="checkbox" />
+                  Keep files in uploads/research/
+                </label>
+                <button id="clearAllBtn" class="btn btn-danger" style="background: #dc2626; color: white; padding: 10px 18px; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; box-shadow: 0 2px 4px rgba(220,38,38,0.3);">
+                  <i class="fas fa-trash" style="margin-right: 0.5rem;"></i>
+                  Clear All Research
+                </button>
+                <span id="clearAllLoading" style="display: none; margin-left: 0.5rem; color: #7c2d12;">
+                  <i class="fas fa-spinner fa-spin" style="margin-right: 0.4rem;"></i>
+                  Clearing...
+                </span>
+              </div>
+            </div>
+
+            <div class="settings-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+              <h3 style="margin-bottom: 1rem; color: #1e293b; font-size: 1.25rem;">
+                <i class="fas fa-lock" style="margin-right: 0.5rem; color: #6366f1;"></i>
+                Change Password
+              </h3>
+              <button id="openChangePasswordModalBtn" class="btn btn-primary"
+                style="background: #6366f1; color: white; padding: 12px 28px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+                <i class="fas fa-key" style="margin-right: 0.5rem;"></i> Change Password
+              </button>
+            </div>
+            <!-- Admin Change Password Modal -->
+            <div id="changePasswordModal" class="modal" style="display:none;">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3><i class="fas fa-lock"></i> Change Password</h3>
+                  <button class="modal-close" onclick="closeChangePasswordModal()">&times;</button>
+                </div>
+                <form id="adminChangePasswordForm" autocomplete="off">
+                  <div class="form-grid">
+                    <div class="form-group">
+                      <label for="adminCurrentPassword">Current Password</label>
+                      <input type="password" id="adminCurrentPassword" required autocomplete="off" />
+                    </div>
+                    <div class="form-group" style="position: relative;">
+                      <label for="adminNewPassword">New Password</label>
+                      <input type="password" id="adminNewPassword" minlength="6" required autocomplete="off" style="padding-right: 36px;" />
+                      <button type="button" class="toggle-password-visibility" aria-label="Show/Hide password" data-target="adminNewPassword" style="position: absolute; right: 8px; top: 41px; background: none; border: none; cursor: pointer; color: #6b7280; font-size: 1.1rem; padding: 0;"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="form-group" style="position: relative;">
+                      <label for="adminConfirmNewPassword">Confirm New Password</label>
+                      <input type="password" id="adminConfirmNewPassword" minlength="6" required autocomplete="off" style="padding-right: 36px;" />
+                      <button type="button" class="toggle-password-visibility" aria-label="Show/Hide password" data-target="adminConfirmNewPassword" style="position: absolute; right: 8px; top: 41px; background: none; border: none; cursor: pointer; color: #6b7280; font-size: 1.1rem; padding: 0;"><i class="fas fa-eye"></i></button>
+                    </div>
+                  </div>
+                  <div style="margin-bottom: 0.9rem;">
+                    <div class="form-error" style="color:#dc2626; font-size:0.98rem; margin-bottom:0.5rem; display:none;"></div>
+                    <div class="form-success" style="color:#059669;font-size:0.98rem;margin-bottom:0.5rem;display:none;"></div>
+                  </div>
+                  <div class="modal-actions">
+                    <button type="button" class="btn btn-outline-primary" onclick="closeChangePasswordModal()"><i class="fas fa-times"></i> Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="background: #6366f1;"><i class="fas fa-key"></i> Change Password</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+              </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Modern Admin Dashboard JavaScript
+    let currentAdmin = null;
+    let currentSection = 'users';
+    let allResearch = [];
+
+    // Initialize dashboard
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeAdminDashboard();
+    });
+
+    async function initializeAdminDashboard() {
+      // Check authentication
+      const token = localStorage.getItem('token');
+      if (!token) {
+        window.location.href = '/';
+        return;
+      }
+
+      try {
+        // Get admin info from localStorage (stored during login)
+        const userData = localStorage.getItem('user');
+        if (userData) {
+          currentAdmin = JSON.parse(userData);
+          updateAdminInfo();
+          setupEventListeners();
+          
+          // Load pending research badge count
+          loadPendingResearchBadgeCount();
+          
+          // Statistics will be loaded by script.js
+        } else {
+          // If no user data in localStorage, try to verify token
+          const response = await fetch('/api/statistics/overall', {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+
+          if (response.ok) {
+            // Token is valid, but we don't have user data
+            // Create a basic admin object
+            currentAdmin = { username: 'Admin User', role: 'admin' };
+            updateAdminInfo();
+            setupEventListeners();
+          } else {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = '/';
+          }
+        }
+      } catch (error) {
+        console.error('Error initializing admin dashboard:', error);
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.href = '/';
+      }
+    }
+
+    function updateAdminInfo() {
+      if (currentAdmin) {
+        // Format name: capitalize first letter, lowercase rest
+        function formatName(name) {
+          if (!name || typeof name !== 'string') return '';
+          return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+        }
+        
+        let displayName = 'Admin User';
+        if (currentAdmin.firstName && currentAdmin.lastName) {
+          displayName = formatName(currentAdmin.firstName) + ' ' + formatName(currentAdmin.lastName);
+        } else if (currentAdmin.firstName) {
+          displayName = formatName(currentAdmin.firstName);
+        } else if (currentAdmin.username) {
+          displayName = currentAdmin.username;
+        }
+        
+        document.getElementById('adminName').textContent = displayName;
+      }
+    }
+
+    // Create Admin Modal logic
+    function openCreateAdminModal() {
+      document.getElementById('createAdminModal').style.display = 'block';
+    }
+    function closeCreateAdminModal() {
+      document.getElementById('createAdminModal').style.display = 'none';
+      document.getElementById('createAdminForm').reset();
+    }
+    document.getElementById('createAdminForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const firstName = document.getElementById('adminFirstName').value.trim();
+      const lastName = document.getElementById('adminLastName').value.trim();
+      const username = document.getElementById('adminUsername').value.trim();
+      const password = document.getElementById('adminPassword').value;
+      const password2 = document.getElementById('adminPassword2').value;
+      if (!firstName || !lastName || !username || !password) {
+        showNotification('Please fill in all required fields', 'error');
+        return;
+      }
+      if (password !== password2) {
+        showNotification('Passwords do not match', 'error');
+        return;
+      }
+      try {
+        const res = await fetch('/api/auth/admin/create', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ firstName, lastName, username, password })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          showNotification(data.message || 'Failed to create admin', 'error');
+          return;
+        }
+        
+        // Close the create admin modal first
+        closeCreateAdminModal();
+        
+        // Show QR code modal - it should always be returned from backend
+        if (data.qrCode && data.secret) {
+          // Create QR code modal
+          const overlay = document.createElement('div');
+          overlay.id = 'qrCodeModalOverlay';
+          overlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; display: flex; align-items: center; justify-content: center;';
+          
+          const modal = document.createElement('div');
+          const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+          const modalBg = isDarkMode ? 'var(--bg-secondary)' : 'white';
+          const modalText = isDarkMode ? 'var(--text-primary)' : '#333';
+          modal.style.cssText = `background: ${modalBg}; padding: 2rem; border-radius: 12px; max-width: 900px; width: 95%; max-height: 95vh; overflow-y: auto; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; color: ${modalText};`;
+          
+          modal.innerHTML = `
+            <h2 style="margin-bottom: 1rem; color: #333; font-size: 1.5rem;"><i class="fas fa-qrcode"></i> Google Authenticator Setup</h2>
+
+            <div style="background: #e3f2fd; border-left: 4px solid #2196f3; padding: 1rem; margin-bottom: 1.5rem; text-align: left; border-radius: 4px;">
+              <p style="margin: 0; color: #1565c0; font-weight: 600; font-size: 0.95rem;"><i class="fas fa-info-circle"></i> Follow these steps to set up Google Authenticator:</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.5rem; align-items: start;">
+              <div style="text-align: left; background: #f9f9f9; padding: 1.25rem; border-radius: 8px;">
+                <div style="margin-bottom: 1rem;">
+                  <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #333; font-size: 0.9rem;">
+                    <span style="background: #007bff; color: white; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-right: 0.5rem;">1</span>
+                    Download Google Authenticator App
+                  </p>
+                  <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.85rem; padding-left: 1.75rem;">
+                    • For <strong>iPhone/iPad:</strong> Open App Store, search "Google Authenticator", and install<br>
+                    • For <strong>Android:</strong> Open Google Play Store, search "Google Authenticator", and install<br>
+                    • Or use any TOTP app like Microsoft Authenticator, Authy, etc.
+                  </p>
+                </div>
+                
+                <div style="margin-bottom: 1rem;">
+                  <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #333; font-size: 0.9rem;">
+                    <span style="background: #007bff; color: white; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-right: 0.5rem;">2</span>
+                    Open the App and Add Account
+                  </p>
+                  <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.85rem; padding-left: 1.75rem;">
+                    • Open Google Authenticator app on your phone<br>
+                    • Tap the <strong>"+"</strong> button or <strong>"Add account"</strong><br>
+                    • Select <strong>"Scan a QR code"</strong>
+                  </p>
+                </div>
+                
+                <div style="margin-bottom: 1rem;">
+                  <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #333; font-size: 0.9rem;">
+                    <span style="background: #007bff; color: white; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-right: 0.5rem;">3</span>
+                    Scan the QR Code
+                  </p>
+                  <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.85rem; padding-left: 1.75rem;">
+                    • Point your phone's camera at the QR code<br>
+                    • The app will automatically detect and add your account<br>
+                    • You'll see a 6-digit code that changes every 30 seconds
+                  </p>
+                </div>
+                
+                <div style="margin-bottom: 0;">
+                  <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #333; font-size: 0.9rem;">
+                    <span style="background: #007bff; color: white; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; margin-right: 0.5rem;">4</span>
+                    Using for Password Reset
+                  </p>
+                  <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.85rem; padding-left: 1.75rem;">
+                    • When resetting your password, open Google Authenticator<br>
+                    • Enter the current 6-digit code shown in the app<br>
+                    • The code refreshes every 30 seconds, so use the latest one
+                  </p>
+                </div>
+              </div>
+              
+              <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="margin-bottom: 1rem; background: white; padding: 1.5rem; border: 2px dashed #ddd; border-radius: 8px; width: 100%;">
+                  <img src="${data.qrCode}" alt="QR Code" style="max-width: 300px; width: 100%; border-radius: 4px;">
+                </div>
+                <details style="margin-top: 0; text-align: left; background: #f5f5f5; padding: 1rem; border-radius: 6px; cursor: pointer; width: 100%;">
+                  <summary style="font-weight: 600; color: #666; font-size: 0.85rem; user-select: none;">
+                    <i class="fas fa-key"></i> Can't scan? Enter secret manually
+                  </summary>
+                  <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid #ddd;">
+                    <p style="margin: 0 0 0.5rem 0; color: #666; font-size: 0.8rem;">In Google Authenticator, select "Enter a setup key" and use:</p>
+                    <div style="background: white; padding: 0.75rem; border-radius: 4px; margin-top: 0.5rem; font-family: monospace; word-break: break-all; font-size: 0.8rem; border: 1px solid #ddd;">
+                      ${data.secret}
+                    </div>
+                    <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.75rem;">Account name: <strong>${username}</strong> | Type: <strong>Time-based</strong></p>
+                  </div>
+                </details>
+              </div>
+            </div>
+            
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 1rem; margin-top: 0; text-align: left; border-radius: 4px;">
+              <p style="margin: 0; color: #856404; font-size: 0.85rem; line-height: 1.5;">
+                <strong><i class="fas fa-exclamation-triangle"></i> Important:</strong> Save this QR code or secret key in a safe place. 
+                You'll need the 6-digit code from Google Authenticator every time you reset your password. 
+                If you lose access to your phone, contact the system administrator.
+              </p>
+            </div>
+            
+            <button onclick="document.getElementById('qrCodeModalOverlay').remove()" style="margin-top: 1.5rem; padding: 0.875rem 2.5rem; background: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: 600; box-shadow: 0 2px 4px rgba(0,123,255,0.3);">
+              <i class="fas fa-check"></i> I've Set Up Google Authenticator
+            </button>
+          `;
+          
+          overlay.appendChild(modal);
+          document.body.appendChild(overlay);
+          
+          // Close on overlay click
+          overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+              overlay.remove();
+            }
+          });
+          
+          showNotification('Admin created successfully! Please scan the QR code.', 'success');
+        } else {
+          showNotification('Admin created successfully, but QR code was not generated. Please contact administrator.', 'warning');
+        }
+        loadUsers();
+      } catch (err) {
+        console.error('Create admin error:', err);
+        showNotification('Failed to create admin', 'error');
+      }
+    });
+
+
+
+    async function fetchJson(url){
+      const res = await fetch(url, { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } });
+      return await res.json();
+    }
+
+    async function renderDepartmentChart(){
+      const depYear = document.getElementById('chartDepartmentYear');
+      const depSem = document.getElementById('chartDepartmentSemester');
+      const params = new URLSearchParams();
+      if (depYear && depYear.value) params.set('year', depYear.value);
+      if (depSem && depSem.value) params.set('semester', depSem.value);
+      const data = await fetchJson(`/api/statistics/by-department${params.toString() ? ('?' + params.toString()) : ''}`);
+      const ctx = document.getElementById('departmentChart');
+      if (!ctx) return;
+      const labels = data.map(d => d.department || 'Unknown');
+      const counts = data.map(d => d.count);
+      const colors = labels.map((_,i)=>`hsl(${(i*67)%360} 70% 62%)`);
+      if (window._deptChart) window._deptChart.destroy();
+      const toAcr = (name) => {
+        if (!name) return 'N/A';
+        const m = name.match(/\(([^)]+)\)/);
+        if (m && m[1]) return m[1].trim();
+        return name.replace(/[^A-Za-z\s]/g,' ') .split(/\s+/).filter(Boolean).map(w=>w[0].toUpperCase()).join('');
+      };
+      const acr = labels.map(toAcr);
+      window._deptChart = new Chart(ctx, {
+        type: 'pie',
+        data: { labels: acr, datasets: [{ data: counts, backgroundColor: colors, borderWidth: 0 }] },
+        options: { responsive: true, plugins: { legend: { display: false } } }
+      });
+      const depLegend = document.getElementById('departmentLegend');
+      if (depLegend){
+        const total = counts.reduce((a,b)=>a+b,0)||1;
+        depLegend.innerHTML = '<h4>Departments</h4>' + labels.map((name,i)=>{
+          const pct = Math.round(counts[i]/total*100);
+          return `<div class="dept-item"><span><span class="dot" style="background:${colors[i]}"></span>${toAcr(name)}</span><strong>${counts[i]} (${pct}%)</strong></div>`;
+        }).join('');
+      }
+    }
+
+    async function renderAdviserChart(){
+      const advYear = document.getElementById('chartAdviserYear');
+      const advSem = document.getElementById('chartAdviserSemester');
+      const params = new URLSearchParams();
+      if (advYear && advYear.value) params.set('year', advYear.value);
+      if (advSem && advSem.value) params.set('semester', advSem.value);
+      const data = await fetchJson(`/api/statistics/by-adviser${params.toString() ? ('?' + params.toString()) : ''}`);
+      const ctx = document.getElementById('adviserChart');
+      if (!ctx) return;
+      const labels = data.map(d => d.adviser || 'Unknown');
+      const counts = data.map(d => d.count);
+      const colors = labels.map((_,i)=>`hsl(${(i*67)%360} 70% 62%)`);
+      if (window._advChart) window._advChart.destroy();
+      window._advChart = new Chart(ctx, {
+        type: 'pie',
+        data: { labels, datasets: [{ data: counts, backgroundColor: colors, borderWidth: 0 }] },
+        options: { responsive: true, plugins: { legend: { display: false } } }
+      });
+      const advLegend = document.getElementById('adviserLegend');
+      if (advLegend){
+        const total = counts.reduce((a,b)=>a+b,0)||1;
+        advLegend.innerHTML = '<h4>Advisers</h4>' + labels.map((name,i)=>{
+          const pct = Math.round(counts[i]/total*100);
+          return `<div class="dept-item"><span><span class="dot" style="background:${colors[i]}"></span>${name.toUpperCase()}</span><strong>${counts[i]} (${pct}%)</strong></div>`;
+        }).join('');
+      }
+    }
+
+    async function renderYearlyChart(){
+      const years = await fetchJson('/api/statistics/by-year');
+      const ctx = document.getElementById('yearlyChart');
+      if (!ctx) return;
+      const labels = years.map(t=> t._id);
+      const counts = years.map(t=> t.count);
+      if (window._yearChart) window._yearChart.destroy();
+      window._yearChart = new Chart(ctx, {
+        type: 'line',
+        data: { labels, datasets: [{ label: 'Uploads', data: counts, fill: true, tension: .35, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.15)', pointRadius: 3 }] },
+        options: { responsive:true, plugins:{ legend:{ display:false } } }
+      });
+    }
+
+    function setupEventListeners() {
+      // Navigation
+      document.querySelectorAll('.modern-nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const section = link.getAttribute('data-section');
+          switchSection(section);
+        });
+      });
+
+      // Logout
+      document.getElementById('logoutBtn').addEventListener('click', logout);
+
+      // Search functionality
+      document.getElementById('researchSearch')?.addEventListener('input', debounce(searchResearch, 300));
+
+      // Advanced filters toggle
+      document.getElementById('toggleAdvancedFilters')?.addEventListener('click', toggleAdvancedFilters);
+
+      // Sidebar toggle
+      document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+        const willCollapse = !document.body.classList.contains('sidebar-collapsed');
+        document.body.classList.toggle('sidebar-collapsed', willCollapse);
+        localStorage.setItem('adminSidebarCollapsed', String(willCollapse));
+      });
+
+      // Search form
+      document.getElementById('searchForm')?.addEventListener('submit', handleSearch);
+
+      // Statistics filters
+      document.getElementById('chartDepartmentYear')?.addEventListener('change', renderDepartmentChart);
+      document.getElementById('chartDepartmentSemester')?.addEventListener('change', renderDepartmentChart);
+      document.getElementById('chartAdviserYear')?.addEventListener('change', renderAdviserChart);
+      document.getElementById('chartAdviserSemester')?.addEventListener('change', renderAdviserChart);
+    }
+
+    function switchSection(sectionName) {
+      // Update navigation
+      document.querySelectorAll('.modern-nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      document.querySelector(`[data-section="${sectionName}"]`).classList.add('active');
+
+      // Update sections
+      document.querySelectorAll('.admin-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionName).classList.add('active');
+
+      currentSection = sectionName;
+
+      // Load section-specific data
+      if (sectionName === 'users') {
+        loadUsers();
+        loadStatistics(); // Load statistics when users section is shown
+      } else if (sectionName === 'research') {
+        loadResearch();
+      } else if (sectionName === 'pending-research') {
+        loadPendingResearch();
+      } else if (sectionName === 'statistics') {
+        loadStatistics();
+        loadArchivedResearchCount(); // Load archived research count
+        (async ()=>{
+          try{
+            const years = await fetchJson('/api/statistics/by-year');
+            const opts = years.map(y=>y._id).sort((a,b)=>a-b);
+            const fill = (id)=>{ const sel=document.getElementById(id); if (!sel) return; sel.innerHTML='<option value="">All Years</option>' + opts.map(y=>`<option value="${y}">${y}</option>`).join(''); };
+            fill('chartDepartmentYear');
+            fill('chartAdviserYear');
+          }catch(e){}
+          renderDepartmentChart();
+          renderAdviserChart();
+          renderYearlyChart();
+        })();
+        // Load top authors and keywords
+        setTimeout(() => {
+          if (typeof loadTopAuthors === 'function') loadTopAuthors();
+          if (typeof loadTopKeywords === 'function') loadTopKeywords();
+          
+          // Attach event listeners for dropdown changes
+          const topAuthorsLimit = document.getElementById('topAuthorsLimit');
+          const topKeywordsLimit = document.getElementById('topKeywordsLimit');
+          
+          if (topAuthorsLimit) {
+            // Remove existing listeners to avoid duplicates
+            topAuthorsLimit.removeEventListener('change', loadTopAuthors);
+            topAuthorsLimit.addEventListener('change', loadTopAuthors);
+          }
+          
+          if (topKeywordsLimit) {
+            // Remove existing listeners to avoid duplicates
+            topKeywordsLimit.removeEventListener('change', loadTopKeywords);
+            topKeywordsLimit.addEventListener('change', loadTopKeywords);
+          }
+        }, 100);
+      } else if (sectionName === 'search') {
+        // Trigger initial fetch if present
+        try { document.getElementById('doSearch')?.click(); } catch(e) {}
+      }
+    }
+
+
+    function filterStudents(filter) {
+      // Update filter tabs
+      document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Apply filter
+      loadStudents(filter);
+    }
+
+    function filterResetRequests(filter) {
+      // Update filter tabs
+      document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Apply filter
+      loadResetRequests(filter);
+    }
+
+    async function loadResetRequests(filter = 'all') {
+      try {
+        showLoading('resetRequestsLoading');
+        hideError('resetRequestsError');
+
+        const response = await fetch('/api/reset/reset-requests', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          const requests = await response.json();
+          
+          // Apply status filter if not 'all'
+          let filteredRequests = requests;
+          if (filter !== 'all') {
+            filteredRequests = requests.filter(request => request.status === filter);
+          }
+          
+          displayResetRequests(filteredRequests);
+          
+          // Update notification badge
+          const pendingCount = requests.filter(r => r.status === 'pending').length;
+          const badge = document.getElementById('resetRequestsBadge');
+          if (pendingCount > 0) {
+            badge.textContent = pendingCount;
+            badge.style.display = 'inline';
+          } else {
+            badge.style.display = 'none';
+          }
+          
+          // Update stats card
+          document.getElementById('resetRequests').textContent = requests.length;
+        } else {
+          showError('resetRequestsError');
+        }
+      } catch (error) {
+        console.error('Error loading reset requests:', error);
+        showError('resetRequestsError');
+      } finally {
+        hideLoading('resetRequestsLoading');
+      }
+    }
+
+    function displayResetRequests(requests) {
+      const tbody = document.getElementById('resetRequestsTableBody');
+      tbody.innerHTML = '';
+
+      if (requests.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="no-results">No reset requests found.</td></tr>';
+        return;
+      }
+
+      requests.forEach(request => {
+        const row = document.createElement('tr');
+        const requestDate = new Date(request.createdAt).toLocaleDateString();
+        const user = request.userId || {};
+        row.innerHTML = `
+          <td>${request._id.substring(0, 8)}...</td>
+          <td>${user.firstName ? user.firstName : 'N/A'} ${user.lastName ? user.lastName : ''}</td>
+          <td>${user.schoolId ? user.schoolId : 'N/A'}</td>
+          <td>${user.department ? user.department : 'N/A'}</td>
+          <td>${requestDate}</td>
+          <td>
+            <span class="status-badge ${request.status}">${request.status}</span>
+          </td>
+          <td>
+            <div class="action-buttons">
+              ${request.status === 'pending' ? 
+                `<button class="action-btn approve" onclick="approveResetRequest('${request._id}', '${user.schoolId ? user.schoolId : ''}')">
+                  <i class="fas fa-check"></i> Approve
+                </button>
+                <button class="action-btn reject" onclick="rejectResetRequest('${request._id}')">
+                  <i class="fas fa-times"></i> Reject
+                </button>` : ''}
+            </div>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    async function approveResetRequest(requestId, schoolId) {
+      try {
+        const response = await fetch(`/api/reset/reset-request/${requestId}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ 
+            status: 'approved',
+            newPassword: schoolId // Set password to school ID (username)
+          })
+        });
+
+        if (response.ok) {
+          showNotification('Password reset approved! Password set to School ID.', 'success');
+          loadResetRequests();
+        } else {
+          const data = await response.json();
+          showNotification(data.message || 'Failed to approve reset request', 'error');
+        }
+      } catch (error) {
+        console.error('Error approving reset request:', error);
+        showNotification('Failed to approve reset request', 'error');
+      }
+    }
+
+    async function rejectResetRequest(requestId) {
+      try {
+        const response = await fetch(`/api/reset/reset-request/${requestId}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ status: 'rejected' })
+        });
+
+        if (response.ok) {
+          showNotification('Reset request rejected', 'success');
+          loadResetRequests();
+        } else {
+          const data = await response.json();
+          showNotification(data.message || 'Failed to reject reset request', 'error');
+        }
+      } catch (error) {
+        console.error('Error rejecting reset request:', error);
+        showNotification('Failed to reject reset request', 'error');
+      }
+    }
+
+    async function loadUsers() {
+      try {
+        showLoading('studentsLoading');
+        hideError('studentsError');
+
+        const response = await fetch('/api/users', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          const users = await response.json();
+          // Separate students and admins
+          const students = users.filter(user => user.role === 'student');
+          const admins = users.filter(user => user.role === 'admin');
+          
+          displayStudents(students);
+          displayAdmins(admins);
+        } else {
+          showError('studentsError');
+        }
+      } catch (error) {
+        console.error('Error loading users:', error);
+        showError('studentsError');
+      } finally {
+        hideLoading('studentsLoading');
+      }
+    }
+
+    async function loadStudents(filter = 'all') {
+      try {
+        showLoading('studentsLoading');
+        hideError('studentsError');
+
+        const response = await fetch('/api/users', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          const users = await response.json();
+          // Filter to get only students
+          let students = users.filter(user => user.role === 'student');
+          
+          // Apply status filter if not 'all'
+          if (filter !== 'all') {
+            students = students.filter(student => student.status === filter);
+          }
+          
+          displayStudents(students);
+        } else {
+          showError('studentsError');
+        }
+      } catch (error) {
+        console.error('Error loading students:', error);
+        showError('studentsError');
+      } finally {
+        hideLoading('studentsLoading');
+      }
+    }
+
+    async function loadAdmins() {
+      try {
+        showLoading('adminsLoading');
+        hideError('adminsError');
+
+        const response = await fetch('/api/users', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          const users = await response.json();
+          // Filter to get only admins
+          const admins = users.filter(user => user.role === 'admin');
+          displayAdmins(admins);
+        } else {
+          showError('adminsError');
+        }
+      } catch (error) {
+        console.error('Error loading admins:', error);
+        showError('adminsError');
+      } finally {
+        hideLoading('adminsLoading');
+      }
+    }
+
+    function displayStudents(students) {
+      const tbody = document.getElementById('studentsTableBody');
+      tbody.innerHTML = '';
+
+      if (students.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="no-results">No students found.</td></tr>';
+        return;
+      }
+
+      students.forEach(student => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${student._id.substring(0, 8)}...</td>
+          <td>${student.firstName} ${student.lastName}</td>
+          <td>${student.schoolId || 'N/A'}</td>
+          <td>${student.department || 'N/A'}</td>
+          <td>
+            <span class="status-badge ${student.status}">${student.status}</span>
+          </td>
+          <td>
+            <div class="action-buttons">
+              ${student.status === 'pending' ? 
+                `<button class="action-btn approve" onclick="approveUser('${student._id}')">
+                  <i class="fas fa-check"></i> Approve
+                </button>
+                <button class="action-btn reject" onclick="rejectUser('${student._id}')">
+                  <i class="fas fa-times"></i> Reject
+                </button>` : ''}
+              <button class="action-btn delete" onclick="deleteUser('${student._id}')">
+                <i class="fas fa-trash"></i> Delete
+              </button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function displayAdmins(admins) {
+      const tbody = document.getElementById('adminsTableBody');
+      tbody.innerHTML = '';
+
+      admins.forEach(admin => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${admin._id.substring(0, 8)}...</td>
+          <td>${admin.firstName} ${admin.lastName}</td>
+          <td>${admin.username}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn delete" onclick="deleteUser('${admin._id}')">
+                <i class="fas fa-trash"></i> Delete
+              </button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    async function approveUser(userId) {
+      try {
+        const response = await fetch(`/api/users/${userId}/approve`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ status: 'approved' })
+        });
+
+        if (response.ok) {
+          showNotification('User approved successfully!', 'success');
+          loadStudents();
+        } else {
+          const data = await response.json();
+          showNotification(data.message || 'Failed to approve user', 'error');
+        }
+      } catch (error) {
+        console.error('Error approving user:', error);
+        showNotification('Failed to approve user', 'error');
+      }
+    }
+
+    async function rejectUser(userId) {
+      try {
+        const response = await fetch(`/api/users/${userId}/approve`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ status: 'rejected' })
+        });
+
+        if (response.ok) {
+          showNotification('User rejected successfully!', 'success');
+          loadStudents();
+        } else {
+          const data = await response.json();
+          showNotification(data.message || 'Failed to reject user', 'error');
+        }
+      } catch (error) {
+        console.error('Error rejecting user:', error);
+        showNotification('Failed to reject user', 'error');
+      }
+    }
+
+    async function deleteUser(userId) {
+      if (!confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/users/${userId}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          showNotification('User deleted successfully!', 'success');
+          loadUsers();
+        } else {
+          showNotification('Failed to delete user', 'error');
+        }
+      } catch (error) {
+        console.error('Error deleting user:', error);
+        showNotification('Failed to delete user', 'error');
+      }
+    }
+
+    function toggleAdvancedFilters() {
+      const filters = document.getElementById('advancedFilters');
+      const button = document.getElementById('toggleAdvancedFilters');
+      
+      if (filters.style.display === 'none') {
+        filters.style.display = 'block';
+        button.innerHTML = '<i class="fas fa-filter"></i> Hide Filters';
+      } else {
+        filters.style.display = 'none';
+        button.innerHTML = '<i class="fas fa-filter"></i> Advanced Filters';
+      }
+    }
+
+    function clearSearch() {
+      document.getElementById('searchKeyword').value = '';
+      document.getElementById('searchAuthor').value = '';
+      document.getElementById('searchDepartment').value = '';
+      document.getElementById('searchYear').value = '';
+      document.getElementById('searchResults').innerHTML = '';
+      document.getElementById('resultsCount').textContent = 'Enter search terms to find research papers';
+    }
+
+    function showLoading(elementId) {
+      document.getElementById(elementId).style.display = 'block';
+    }
+
+    function hideLoading(elementId) {
+      document.getElementById(elementId).style.display = 'none';
+    }
+
+    function showError(elementId) {
+      document.getElementById(elementId).style.display = 'block';
+    }
+
+    function hideError(elementId) {
+      document.getElementById(elementId).style.display = 'none';
+    }
+
+    function showNotification(message, type = 'info') {
+      // Create notification element
+      const notification = document.createElement('div');
+      notification.className = `notification ${type}`;
+      notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+        <span>${message}</span>
+      `;
+
+      // Add to page
+      document.body.appendChild(notification);
+
+      // Remove after 3 seconds
+      setTimeout(() => {
+        notification.remove();
+      }, 3000);
+    }
+
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = '/';
+    }
+
+    // Placeholder functions for features not yet implemented
+    async function loadResearch() {
+      try {
+        showLoading('researchLoading');
+        hideError('researchError');
+
+        const response = await fetch('/api/research', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          const research = await response.json();
+          allResearch = Array.isArray(research) ? research : [];
+          displayResearch(allResearch);
+        } else {
+          showError('researchError');
+        }
+      } catch (error) {
+        console.error('Error loading research:', error);
+        showError('researchError');
+      } finally {
+        hideLoading('researchLoading');
+      }
+    }
+
+    function displayResearch(research) {
+      const tbody = document.getElementById('researchTableBody');
+      tbody.innerHTML = '';
+
+      if (research.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="no-results">No research papers found.</td></tr>';
+        return;
+      }
+
+      research.forEach(paper => {
+        const row = tbody.insertRow();
+        row.innerHTML = `
+          <td>${paper._id}</td>
+          <td>${paper.title}</td>
+          <td>
+            <div class="author-chips">
+              ${(
+                Array.isArray(paper.authors)
+                  ? paper.authors
+                  : String(paper.authors || '').split(',').map(a => a.trim()).filter(Boolean)
+              ).map(a => `<span class=\"author-chip\">${a}</span>`).join(' ')}
+            </div>
+          </td>
+          <td>${paper.department || 'N/A'}</td>
+          <td>${paper.year}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn primary" onclick="viewResearch('${paper._id}')">
+                <i class="fas fa-eye"></i> View
+              </button>
+              <button class="action-btn delete" onclick="deleteResearch('${paper._id}')">
+                <i class="fas fa-trash"></i> Delete
+              </button>
+            </div>
+          </td>
+        `;
+      });
+    }
+
+    async function approveResearch(id) {
+      try {
+        const response = await fetch(`/api/research/${id}/approve`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          showNotification('Research approved successfully!', 'success');
+          loadResearch();
+        } else {
+          showNotification('Failed to approve research', 'error');
+        }
+      } catch (error) {
+        console.error('Error approving research:', error);
+        showNotification('Failed to approve research', 'error');
+      }
+    }
+
+    async function rejectResearch(id) {
+      try {
+        const response = await fetch(`/api/research/${id}/reject`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          showNotification('Research rejected successfully!', 'success');
+          loadResearch();
+        } else {
+          showNotification('Failed to reject research', 'error');
+        }
+      } catch (error) {
+        console.error('Error rejecting research:', error);
+        showNotification('Failed to reject research', 'error');
+      }
+    }
+
+    async function deleteResearch(id) {
+      if (!confirm('Are you sure you want to delete this research paper?')) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/research/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          showNotification('Research deleted successfully!', 'success');
+          loadResearch();
+        } else {
+          showNotification('Failed to delete research', 'error');
+        }
+      } catch (error) {
+        console.error('Error deleting research:', error);
+        showNotification('Failed to delete research', 'error');
+      }
+    }
+
+    function handleSearch(e) {
+      e.preventDefault();
+      const keyword = document.getElementById('searchKeyword').value.trim();
+      if (!keyword) {
+        document.getElementById('searchResults').innerHTML = '';
+        document.getElementById('resultsCount').textContent = 'Enter search terms to find research papers';
+        return;
+      }
+      document.getElementById('searchLoading').style.display = 'block';
+      
+      // Use the proper search API endpoint
+      const params = new URLSearchParams({ keyword });
+      fetch(`/api/research/search?${params.toString()}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('searchLoading').style.display = 'none';
+          displaySearchResults(data);
+        })
+        .catch(() => {
+          document.getElementById('searchLoading').style.display = 'none';
+          document.getElementById('searchResults').innerHTML = '<div class="no-results">Error searching research papers.</div>';
+        });
+    }
+
+    function displaySearchResults(results) {
+      const container = document.getElementById('searchResults');
+      if (!results.length) {
+        container.innerHTML = '<div class="no-results">No research papers found.</div>';
+        document.getElementById('resultsCount').textContent = 'No research papers found';
+        return;
+      }
+      document.getElementById('resultsCount').textContent = `${results.length} research paper(s) found`;
+      container.innerHTML = results.map(paper => `
+        <div class="research-item">
+          <h4>${paper.title}</h4>
+          <p><strong>Authors:</strong> ${Array.isArray(paper.authors) ? paper.authors.join(', ') : paper.authors || 'N/A'}</p>
+          <p><strong>Department:</strong> ${paper.department || 'N/A'}</p>
+          <p><strong>Year:</strong> ${paper.year || 'N/A'}</p>
+          <p><strong>Status:</strong> <span class="status-badge ${paper.status}">${paper.status}</span></p>
+          <div class="research-actions">
+            ${paper.pdfFilePath ? `<a href="${API_BASE_URL}/api/research/${paper._id}/pdf" target="_blank" class="btn btn-primary">View PDF</a>` : ''}
+           
+          </div>
+        </div>
+      `).join('');
+    }
+
+
+    function searchResearch() {
+      const input = document.getElementById('researchSearch');
+      if (!input) return;
+      const q = input.value.trim().toLowerCase();
+      if (!q) {
+        displayResearch(allResearch);
+        return;
+      }
+      const filtered = allResearch.filter(p => {
+        const title = String(p.title || '').toLowerCase();
+        const authors = Array.isArray(p.authors) ? p.authors.join(', ') : String(p.authors || '');
+        const dept = String(p.department || '');
+        const year = String(p.year || '');
+        return (
+          title.includes(q) ||
+          authors.toLowerCase().includes(q) ||
+          dept.toLowerCase().includes(q) ||
+          year.includes(q) ||
+          String(p._id || '').toLowerCase().includes(q)
+        );
+      });
+      displayResearch(filtered);
+    }
+
+    // Keywords Tag Input Styles (scoped)
+    (function addTagInputStyles(){
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .tag-input { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; padding: 8px; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; }
+        .tag-input:focus-within { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: #f1f5f9; color: #0f172a; font-size: .85rem; border: 1px solid #e2e8f0; }
+        .tag-chip .remove { cursor: pointer; color: #64748b; font-weight: 700; }
+        .tag-chip .remove:hover { color: #ef4444; }
+        .tags-editor { border: none; outline: none; flex: 1; min-width: 160px; padding: 6px; font-size: .95rem; }
+        .author-chips { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; }
+        .author-chip { display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 999px; background: #eef2ff; color: #1e293b; font-size: .82rem; border: 1px solid #c7d2fe; }
+        .chips { display:flex; flex-wrap: wrap; gap: 6px; }
+        .adviser-chip { display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 999px; background: #ecfdf5; color: #065f46; font-size: .82rem; border: 1px solid #a7f3d0; }
+        .adviser-row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+        .author-row { display: flex; align-items: flex-start; gap: 8px; margin: 4px 0; }
+        .row-icon { color: #0a1a4a; opacity: .85; flex: 0 0 18px; text-align: center; margin-top: 4px; }
+        .meta-list { display: flex; flex-direction: column; gap: 4px; margin-bottom: 6px; }
+        .meta-row { display: flex; align-items: center; gap: 8px; color: #4b5563; font-size: .92rem; }
+        .meta-icon { color: #0a1a4a; opacity: .9; }
+        /* Put keyword input row on top, filters + button below */
+        .search-toolbar { display: grid; grid-template-columns: 1fr; gap: 12px; background: #fff; border-radius: 14px; padding: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); width: 98%; margin: 0 auto 12px; }
+        .search-keyword-row { grid-column: 1 / -1; display: flex; justify-content: center; }
+        #searchTagInput { width: 100%; max-width: 720px; max-height: 110px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+        /* keep chips from expanding container height; scroll instead */
+        #searchTagInput .tags { width: 100%; }
+        .search-controls-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: center; max-width: 980px; margin: 0 auto; }
+        .search-controls-row select, .search-controls-row .tags-editor, .search-controls-row button { height: 44px; }
+      `;
+      document.head.appendChild(style);
+    })();
+
+    // Keywords Tag Input Logic
+    let keywordsTagsList = [];
+
+    function renderKeywordsTags() {
+      const tagsContainer = document.getElementById('keywordsTags');
+      if (!tagsContainer) return;
+      tagsContainer.innerHTML = '';
+      keywordsTagsList.forEach((kw, idx) => {
+        const chip = document.createElement('span');
+        chip.className = 'tag-chip';
+        chip.innerHTML = `${kw}<span class="remove" data-index="${idx}" aria-label="Remove">×</span>`;
+        tagsContainer.appendChild(chip);
+      });
+      const hidden = document.getElementById('researchKeywords');
+      if (hidden) hidden.value = keywordsTagsList.join(',');
+    }
+
+    function addKeywordTag(raw) {
+      const val = (raw || '').trim();
+      if (!val) return;
+      if (keywordsTagsList.includes(val)) return;
+      keywordsTagsList.push(val);
+      renderKeywordsTags();
+    }
+
+    function removeKeywordTag(index) {
+      keywordsTagsList.splice(index, 1);
+      renderKeywordsTags();
+    }
+
+    document.addEventListener('click', function(e){
+      const target = e.target;
+      if (target && target.classList && target.classList.contains('remove')) {
+        const idx = parseInt(target.getAttribute('data-index'));
+        if (!isNaN(idx)) removeKeywordTag(idx);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const input = document.getElementById('keywordsTextInput');
+      const tagBox = document.getElementById('keywordsTagInput');
+      if (!input || !tagBox) return;
+
+      input.addEventListener('keydown', function(e){
+        // Add on Space, Enter, or Comma
+        if (e.key === ' ' || e.key === 'Enter' || e.key === ',') {
+          e.preventDefault();
+          addKeywordTag(input.value.replace(/,/g,'').trim());
+          input.value = '';
+        } else if (e.key === 'Backspace' && input.value === '' && keywordsTagsList.length > 0) {
+          // Backspace with empty input removes last tag
+          keywordsTagsList.pop();
+          renderKeywordsTags();
+        }
+      });
+
+      // If the hidden input had prefilled comma-separated keywords, hydrate tags
+      const hidden = document.getElementById('researchKeywords');
+      if (hidden && hidden.value) {
+        keywordsTagsList = hidden.value.split(',').map(s => s.trim()).filter(Boolean);
+        renderKeywordsTags();
+      }
+
+      // Ensure form reset clears tags
+      const form = document.getElementById('researchUploadForm');
+      if (form) {
+        form.addEventListener('reset', function(){
+          keywordsTagsList = [];
+          renderKeywordsTags();
+        });
+        // On submit, sync hidden field (already done in render)
+        form.addEventListener('submit', function(){
+          const hiddenFinal = document.getElementById('researchKeywords');
+          if (hiddenFinal) hiddenFinal.value = keywordsTagsList.join(',');
+        });
+      }
+    });
+
+    // Authors Tag Input Logic (comma-triggered)
+    let authorsTagsList = [];
+
+    function renderAuthorsTags() {
+      const tagsContainer = document.getElementById('authorsTags');
+      if (!tagsContainer) return;
+      tagsContainer.innerHTML = '';
+      authorsTagsList.forEach((name, idx) => {
+        const chip = document.createElement('span');
+        chip.className = 'tag-chip';
+        chip.innerHTML = `${name}<span class="remove" data-auth-index="${idx}" aria-label="Remove">×</span>`;
+        tagsContainer.appendChild(chip);
+      });
+      const hidden = document.getElementById('researchAuthors');
+      if (hidden) {
+        hidden.value = authorsTagsList.join(',');
+        // Enforce required via hidden field validity
+        if (authorsTagsList.length === 0) {
+          hidden.setCustomValidity('Please add at least one author.');
+        } else {
+          hidden.setCustomValidity('');
+        }
+      }
+    }
+
+    function addAuthorTag(raw) {
+      const val = (raw || '').trim();
+      if (!val) return;
+      if (authorsTagsList.includes(val)) return;
+      authorsTagsList.push(val);
+      renderAuthorsTags();
+    }
+
+    function removeAuthorTag(index) {
+      authorsTagsList.splice(index, 1);
+      renderAuthorsTags();
+    }
+
+    document.addEventListener('click', function(e){
+      const target = e.target;
+      if (target && target.classList && target.classList.contains('remove') && target.hasAttribute('data-auth-index')) {
+        const idx = parseInt(target.getAttribute('data-auth-index'));
+        if (!isNaN(idx)) removeAuthorTag(idx);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const input = document.getElementById('authorsTextInput');
+      const tagBox = document.getElementById('authorsTagInput');
+      if (!input || !tagBox) return;
+
+      input.addEventListener('keydown', function(e){
+        // Add on comma or Enter
+        if (e.key === ',' || e.key === 'Enter') {
+          e.preventDefault();
+          addAuthorTag(input.value.replace(/,/g,'').trim());
+          input.value = '';
+        } else if (e.key === 'Backspace' && input.value === '' && authorsTagsList.length > 0) {
+          authorsTagsList.pop();
+          renderAuthorsTags();
+        }
+      });
+
+      // Hydrate from hidden if prefilled
+      const hidden = document.getElementById('researchAuthors');
+      if (hidden && hidden.value) {
+        authorsTagsList = hidden.value.split(',').map(s => s.trim()).filter(Boolean);
+        renderAuthorsTags();
+      }
+
+      // Ensure form reset clears tags and submit syncs hidden
+      const form = document.getElementById('researchUploadForm');
+      if (form) {
+        form.addEventListener('reset', function(){
+          authorsTagsList = [];
+          renderAuthorsTags();
+        });
+        form.addEventListener('submit', function(){
+          const hiddenFinal = document.getElementById('researchAuthors');
+          if (hiddenFinal) {
+            hiddenFinal.value = authorsTagsList.join(',');
+            if (authorsTagsList.length === 0) {
+              hiddenFinal.setCustomValidity('Please add at least one author.');
+            } else {
+              hiddenFinal.setCustomValidity('');
+            }
+          }
+        });
+      }
+    });
+
+    // === PDF Upload Display logic ===
+    const pdfInput = document.getElementById('researchPdf');
+    const fileDisplay = document.getElementById('fileUploadDisplay');
+    if (pdfInput && fileDisplay) {
+      pdfInput.addEventListener('change', function() {
+        fileDisplay.innerHTML = '';
+        if (pdfInput.files && pdfInput.files[0]) {
+          fileDisplay.innerHTML = `
+            <i class='fas fa-check-circle' style='color:#10b981; margin-right:6px;'></i>
+            <span style='font-weight:600;'>${pdfInput.files[0].name}</span>
+          `;
+        } else {
+          fileDisplay.innerHTML = `
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Choose PDF file or drag and drop</p>
+            <small>Only PDF files are allowed (max 10MB)</small>
+          `;
+        }
+      });
+    }
+
+    // === Search & View: Tag input and search logic ===
+    (function(){
+      // Department normalization function
+      function normalizeDept(name) {
+        return String(name||'').replace(/\s*\([^)]*\)/, '').trim().toLowerCase();
+      }
+      
+      const tags = [];
+      const tagsEl = document.getElementById('searchTags');
+      const inputEl = document.getElementById('searchInput');
+      const deptEl = document.getElementById('filterDepartment');
+      const yearEl = document.getElementById('filterYear');
+      const semEl = document.getElementById('filterSemester');
+      const sortEl = null;
+      const btn = document.getElementById('doSearch');
+      const grid = document.getElementById('resultsGrid');
+      const loading = document.getElementById('searchLoading');
+      const empty = document.getElementById('noResults');
+      const pager = document.getElementById('pager');
+
+      if (!inputEl) return; // Section not visible on this page
+
+      // populate years
+      const currentYear = new Date().getFullYear();
+      for (let y = currentYear; y >= 2000; y--) {
+        const opt = document.createElement('option');
+        opt.value = String(y); opt.textContent = String(y);
+        yearEl.appendChild(opt);
+      }
+
+      function renderTagList(){
+        tagsEl.innerHTML = tags.map((t,i)=>`<span class="tag-chip">${t}<span class="remove" data-i="${i}">×</span></span>`).join('');
+      }
+
+      function addTag(raw){
+        const val = String(raw||'').trim();
+        if (!val) return;
+        const norm = val.toLowerCase();
+        if (tags.includes(norm)) return;
+        tags.push(norm); renderTagList();
+      }
+
+      tagsEl.addEventListener('click', (e)=>{
+        const r = e.target.closest('.remove');
+        if (r){ const i = Number(r.getAttribute('data-i')); tags.splice(i,1); renderTagList(); }
+      });
+
+      function addFromInput(){
+        const raw = inputEl.value || '';
+        if (!raw.trim()) return;
+        raw.split(/[,\s]+/).forEach(tok=> addTag(tok));
+        inputEl.value = '';
+      }
+
+      inputEl.addEventListener('keydown', (e)=>{
+        if (e.key === 'Enter' || e.key === ',' || e.key === ' '){
+          e.preventDefault(); addFromInput(); fetchPage(1);
+        }
+      });
+      // Realtime: re-fetch after short debounce when typing
+      let inputTimer;
+      inputEl.addEventListener('input', ()=>{
+        clearTimeout(inputTimer);
+        inputTimer = setTimeout(()=>{ fetchPage(1); }, 300);
+      });
+
+      btn.addEventListener('click', ()=>{ addFromInput(); fetchPage(1); });
+
+      async function fetchPage(page){
+        loading.style.display = 'block'; empty.style.display = 'none'; grid.innerHTML=''; pager.style.display='none';
+        const params = new URLSearchParams({
+          page: String(page||1),
+          limit: '9'
+        });
+        if (deptEl.value) {
+          const normalizedDept = normalizeDept(deptEl.value);
+          console.log('Original department:', deptEl.value);
+          console.log('Normalized department:', normalizedDept);
+          params.set('department', normalizedDept);
+        }
+        if (yearEl.value) params.set('year', yearEl.value);
+        if (semEl && semEl.value) params.set('semester', semEl.value);
+        if (tags.length) params.set('qTags', tags.join(','));
+        try{
+          const url = `/api/research/search?${params.toString()}`;
+          console.log('Search URL:', url);
+          const res = await fetch(url, { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }});
+          const json = await res.json();
+          const { data = [], pagination } = json;
+          loading.style.display = 'none';
+          if (!Array.isArray(data) || data.length === 0){ empty.style.display='block'; return; }
+          renderCards(data);
+          renderPager(pagination);
+        }catch(err){
+          loading.style.display = 'none'; empty.style.display='block';
+        }
+      }
+
+      function renderCards(items){
+        grid.innerHTML = items.map(p => {
+          const authors = (Array.isArray(p.authors) ? p.authors : String(p.authors||'').split(',')).filter(Boolean).map(a=>String(a).trim());
+          const advisers = String(p.adviser || '').split(',').map(s=>s.trim()).filter(Boolean);
+          const metaDept = p.department || '';
+          const metaYear = p.year || '';
+          const metaSem = p.semester || '';
+          return `
+          <div class="result-card">
+            <h4>${p.title}</h4>
+            <div class="meta-list">
+              ${metaDept ? `<div class=\"meta-row\"><i class=\"fas fa-building meta-icon\"></i><span>${metaDept}</span></div>` : ''}
+              ${metaYear ? `<div class=\"meta-row\"><i class=\"fas fa-calendar-alt meta-icon\"></i><span>${metaYear}</span></div>` : ''}
+              ${metaSem ? `<div class=\"meta-row\"><i class=\"fas fa-graduation-cap meta-icon\"></i><span>${metaSem}</span></div>` : ''}
+            </div>
+            <div class="adviser-row"><i class="fas fa-user-tie row-icon"></i><div class="chips">${(advisers.length ? advisers : ['N/A']).map(n=>`<span class=\"adviser-chip\">${n}</span>`).join(' ')}</div></div>
+            <div class="author-row"><i class="fas fa-users row-icon"></i><div class="author-chips">${authors.map(a=>`<span class=\"author-chip\">${a}</span>`).join(' ')}</div></div>
+            <button class="btn archive-btn" onclick="archiveResearch('${p._id}')"><i class="fas fa-archive"></i> Archive</button>
+            ${p.pdfFilePath ? `<a class=\"btn btn-primary view-btn\" href=\"${API_BASE_URL}/api/research/${p._id}/pdf\" target=\"_blank\" onclick=\"trackView('${p._id}')\">View Research</a>` : ''}
+            
+          </div>`;
+        }).join('');
+      }
+
+      function renderPager(p){
+        if (!p || p.totalPages <= 1) { pager.style.display = 'none'; return; }
+        pager.style.display = 'flex';
+        pager.style.justifyContent = 'center';
+        pager.style.flexWrap = 'wrap';
+        pager.innerHTML = '';
+
+        const maxPages = 5;
+        let start = Math.max(1, p.page - 2);
+        let end = start + maxPages - 1;
+        if (end > p.totalPages) {
+          end = p.totalPages;
+          start = Math.max(1, end - maxPages + 1);
+        }
+
+        // Previous arrow
+        const prevBtn = document.createElement('button');
+        prevBtn.innerHTML = '&lt;';
+        prevBtn.disabled = p.page === 1;
+        if (p.page > 1) prevBtn.onclick = () => fetchPage(p.page - 1);
+        prevBtn.classList.add('pager-arrow');
+        pager.appendChild(prevBtn);
+
+        // Page numbers
+        for (let i = start; i <= end; i++) {
+          const btn = document.createElement('button');
+          btn.textContent = String(i);
+          if (i === p.page) btn.classList.add('active');
+          btn.onclick = () => fetchPage(i);
+          pager.appendChild(btn);
+        }
+
+        // Next arrow
+        const nextBtn = document.createElement('button');
+        nextBtn.innerHTML = '&gt;';
+        nextBtn.disabled = p.page === p.totalPages;
+        if (p.page < p.totalPages) nextBtn.onclick = () => fetchPage(p.page + 1);
+        nextBtn.classList.add('pager-arrow');
+        pager.appendChild(nextBtn);
+      }
+
+      // initial search
+      fetchPage(1);
+    })();
+
+    // Sidebar toggle with persistence
+    const sidebarKey = 'adminSidebarCollapsed';
+    function applySidebarState() {
+      const collapsed = localStorage.getItem(sidebarKey) === 'true';
+      document.body.classList.toggle('sidebar-collapsed', collapsed);
+    }
+    applySidebarState();
+
+
+    window.trackView = async function(id){
+      try{ await fetch(`/api/research/${id}/view`, { method:'POST', headers:{ 'Authorization': `Bearer ${localStorage.getItem('token')}` } }); }catch(e){}
+    }
+
+    // Ensure all Stats charts resize after sidebar slides
+    (function(){
+      const resizeCharts = () => {
+        if(window._advChart && typeof window._advChart.resize === 'function') window._advChart.resize();
+        if(window._depChart && typeof window._depChart.resize === 'function') window._depChart.resize();
+        if(window._yearChart && typeof window._yearChart.resize === 'function') window._yearChart.resize();
+      };
+      // If your hamburger calls body.classList.toggle('sidebar-collapsed'), this catches it:
+      const observer = new MutationObserver(mutations => {
+        if(mutations.some(mut => mut.attributeName === 'class')) resizeCharts();
+      });
+      observer.observe(document.body, { attributes:true });
+      // Extra: force resize on window resize
+      window.addEventListener('resize', resizeCharts);
+    })();
+
+    // Pending Research Functions
+    async function loadPendingResearch() {
+      try {
+        showLoading('pendingResearchLoading');
+        hideError('pendingResearchError');
+        
+        const response = await fetch('/api/research/pending', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          const pendingResearch = await response.json();
+          displayPendingResearch(pendingResearch);
+          updatePendingResearchBadge(pendingResearch.length);
+        } else {
+          showError('pendingResearchError');
+        }
+      } catch (error) {
+        console.error('Error loading pending research:', error);
+        showError('pendingResearchError');
+      } finally {
+        hideLoading('pendingResearchLoading');
+      }
+    }
+
+    function displayPendingResearch(research) {
+      const tbody = document.getElementById('pendingResearchTableBody');
+      tbody.innerHTML = '';
+
+      // Store research data globally for viewResearch function
+      window.currentPendingResearch = research;
+
+      if (research.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" class="no-results">No pending research papers.</td></tr>';
+        return;
+      }
+
+      research.forEach(paper => {
+        const row = tbody.insertRow();
+        const uploadDate = new Date(paper.createdAt).toLocaleDateString();
+        const uploadedBy = paper.uploadedBy ? 
+          `${paper.uploadedBy.firstName} ${paper.uploadedBy.lastName}` : 
+          'Unknown';
+        
+        row.innerHTML = `
+          <td>${paper._id.substring(0, 8)}...</td>
+          <td>${paper.title}</td>
+          <td>
+            <div class="author-chips">
+              ${(Array.isArray(paper.authors) ? paper.authors : String(paper.authors || '').split(',').map(a => a.trim()).filter(Boolean))
+                .map(a => `<span class="author-chip">${a}</span>`).join(' ')}
+            </div>
+          </td>
+          <td>${paper.department || 'N/A'}</td>
+          <td>${paper.year}</td>
+          <td>${uploadedBy}</td>
+          <td>${uploadDate}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn success" onclick="approveResearch('${paper._id}')">
+                <i class="fas fa-check"></i> Approve
+              </button>
+              <button class="action-btn archive-btn" onclick="archiveResearchFromPending('${paper._id}')">
+                <i class="fas fa-archive"></i> Archive
+              </button>
+              <button class="action-btn primary" onclick="viewResearch('${paper._id}')">
+                <i class="fas fa-eye"></i> View
+              </button>
+            </div>
+          </td>
+        `;
+      });
+    }
+
+    async function approveResearch(id) {
+      if (!confirm('Are you sure you want to approve this research paper?')) return;
+      
+      try {
+        const response = await fetch(`/api/research/${id}/approve`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          showNotification('Research paper approved successfully!', 'success');
+          loadPendingResearch(); // Refresh the list
+        } else {
+          const error = await response.json();
+          showNotification(error.message || 'Failed to approve research paper', 'error');
+        }
+      } catch (error) {
+        console.error('Error approving research:', error);
+        showNotification('Error approving research paper', 'error');
+      }
+    }
+
+    async function archiveResearchFromPending(id) {
+      if (!confirm('Are you sure you want to archive this research paper?')) return;
+      
+      try {
+        const response = await fetch(`/api/research/${id}/archive`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          showNotification('Research paper archived successfully!', 'success');
+          loadPendingResearch(); // Refresh the list
+        } else {
+          const error = await response.json();
+          showNotification(error.message || 'Failed to archive research paper', 'error');
+        }
+      } catch (error) {
+        console.error('Error archiving research:', error);
+        showNotification('Error archiving research paper', 'error');
+      }
+    }
+
+    function updatePendingResearchBadge(count) {
+      const badge = document.getElementById('pendingResearchBadge');
+      if (count > 0) {
+        badge.textContent = count;
+        badge.style.display = 'inline';
+      } else {
+        badge.style.display = 'none';
+      }
+    }
+
+    async function loadPendingResearchBadgeCount() {
+      try {
+        const response = await fetch('/api/research/pending', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          const pendingResearch = await response.json();
+          updatePendingResearchBadge(pendingResearch.length);
+        }
+      } catch (error) {
+        console.error('Error loading pending research badge count:', error);
+      }
+    }
+
+    async function loadArchivedResearchCount() {
+      try {
+        const response = await fetch('/api/research/archived/count', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const countElement = document.getElementById('totalArchivedResearch');
+          if (countElement) {
+            countElement.textContent = data.count || 0;
+          }
+        }
+      } catch (error) {
+        console.error('Error loading archived research count:', error);
+        const countElement = document.getElementById('totalArchivedResearch');
+        if (countElement) {
+          countElement.textContent = '0';
+        }
+      }
+    }
+
+    function viewResearch(id) {
+      // Find the research paper in the current pending research data
+      const pendingResearch = window.currentPendingResearch || [];
+      const research = pendingResearch.find(p => p._id === id);
+      
+      if (research && research.pdfFilePath) {
+        // Open the PDF in a new tab
+        window.open(`${API_BASE_URL}/api/research/${id}/pdf`, '_blank');
+      } else {
+        showNotification('Research PDF not found or not available', 'error');
+      }
+    }
+
+  </script>
+</body>
+</html>

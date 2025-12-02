@@ -1,0 +1,118 @@
+digraph LoginFlow {
+    rankdir=TB;
+    graph [bgcolor=black, fontsize=14];
+    node [fontcolor=white, color=white, fontsize=12];
+    edge [color=white, fontcolor=white];
+    
+    // Start Node
+    Start [shape=oval, label="START", style=rounded];
+    
+    // Display Login Page
+    Start -> DisplayLoginPage;
+    DisplayLoginPage [shape=parallelogram, label="DISPLAY LOG IN PAGE"];
+    
+    DisplayLoginPage -> UserActionDecision;
+    UserActionDecision [shape=diamond, label="THE USER WILL\nLOG IN?"];
+    
+    // Login Flow
+    UserActionDecision -> LoadLoginForm [label="T"];
+    UserActionDecision -> CheckRegisterOption [label="F"];
+    
+    LoadLoginForm [shape=rectangle, label="LOAD LOGIN FORM"];
+    
+    LoadLoginForm -> FillLoginForm;
+    FillLoginForm [shape=parallelogram, label="FILL LOGIN FORM\n(Enter Login ID/Username\nand Password)"];
+    
+    FillLoginForm -> ValidateDetails;
+    ValidateDetails [shape=rectangle, label="VALIDATE DETAILS"];
+    
+    ValidateDetails -> FieldsFilledCheck;
+    FieldsFilledCheck [shape=diamond, label="ALL FIELDS\nFILLED?"];
+    
+    FieldsFilledCheck -> ShowFieldError [label="F"];
+    ShowFieldError [shape=parallelogram, label="'PLEASE FILL ALL\nREQUIRED FIELDS'"];
+    ShowFieldError -> ConnectorB;
+    ConnectorB [shape=circle, label="B", style=filled, fillcolor=white, fontcolor=black];
+    ConnectorB -> FillLoginForm;
+    
+    FieldsFilledCheck -> DisableSubmitButton [label="T"];
+    DisableSubmitButton [shape=rectangle, label="DISABLE SUBMIT BUTTON\nSET TEXT 'Logging in...'"];
+    
+    DisableSubmitButton -> SendLoginRequest;
+    SendLoginRequest [shape=rectangle, label="SEND LOGIN REQUEST\nTO /api/auth/login"];
+    
+    SendLoginRequest -> QueryDatabase;
+    QueryDatabase [shape=rectangle, label="QUERY USER DATABASE"];
+    
+    QueryDatabase -> UserDB;
+    UserDB [shape=cylinder, label="USER DATABASE\n(MongoDB)"];
+    
+    UserDB -> CheckConnection;
+    CheckConnection [shape=diamond, label="CONNECTION\nSUCCESSFUL?"];
+    
+    CheckConnection -> ShowConnectionError [label="F"];
+    ShowConnectionError [shape=parallelogram, label="'COULD NOT CONNECT\nTO SERVER'"];
+    ShowConnectionError -> EnableSubmitButton;
+    EnableSubmitButton [shape=rectangle, label="ENABLE SUBMIT BUTTON\nRESTORE ORIGINAL TEXT"];
+    EnableSubmitButton -> ConnectorB;
+    
+    CheckConnection -> CheckResponseStatus [label="T"];
+    CheckResponseStatus [shape=diamond, label="RESPONSE\nSTATUS OK?"];
+    
+    CheckResponseStatus -> ShowLoginError [label="F"];
+    ShowLoginError [shape=parallelogram, label="DISPLAY ERROR MESSAGE\n(Server error)"];
+    ShowLoginError -> EnableSubmitButton;
+    
+    CheckResponseStatus -> ExtractTokenData [label="T"];
+    ExtractTokenData [shape=rectangle, label="EXTRACT TOKEN\nAND USER DATA"];
+    
+    ExtractTokenData -> StoreToken;
+    StoreToken [shape=rectangle, label="STORE TOKEN IN\nLOCAL STORAGE"];
+    
+    StoreToken -> StoreUserData;
+    StoreUserData [shape=rectangle, label="STORE USER DATA\nIN LOCAL STORAGE"];
+    
+    StoreUserData -> CheckUserRole;
+    CheckUserRole [shape=diamond, label="USER ROLE\nEXISTS?"];
+    
+    CheckUserRole -> ShowInvalidRoleError [label="F"];
+    ShowInvalidRoleError [shape=parallelogram, label="'INVALID USER ROLE'"];
+    ShowInvalidRoleError -> EnableSubmitButton;
+    
+    CheckUserRole -> CheckIsStudent [label="T"];
+    CheckIsStudent [shape=diamond, label="IS ROLE\nSTUDENT?"];
+    
+    CheckIsStudent -> RedirectToStudentDashboard [label="T"];
+    CheckIsStudent -> CheckIsAdmin [label="F"];
+    
+    CheckIsAdmin [shape=diamond, label="IS ROLE\nADMIN?"];
+    
+    CheckIsAdmin -> RedirectToAdminDashboard [label="T"];
+    CheckIsAdmin -> ShowInvalidRoleError [label="F"];
+    
+    RedirectToStudentDashboard [shape=rectangle, label="REDIRECT TO\ndashboard.html"];
+    RedirectToAdminDashboard [shape=rectangle, label="REDIRECT TO\nadmin-dashboard.html"];
+    
+    RedirectToStudentDashboard -> ShowSuccessMessage;
+    RedirectToAdminDashboard -> ShowSuccessMessage;
+    ShowSuccessMessage [shape=parallelogram, label="DISPLAY MESSAGE\n'LOGIN SUCCESSFUL!'"];
+    
+    ShowSuccessMessage -> End;
+    End [shape=oval, label="END", style=rounded];
+    
+    // Alternative Paths (Register/Forgot Password)
+    CheckRegisterOption [shape=diamond, label="THE USER WILL\nREGISTER?"];
+    
+    CheckRegisterOption -> ConnectorRP [label="T"];
+    ConnectorRP [shape=hexagon, label="RP", style=filled, fillcolor=white, fontcolor=black];
+    
+    CheckRegisterOption -> CheckForgotPassword [label="F"];
+    CheckForgotPassword [shape=diamond, label="THE USER FORGOT\nPASSWORD?"];
+    
+    CheckForgotPassword -> ConnectorFPP [label="T"];
+    ConnectorFPP [shape=hexagon, label="FPP", style=filled, fillcolor=white, fontcolor=black];
+    
+    CheckForgotPassword -> ConnectorA [label="F"];
+    ConnectorA [shape=circle, label="A", style=filled, fillcolor=white, fontcolor=black];
+    ConnectorA -> UserActionDecision;
+}

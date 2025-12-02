@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | Research Repository</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="darkmode.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" type="image/png" href="ecalogo.png">
+  <script>
+    // Apply theme before page load
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        document.addEventListener('DOMContentLoaded', function(){
+        document.body.classList.add('dark-theme');
+        });
+      }
+    })();
+  </script>
+</head>
+<body class="sidebar-collapsed">
+  <div class="modern-admin-dashboard student-dashboard">
+    <!-- Modern Header -->
+    <header class="modern-admin-header">
+      <div class="header-content">
+        <div class="header-left">
+          <button id="sidebarToggle" class="sidebar-toggle btn btn-outline-primary" aria-label="Toggle sidebar">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="logo-section">
+            <i class="fas fa-graduation-cap"></i>
+            <div class="logo-text">
+              <h1>Student Dashboard</h1>
+              <span class="subtitle">Research Repository</span>
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="user-info">
+            <div class="user-avatar">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="user-details">
+              <span class="user-name" id="studentName">Student User</span>
+              <span class="user-role">Student</span>
+            </div>
+          </div>
+          <button id="logoutBtn" class="modern-logout-btn btn btn-primary">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="admin-main-content">
+      <!-- Modern Sidebar Navigation -->
+      <nav class="modern-sidebar">
+        <div class="nav-section">
+          <h3 class="nav-section-title">Research</h3>
+          <a href="#upload" class="modern-nav-link active" data-section="upload">
+            <i class="fas fa-upload"></i>
+            <span>Upload Research</span>
+          </a>
+          <a href="#search" class="modern-nav-link" data-section="search">
+            <i class="fas fa-search"></i>
+            <span>Search & View Research</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <h3 class="nav-section-title">Account</h3>
+          <a href="#settings" class="modern-nav-link" data-section="settings">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Content Area -->
+      <div class="admin-content-area">
+        <!-- Upload Research Section -->
+        <div id="upload" class="admin-section active">
+          <div class="section-header">
+            <div class="section-title">
+              <h2><i class="fas fa-file-upload"></i> Research Management</h2>
+              <p>Upload and manage research papers in the repository</p>
+            </div>
+          </div>
+          <!-- Multi-Step Wizard -->
+          <div class="wizard-section">
+            <div class="wizard-card">
+              <!-- Progress Indicator -->
+              <div class="wizard-progress">
+                <div class="wizard-step-label active" data-step="1">
+                  <div class="step-number">1</div>
+                  <div class="step-title">Basic Info</div>
+                </div>
+                <div class="wizard-progress-line"></div>
+                <div class="wizard-step-label" data-step="2">
+                  <div class="step-number">2</div>
+                  <div class="step-title">Details</div>
+                  </div>
+                <div class="wizard-progress-line"></div>
+                <div class="wizard-step-label" data-step="3">
+                  <div class="step-number">3</div>
+                  <div class="step-title">Upload</div>
+          </div>
+        </div>
+
+              <!-- Wizard Form -->
+              <form id="uploadWizardForm" class="modern-form" enctype="multipart/form-data">
+                <!-- Step 1: Basic Information -->
+                <div class="wizard-step wizard-step-active" id="uploadStep1">
+                  <div class="wizard-step-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Basic Information</h3>
+                  </div>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                      <label for="wizardTitle">Title *</label>
+                      <input type="text" id="wizardTitle" name="title" placeholder="Enter research title" required>
+                    </div>
+                <div class="form-group">
+                      <label for="wizardAdviserInput">Adviser(s) *
+                        <span class="info-tooltip">
+                          <i class="fas fa-question-circle" tabindex="0"></i>
+                          <span class="tooltip-text" style="display:none;">
+                            <b>Instructions for Adviser(s):</b>
+                            <ul style="margin-top:7px;">
+                              <li>Type each adviser’s full name and press Enter to add</li>
+                              <li>For multiple advisers, add them one by one</li>
+                              <li>Do not include titles (e.g., Dr, Ma’am, Sir)</li>
+                              <li>Use format: First Name Last Name</li>
+                              <li>Example: "Ana Reyes", "Luis Ramos"</li>
+                            </ul>
+                          </span>
+                        </span>
+                      </label>
+                      <div class="tag-input-container">
+                        <input type="text" id="wizardAdviserInput" placeholder="Type adviser name and press Enter or Comma">
+                        <input type="hidden" id="wizardAdviser" name="adviser" required>
+                        <div id="wizardAdviserTags" class="tags-container"></div>
+                      </div>
+                </div>
+                <div class="form-group">
+                      <label for="wizardYear">Year *</label>
+                      <select id="wizardYear" name="year" required>
+                        <option value="">Select year</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                      <label for="wizardSemester">Semester *</label>
+                      <select id="wizardSemester" name="semester" required>
+                        <option value="">Select semester</option>
+                        <option value="1st Semester">1st Semester</option>
+                        <option value="2nd Semester">2nd Semester</option>
+                        <option value="Summer">Summer</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                      <label for="wizardDepartment">Department *</label>
+                      <select id="wizardDepartment" name="department" required>
+                    <option value="">Select Department</option>
+                    <option value="Marine Engineering">Marine Engineering</option>
+                    <option value="Marine Transportation">Marine Transportation</option>
+                    <option value="Criminology">Criminology</option>
+                    <option value="Tourism Management">Tourism Management</option>
+                    <option value="Technical-Vocational Teacher Education">Technical-Vocational Teacher Education</option>
+                    <option value="Early Childhood Education">Early Childhood Education</option>
+                    <option value="Information System">Information System</option>
+                    <option value="Entrepreneurship">Entrepreneurship</option>
+                    <option value="Management Accounting">Management Accounting</option>
+                    <option value="Nursing">Nursing</option>
+                    <option value="Humanities and Social Sciences (HUMSS)">Humanities and Social Sciences (HUMSS)</option>
+                    <option value="Accountancy, Business and Management (ABM)">Accountancy, Business and Management (ABM)</option>
+                    <option value="Science, Technology, Engineering and Mathematics (STEM)">Science, Technology, Engineering and Mathematics (STEM)</option>
+                    <option value="General Academic Strand (GAS)">General Academic Strand (GAS)</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                  </div>
+                  <div class="wizard-actions">
+                    <button type="button" class="btn btn-primary" onclick="nextStep1()">
+                      Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+              </div>
+
+                <!-- Step 2: Research Details -->
+                <div class="wizard-step" id="uploadStep2">
+                  <div class="wizard-step-header">
+                    <i class="fas fa-edit"></i>
+                    <h3>Research Details</h3>
+                  </div>
+                  <div class="form-grid">
+              <div class="form-group">
+                <label for="wizardAuthorsInput">Author(s) *
+                  <span class="info-tooltip">
+                    <i class="fas fa-question-circle" tabindex="0"></i>
+                    <span class="tooltip-text" style="display:none;">
+                      <b>Instructions for Authors:</b>
+                      <ul style="margin-top:7px;">
+                        <li>Enter the full name of each author (e.g., "John Michael Smith")</li>
+                        <li>For multiple authors, add each one separately by pressing Enter after each name</li>
+                        <li>Include all co-authors, research partners, and contributors</li>
+                        <li>Use the format: First Name Last Name</li>
+                        <li>Example: "Maria Santos", "Juan Carlos Rodriguez", "Dr. Anna Lee"</li>
+                      </ul>
+                    </span>
+                  </span>
+                </label>
+                <div class="tag-input-container">
+                  <input type="text" id="wizardAuthorsInput" placeholder="Type author(s) and press enter to add">
+                  <input type="hidden" id="wizardAuthors" name="authors" required>
+                  <div id="wizardAuthorsTags" class="tags-container"></div>
+                    </div>
+                  </div>
+              <div class="form-group">
+                <label for="wizardKeywordsInput">Keywords
+                  <span class="info-tooltip">
+                    <i class="fas fa-question-circle" tabindex="0"></i>
+                    <span class="tooltip-text" style="display:none;">
+                      <b>Instructions for Keywords:</b>
+                      <ul style="margin-top:7px;">
+                        <li>Enter 3-10 relevant keywords that describe your research topic</li>
+                        <li>Use specific terms that researchers might search for</li>
+                        <li>Include both general and specific terms (e.g., "machine learning", "neural networks", "image recognition")</li>
+                        <li>Use single words or short phrases (2-3 words maximum per keyword)</li>
+                        <li>Separate each keyword by pressing Space or Enter</li>
+                        <li>Examples: "artificial intelligence", "data analysis", "sustainability", "education", "healthcare"</li>
+                      </ul>
+                    </span>
+                  </span>
+                </label>
+                <div class="tag-input-container">
+                  <input type="text" id="wizardKeywordsInput" placeholder="Type keywords and press comma or enter to add">
+                  <input type="hidden" id="wizardKeywords" name="keywords">
+                  <div id="wizardKeywordsTags" class="tags-container"></div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="wizard-actions">
+                    <button type="button" class="btn btn-secondary" onclick="backStep2()">
+                      <i class="fas fa-arrow-left"></i> Back
+                </button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep2()">
+                      Next <i class="fas fa-arrow-right"></i>
+                    </button>
+            </div>
+              </div>
+
+                <!-- Step 3: Upload File -->
+                <div class="wizard-step" id="uploadStep3">
+                  <div class="wizard-step-header">
+                    <i class="fas fa-file-upload"></i>
+                    <h3>Upload File</h3>
+                </div>
+                  <div class="form-group full-width">
+                    <label for="wizardPdf">PDF File *</label>
+                    <div class="file-upload-area" id="wizardFileUploadArea" tabindex="0" style="cursor:pointer;">
+                      <div class="file-upload-content">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag and drop your PDF file here, or <label for="wizardPdf" class="file-upload-link" style="color:#0366d6;cursor:pointer;text-decoration:underline;">click to browse</label></p>
+                        <p class="file-upload-info">Maximum file size: 200MB</p>
+                  </div>
+                      <input type="file" id="wizardPdf" name="file" accept=".pdf" required style="opacity: 0; width: 0; height: 0; position: absolute; z-index: -1;">
+                </div>
+                    <div id="wizardFileDisplay" class="file-display" style="display: none;">
+                      <div class="file-info">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="file-name"></span>
+                        <span class="file-size"></span>
+              </div>
+                      <button type="button" class="file-remove" onclick="removeWizardFile()">
+                        <i class="fas fa-times"></i>
+              </button>
+              </div>
+                  </div>
+                  <div class="wizard-actions">
+                    <button type="button" class="btn btn-secondary" onclick="backStep3()">
+                      <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitResearch">
+                      <i class="fas fa-upload"></i> Upload Research
+              </button>
+            </div>
+                </div>
+            </form>
+          </div>
+        </div>
+                </div>
+                
+        <!-- Search Section -->
+        <div id="search" class="admin-section">
+          <div class="section-header">
+            <div class="section-title">
+              <h2><i class="fas fa-search"></i> Search & View</h2>
+              <p>Search and view research papers in the repository</p>
+            </div>
+          </div>
+          <div class="search-module">
+            <div class="search-toolbar">
+              <div class="search-keyword-row">
+                <div id="searchTagInput" class="tag-input">
+                  <div id="searchTags" class="tags"></div>
+                  <input id="searchInput" class="tags-editor" type="text" placeholder="Type keyword and press comma/space">
+                </div>
+              </div>
+              <div class="search-controls-row">
+                <select id="filterDepartment">
+                      <option value="">All Departments</option>
+                      <option value="Marine Engineering">Marine Engineering</option>
+                      <option value="Marine Transportation">Marine Transportation</option>
+                      <option value="Criminology">Criminology</option>
+                      <option value="Tourism Management">Tourism Management</option>
+                      <option value="Technical-Vocational Teacher Education">Technical-Vocational Teacher Education</option>
+                      <option value="Early Childhood Education">Early Childhood Education</option>
+                      <option value="Information System">Information System</option>
+                      <option value="Entrepreneurship">Entrepreneurship</option>
+                      <option value="Management Accounting">Management Accounting</option>
+                      <option value="Nursing">Nursing</option>
+                      <option value="Humanities and Social Sciences (HUMSS)">Humanities and Social Sciences (HUMSS)</option>
+                      <option value="Accountancy, Business and Management (ABM)">Accountancy, Business and Management (ABM)</option>
+                      <option value="Science, Technology, Engineering and Mathematics (STEM)">Science, Technology, Engineering and Mathematics (STEM)</option>
+                      <option value="General Academic Strand (GAS)">General Academic Strand (GAS)</option>
+                        <option value="Other">Other</option>
+                      </select>
+                <select id="filterYear">
+                        <option value="">All Years</option>
+                      </select>
+                <select id="filterSemester">
+                  <option value="">All Semesters</option>
+                  <option value="1st Semester">1st Semester</option>
+                  <option value="2nd Semester">2nd Semester</option>
+                  <option value="Summer">Summer</option>
+                </select>
+                <button id="doSearch" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                  </div>
+            <div id="searchLoading" class="loading-state" style="display:none;">
+              <div class="loading-spinner"></div>
+              <p>Searching...</p>
+                </div>
+            <div id="noResults" class="no-results" style="display:none;">No results found</div>
+            <div id="resultsGrid" class="results-grid"></div>
+            <div id="pager" class="pager" style="display:none;"></div>
+                </div>
+            </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="admin-section">
+          <div class="section-header">
+            <div class="section-title">
+              <h2><i class="fas fa-cog"></i> Settings</h2>
+              <p>Manage your account and preferences</p>
+              </div>
+            </div>
+
+          <div class="settings-card">
+            <h3><i class="fas fa-user"></i> Profile Information</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="profileName">Full Name</label>
+                <input type="text" id="profileName" readonly>
+              </div>
+              <div class="form-group">
+                <label for="profileDepartment">Department</label>
+                <input type="text" id="profileDepartment" readonly>
+          </div>
+        </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="profileRole">Role</label>
+                <input type="text" id="profileRole" readonly>
+                </div>
+              <div class="form-group">
+                <label for="profileJoined">Member Since</label>
+                <input type="text" id="profileJoined" readonly>
+              </div>
+                </div>
+              </div>
+
+          <div class="settings-card" style="margin-top: 1.25rem;">
+            <h3><i class="fas fa-moon"></i> Appearance</h3>
+            <p class="form-description">Switch between light and dark mode for a personalized viewing experience.</p>
+            <div class="dark-mode-toggle">
+              <div style="display:inline-flex; align-items:center; gap:10px;">
+                <label class="switch">
+                  <input type="checkbox" id="darkModeToggle">
+                  <span class="slider"></span>
+                </label>
+                <span class="toggle-text">Dark Mode</span>
+              </div>
+              </div>
+            </div>
+
+          <div class="settings-card">
+            <h3><i class="fas fa-key"></i> Account Actions</h3>
+            <div class="form-actions">
+              <button class="btn btn-outline-primary" onclick="changePassword()">
+                <i class="fas fa-key"></i> Change Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Wire student dashboard dark mode switch
+    document.addEventListener('DOMContentLoaded', function(){
+      const toggle = document.getElementById('darkModeToggle');
+      if (!toggle) return;
+      const current = localStorage.getItem('theme') || 'light';
+      toggle.checked = current === 'dark';
+      const apply = (t) => {
+        localStorage.setItem('theme', t);
+        document.documentElement.setAttribute('data-theme', t);
+        document.body.classList.toggle('dark-theme', t === 'dark');
+      };
+      apply(current);
+      toggle.addEventListener('change', function(){
+        apply(this.checked ? 'dark' : 'light');
+      });
+    });
+  </script>
+</body>
+</html>

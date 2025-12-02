@@ -1,0 +1,15 @@
+node_modules/
+venv/
+.vscode/
+.env
+
+# Uploaded and backup files (keep these locally, not in git)
+uploads/
+backend/uploads/
+backup/
+
+# Large binary artifacts
+*.zip
+*.pdf
+
+

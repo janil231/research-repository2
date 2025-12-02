@@ -1,0 +1,1 @@
+Get-Content frontend/style.css | Select-Object -First 4643 | Set-Content frontend/style_temp.css
