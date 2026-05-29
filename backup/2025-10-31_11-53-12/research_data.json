@@ -1,0 +1,3609 @@
+{
+  "exportDate": "2025-10-31T03:53:13.217Z",
+  "totalRecords": 140,
+  "research": [
+    {
+      "_id": "6902cf7697ad2f4f0aa7bfbf",
+      "title": "A Comparative Study of Computer Vision Pipelines for Financial Risk Assessment (Archived)",
+      "authors": [
+        "Jennifer Brown",
+        "Mary Anderson",
+        "David Davis",
+        "Linda Martinez"
+      ],
+      "adviser": "Maria Santos, Angela Garcia",
+      "department": "Criminology",
+      "year": 2017,
+      "semester": "2nd Semester",
+      "keywords": [
+        "for",
+        "cloud",
+        "nlp",
+        "systems",
+        "analytics",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760963256736-328420772.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:37:42.398Z",
+      "updatedAt": "2025-10-30T02:37:42.398Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bfbc",
+      "title": "Design and Implementation of Distributed Systems for Smart Cities (Archived)",
+      "authors": [
+        "John Martinez",
+        "Daniel Martinez",
+        "Anthony Brown",
+        "Betty Taylor"
+      ],
+      "adviser": "Michael Reyes",
+      "department": "Accountancy, Business and Management (ABM)",
+      "year": 2025,
+      "semester": "Summer",
+      "keywords": [
+        "ml",
+        "analytics",
+        "ai",
+        "iot",
+        "of"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760955616098-692763666.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:37:42.392Z",
+      "updatedAt": "2025-10-30T02:37:42.392Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bfb9",
+      "title": "An Exploratory Analysis of Edge Computing Frameworks for Smart Cities (Archived)",
+      "authors": [
+        "Betty Wilson",
+        "John Thomas",
+        "Patricia Taylor"
+      ],
+      "adviser": "Maria Santos, Robert Mendoza",
+      "department": "Humanities and Social Sciences (HUMSS)",
+      "year": 2024,
+      "semester": "Summer",
+      "keywords": [
+        "cloud",
+        "computing",
+        "analysis"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760954922949-145565470.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:37:42.387Z",
+      "updatedAt": "2025-10-30T02:37:42.387Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bfb6",
+      "title": "Design and Implementation of Data Warehousing for Agriculture (Archived)",
+      "authors": [
+        "James Taylor",
+        "Jessica Miller",
+        "Jennifer Moore"
+      ],
+      "adviser": "Victor Flores",
+      "department": "Other",
+      "year": 2022,
+      "semester": "2nd Semester",
+      "keywords": [
+        "cloud",
+        "iot",
+        "implementation",
+        "engineering",
+        "design",
+        "systems"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953831926-592474361.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:37:42.380Z",
+      "updatedAt": "2025-10-30T02:37:42.380Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bfb3",
+      "title": "Design and Implementation of Cloud-Native Applications for Smart Cities (Archived)",
+      "authors": [
+        "Linda Taylor",
+        "Nancy Martinez",
+        "Betty Williams"
+      ],
+      "adviser": "Kathline Ventura, Robert Mendoza",
+      "department": "Entrepreneurship",
+      "year": 2020,
+      "semester": "Summer",
+      "keywords": [
+        "systems",
+        "security",
+        "data"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953433442-104371200.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:37:42.375Z",
+      "updatedAt": "2025-10-30T02:37:42.375Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bfb0",
+      "title": "Towards Large Language Models for Smart Cities (Archived)",
+      "authors": [
+        "Lisa Rodriguez",
+        "Mark Martin",
+        "Betty Davis"
+      ],
+      "adviser": "Joseph Rivera",
+      "department": "Nursing",
+      "year": 2023,
+      "semester": "2nd Semester",
+      "keywords": [
+        "systems",
+        "models",
+        "nlp",
+        "ml"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953295294-943955750.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:37:42.370Z",
+      "updatedAt": "2025-10-30T02:37:42.370Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bfad",
+      "title": "A Framework for Data Warehousing for E-Commerce (Archived)",
+      "authors": [
+        "Nancy Wilson",
+        "James Moore",
+        "Patricia Wilson",
+        "Susan Martinez"
+      ],
+      "adviser": "Maria Santos",
+      "department": "Marine Engineering",
+      "year": 2023,
+      "semester": "1st Semester",
+      "keywords": [
+        "a",
+        "data",
+        "framework"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760872433664-101854246.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:37:42.362Z",
+      "updatedAt": "2025-10-30T02:37:42.362Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bfaa",
+      "title": "An Exploratory Analysis of Blockchain-Based Identity for Customer Churn Prediction (Archived)",
+      "authors": [
+        "Susan Davis",
+        "Anthony Rodriguez",
+        "Mark Jackson",
+        "Linda Lopez"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Science, Technology, Engineering and Mathematics (STEM)",
+      "year": 2018,
+      "semester": "2nd Semester",
+      "keywords": [
+        "exploratory",
+        "based",
+        "analysis",
+        "iot",
+        "an",
+        "for"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760418076009-749501508.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:37:42.358Z",
+      "updatedAt": "2025-10-30T02:37:42.358Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bfa7",
+      "title": "Design and Implementation of Edge Computing Frameworks for Customer Churn Prediction (Archived)",
+      "authors": [
+        "Margaret Miller",
+        "Linda Miller",
+        "Richard Miller"
+      ],
+      "adviser": "Victor Flores, Michael Reyes",
+      "department": "General Academic Strand (GAS)",
+      "year": 2021,
+      "semester": "1st Semester",
+      "keywords": [
+        "churn",
+        "engineering",
+        "design"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760417041283-592321852.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:37:42.353Z",
+      "updatedAt": "2025-10-30T02:37:42.353Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bfa4",
+      "title": "An Investigation into Computer Vision Pipelines in Public Sector Services (Archived)",
+      "authors": [
+        "Robert Smith",
+        "Charles Jones",
+        "Charles Anderson",
+        "Sarah Moore"
+      ],
+      "adviser": "Victor Flores",
+      "department": "Other",
+      "year": 2022,
+      "semester": "Summer",
+      "keywords": [
+        "analytics",
+        "into",
+        "systems",
+        "investigation",
+        "an",
+        "cloud"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416710108-641002328.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:37:42.344Z",
+      "updatedAt": "2025-10-30T02:37:42.344Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf97",
+      "title": "Design and Implementation of Cloud-Native Applications for Smart Cities (Pending)",
+      "authors": [
+        "Linda Taylor",
+        "Nancy Martinez",
+        "Betty Williams"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Nursing",
+      "year": 2020,
+      "semester": "Summer",
+      "keywords": [
+        "systems",
+        "security",
+        "data"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953433442-104371200.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:37:42.299Z",
+      "updatedAt": "2025-10-30T02:39:18.519Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf94",
+      "title": "Towards Distributed Systems in Healthcare (Pending)",
+      "authors": [
+        "Thomas Taylor",
+        "Anthony Thomas",
+        "Thomas Smith",
+        "Lisa Martin"
+      ],
+      "adviser": "Kathline Ventura",
+      "department": "Management Accounting",
+      "year": 2024,
+      "semester": "Summer",
+      "keywords": [
+        "nlp",
+        "engineering",
+        "systems",
+        "security"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953295303-751455992.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:37:42.293Z",
+      "updatedAt": "2025-10-30T02:39:33.550Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf91",
+      "title": "An Exploratory Analysis of Cybersecurity Protocols for Financial Risk Assessment (Pending)",
+      "authors": [
+        "Joseph Thomas",
+        "Anthony Smith",
+        "Barbara Gonzalez",
+        "Matthew Taylor"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Early Childhood Education",
+      "year": 2021,
+      "semester": "2nd Semester",
+      "keywords": [
+        "security",
+        "for",
+        "of",
+        "systems",
+        "ml"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953152393-558243459.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:37:42.288Z",
+      "updatedAt": "2025-10-30T02:37:42.288Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf8e",
+      "title": "A Framework for Data Warehousing for E-Commerce (Pending)",
+      "authors": [
+        "Nancy Wilson",
+        "James Moore",
+        "Patricia Wilson",
+        "Susan Martinez"
+      ],
+      "adviser": "Michael Reyes",
+      "department": "Accountancy, Business and Management (ABM)",
+      "year": 2023,
+      "semester": "1st Semester",
+      "keywords": [
+        "a",
+        "data",
+        "framework"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760872433664-101854246.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:37:42.280Z",
+      "updatedAt": "2025-10-30T02:37:42.280Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf8b",
+      "title": "An Investigation into Automated Code Generation for Agriculture (Pending)",
+      "authors": [
+        "Robert Brown",
+        "Richard Miller",
+        "Karen Davis",
+        "Susan Lopez"
+      ],
+      "adviser": "Michael Reyes, Maria Santos",
+      "department": "Tourism Management",
+      "year": 2023,
+      "semester": "1st Semester",
+      "keywords": [
+        "iot",
+        "security",
+        "ai",
+        "agriculture"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760418288669-874540924.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:37:42.275Z",
+      "updatedAt": "2025-10-30T02:37:42.275Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf88",
+      "title": "Leveraging Data Warehousing at Scale (Pending)",
+      "authors": [
+        "Thomas Smith",
+        "Mark Taylor",
+        "Christopher Davis",
+        "Nancy Moore"
+      ],
+      "adviser": "Victor Flores",
+      "department": "Nursing",
+      "year": 2022,
+      "semester": "2nd Semester",
+      "keywords": [
+        "iot",
+        "warehousing",
+        "nlp",
+        "systems",
+        "leveraging"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760418069677-612568788.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:37:42.271Z",
+      "updatedAt": "2025-10-30T02:37:42.271Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf85",
+      "title": "Design and Implementation of Edge Computing Frameworks for Customer Churn Prediction (Pending)",
+      "authors": [
+        "Margaret Miller",
+        "Linda Miller",
+        "Richard Miller"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Humanities and Social Sciences (HUMSS)",
+      "year": 2021,
+      "semester": "1st Semester",
+      "keywords": [
+        "churn",
+        "engineering",
+        "design"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760417041283-592321852.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:37:42.262Z",
+      "updatedAt": "2025-10-30T02:37:42.262Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf82",
+      "title": "Design and Implementation of Computer Vision Pipelines for Financial Risk Assessment (Pending)",
+      "authors": [
+        "Mark Lopez",
+        "William Jackson",
+        "Joseph Lopez",
+        "Betty Gonzalez"
+      ],
+      "adviser": "Kathline Ventura",
+      "department": "Criminology",
+      "year": 2020,
+      "semester": "1st Semester",
+      "keywords": [
+        "for",
+        "computer",
+        "risk",
+        "security",
+        "and",
+        "implementation"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416921961-653579276.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:37:42.232Z",
+      "updatedAt": "2025-10-30T02:37:42.232Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf7f",
+      "title": "An Exploratory Analysis of Blockchain-Based Identity for Smart Cities (Pending)",
+      "authors": [
+        "Sandra Moore",
+        "David Martinez",
+        "James Rodriguez",
+        "Matthew Hernandez"
+      ],
+      "adviser": "Michael Reyes",
+      "department": "Tourism Management",
+      "year": 2021,
+      "semester": "Summer",
+      "keywords": [
+        "nlp",
+        "an",
+        "cities",
+        "security",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416579145-357739792.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:37:42.224Z",
+      "updatedAt": "2025-10-30T02:37:42.224Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf7c",
+      "title": "Optimization of Blockchain-Based Identity for Smart Cities (Pending)",
+      "authors": [
+        "Mark Jones",
+        "Sandra Thomas"
+      ],
+      "adviser": "Robert Mendoza, Daniel Cruz",
+      "department": "Other",
+      "year": 2022,
+      "semester": "1st Semester",
+      "keywords": [
+        "of",
+        "based",
+        "ml",
+        "blockchain",
+        "cities"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416223425-16517755.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:37:42.142Z",
+      "updatedAt": "2025-10-30T02:37:42.142Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf79",
+      "title": "Towards Recommendation Systems in Resource-Constrained Environments (Pending)",
+      "authors": [
+        "Daniel Miller",
+        "Linda Jones",
+        "Susan Gonzalez"
+      ],
+      "adviser": "Patricia Ramos",
+      "department": "Tourism Management",
+      "year": 2025,
+      "semester": "Summer",
+      "keywords": [
+        "resource",
+        "recommendation",
+        "data",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760415822562-845322193.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:37:42.119Z",
+      "updatedAt": "2025-10-30T02:37:42.119Z"
+    },
+    {
+      "_id": "6902cf7697ad2f4f0aa7bf76",
+      "title": "Design and Implementation of Cloud-Native Applications in Public Sector Services (Pending)",
+      "authors": [
+        "Barbara Lopez",
+        "Sandra Taylor",
+        "John Taylor"
+      ],
+      "adviser": "Angela Garcia",
+      "department": "Marine Transportation",
+      "year": 2023,
+      "semester": "Summer",
+      "keywords": [
+        "ai",
+        "in",
+        "iot",
+        "implementation"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760415414721-175467514.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:37:42.091Z",
+      "updatedAt": "2025-10-30T02:37:42.091Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d98",
+      "title": "Optimization of Blockchain-Based Identity for Smart Cities (Archived)",
+      "authors": [
+        "Mark Jones",
+        "Sandra Thomas"
+      ],
+      "adviser": "Patricia Ramos, Angela Garcia",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2022,
+      "semester": "1st Semester",
+      "keywords": [
+        "of",
+        "based",
+        "ml",
+        "blockchain",
+        "cities"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416223425-16517755.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:32:10.998Z",
+      "updatedAt": "2025-10-30T02:32:10.998Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d95",
+      "title": "An Exploratory Analysis of Edge Computing Frameworks for Smart Cities (Archived)",
+      "authors": [
+        "Richard Wilson",
+        "William Williams"
+      ],
+      "adviser": "Kathline Ventura, Anna Torres",
+      "department": "Other",
+      "year": 2022,
+      "semester": "1st Semester",
+      "keywords": [
+        "of",
+        "systems",
+        "engineering",
+        "smart",
+        "cities",
+        "for"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760415586141-466012941.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:32:10.994Z",
+      "updatedAt": "2025-10-30T02:32:10.994Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d92",
+      "title": "Evaluating the Effectiveness of Recommendation Systems in Healthcare (Archived)",
+      "authors": [
+        "Jessica Williams",
+        "Thomas Rodriguez"
+      ],
+      "adviser": "Kathline Ventura, Daniel Cruz",
+      "department": "Tourism Management",
+      "year": 2017,
+      "semester": "2nd Semester",
+      "keywords": [
+        "the",
+        "engineering",
+        "nlp"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760359389657-625330286.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:32:10.988Z",
+      "updatedAt": "2025-10-30T02:32:10.988Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d8f",
+      "title": "Evaluating the Effectiveness of Blockchain-Based Identity for Agriculture (Archived)",
+      "authors": [
+        "Karen Smith",
+        "Sandra Miller",
+        "Betty Wilson",
+        "Betty Anderson"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Management Accounting",
+      "year": 2025,
+      "semester": "Summer",
+      "keywords": [
+        "identity",
+        "security",
+        "cloud",
+        "the"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760359138936-973145709.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:32:10.984Z",
+      "updatedAt": "2025-10-30T02:32:10.984Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d8c",
+      "title": "Design and Implementation of Time Series Forecasting in Higher Education (Archived)",
+      "authors": [
+        "Mary Gonzalez",
+        "Christopher Williams"
+      ],
+      "adviser": "Angela Garcia, Kathline Ventura",
+      "department": "Humanities and Social Sciences (HUMSS)",
+      "year": 2018,
+      "semester": "1st Semester",
+      "keywords": [
+        "time",
+        "of",
+        "series",
+        "data",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760256965642-259516541.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:32:10.979Z",
+      "updatedAt": "2025-10-30T02:32:10.979Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d89",
+      "title": "A Machine Learning Approach to Blockchain-Based Identity in Resource-Constrained Environments (Archived)",
+      "authors": [
+        "John Martin",
+        "Joseph Jackson",
+        "Michael Johnson"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Information System",
+      "year": 2019,
+      "semester": "2nd Semester",
+      "keywords": [
+        "learning",
+        "ai",
+        "engineering",
+        "approach",
+        "identity",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760255031396-447552845.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:32:10.975Z",
+      "updatedAt": "2025-10-30T02:32:10.975Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d86",
+      "title": "Towards Time Series Forecasting for Agriculture (Archived)",
+      "authors": [
+        "Mark Hernandez",
+        "Lisa Smith",
+        "Karen Wilson",
+        "John Johnson"
+      ],
+      "adviser": "Joseph Rivera",
+      "department": "Science, Technology, Engineering and Mathematics (STEM)",
+      "year": 2022,
+      "semester": "Summer",
+      "keywords": [
+        "towards",
+        "iot",
+        "systems",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760253057553-153473135.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:32:10.969Z",
+      "updatedAt": "2025-10-30T02:32:10.969Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d83",
+      "title": "A Comparative Study of Cybersecurity Protocols at Scale (Archived)",
+      "authors": [
+        "Susan Davis",
+        "Betty Gonzalez",
+        "Margaret Williams"
+      ],
+      "adviser": "Joseph Rivera, Patricia Ramos",
+      "department": "Information System",
+      "year": 2020,
+      "semester": "Summer",
+      "keywords": [
+        "comparative",
+        "scale",
+        "study",
+        "iot"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759303024052-371045134.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:32:10.966Z",
+      "updatedAt": "2025-10-30T02:32:10.966Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d80",
+      "title": "A Machine Learning Approach to Cybersecurity Protocols for Customer Churn Prediction (Archived)",
+      "authors": [
+        "Anthony Hernandez",
+        "Daniel Jones",
+        "Anthony Brown",
+        "Elizabeth Garcia"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Other",
+      "year": 2024,
+      "semester": "2nd Semester",
+      "keywords": [
+        "analytics",
+        "to",
+        "cybersecurity",
+        "ml",
+        "engineering",
+        "learning"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759302180204-665679008.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:32:10.962Z",
+      "updatedAt": "2025-10-30T02:32:10.962Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d7d",
+      "title": "An Investigation into Large Language Models for Smart Cities (Archived)",
+      "authors": [
+        "Barbara Taylor",
+        "Sarah Miller",
+        "Susan Brown",
+        "William Thomas"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Criminology",
+      "year": 2018,
+      "semester": "2nd Semester",
+      "keywords": [
+        "large",
+        "systems",
+        "for",
+        "investigation"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759288175369-948222843.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "archived",
+      "createdAt": "2025-10-30T02:32:10.959Z",
+      "updatedAt": "2025-10-30T02:32:10.959Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d7a",
+      "title": "Evaluating the Effectiveness of Recommendation Systems in Healthcare (Pending)",
+      "authors": [
+        "Jessica Williams",
+        "Thomas Rodriguez"
+      ],
+      "adviser": "Michael Reyes",
+      "department": "Information System",
+      "year": 2017,
+      "semester": "2nd Semester",
+      "keywords": [
+        "the",
+        "engineering",
+        "nlp"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760359389657-625330286.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.952Z",
+      "updatedAt": "2025-10-30T02:32:10.952Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d77",
+      "title": "An Exploratory Analysis of Cloud-Native Applications for E-Commerce (Pending)",
+      "authors": [
+        "Thomas Brown",
+        "Matthew Martin",
+        "William Gonzalez"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Other",
+      "year": 2024,
+      "semester": "2nd Semester",
+      "keywords": [
+        "engineering",
+        "an",
+        "systems",
+        "security",
+        "for"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760359227071-738671739.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.948Z",
+      "updatedAt": "2025-10-30T02:32:10.948Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d74",
+      "title": "An Investigation into Privacy-Preserving Data Mining in Higher Education (Pending)",
+      "authors": [
+        "Anthony Jackson",
+        "Michael Hernandez",
+        "Elizabeth Garcia",
+        "Karen Smith"
+      ],
+      "adviser": "Victor Flores",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2023,
+      "semester": "Summer",
+      "keywords": [
+        "data",
+        "engineering",
+        "nlp",
+        "ml",
+        "into"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760351508466-437326391.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.943Z",
+      "updatedAt": "2025-10-30T02:32:10.943Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d71",
+      "title": "Design and Implementation of Time Series Forecasting in Higher Education (Pending)",
+      "authors": [
+        "Mary Gonzalez",
+        "Christopher Williams"
+      ],
+      "adviser": "Patricia Ramos",
+      "department": "Nursing",
+      "year": 2018,
+      "semester": "1st Semester",
+      "keywords": [
+        "time",
+        "of",
+        "series",
+        "data",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760256965642-259516541.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.936Z",
+      "updatedAt": "2025-10-30T02:32:10.936Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d6e",
+      "title": "An Investigation into Edge Computing Frameworks for Smart Cities (Pending)",
+      "authors": [
+        "Charles Wilson",
+        "Karen Wilson",
+        "Joseph Hernandez",
+        "David Davis"
+      ],
+      "adviser": "Joseph Rivera, Kathline Ventura",
+      "department": "Tourism Management",
+      "year": 2018,
+      "semester": "1st Semester",
+      "keywords": [
+        "investigation",
+        "engineering",
+        "frameworks",
+        "ml",
+        "smart",
+        "for"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760255194942-398185833.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.931Z",
+      "updatedAt": "2025-10-30T02:32:10.931Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d6b",
+      "title": "An Exploratory Analysis of CI/CD Pipelines for Customer Churn Prediction (Pending)",
+      "authors": [
+        "Richard Davis",
+        "Jennifer Davis",
+        "Nancy Garcia"
+      ],
+      "adviser": "Daniel Cruz",
+      "department": "Management Accounting",
+      "year": 2021,
+      "semester": "Summer",
+      "keywords": [
+        "an",
+        "nlp",
+        "systems",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760255020164-389083624.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.927Z",
+      "updatedAt": "2025-10-30T02:32:10.927Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d68",
+      "title": "Towards Time Series Forecasting for Agriculture (Pending)",
+      "authors": [
+        "Mark Hernandez",
+        "Lisa Smith",
+        "Karen Wilson",
+        "John Johnson"
+      ],
+      "adviser": "Victor Flores, Robert Mendoza",
+      "department": "Information System",
+      "year": 2022,
+      "semester": "Summer",
+      "keywords": [
+        "towards",
+        "iot",
+        "systems",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760253057553-153473135.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.921Z",
+      "updatedAt": "2025-10-30T02:32:10.921Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d65",
+      "title": "An Investigation into Edge Computing Frameworks in Resource-Constrained Environments (Pending)",
+      "authors": [
+        "Daniel Garcia",
+        "Barbara Williams",
+        "Daniel Davis",
+        "William Anderson"
+      ],
+      "adviser": "Kathline Ventura, Daniel Cruz",
+      "department": "Early Childhood Education",
+      "year": 2017,
+      "semester": "1st Semester",
+      "keywords": [
+        "ai",
+        "edge",
+        "analytics",
+        "nlp",
+        "ml",
+        "iot"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760085201507-974232820.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.915Z",
+      "updatedAt": "2025-10-30T02:32:10.915Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d62",
+      "title": "An Exploratory Analysis of IoT Sensor Networks at Scale (Pending)",
+      "authors": [
+        "Betty Johnson",
+        "Mary Rodriguez"
+      ],
+      "adviser": "Maria Santos",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2024,
+      "semester": "Summer",
+      "keywords": [
+        "an",
+        "ml",
+        "data",
+        "sensor",
+        "at",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759302806959-933674198.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.910Z",
+      "updatedAt": "2025-10-30T02:32:10.910Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d5f",
+      "title": "A Machine Learning Approach to Cybersecurity Protocols for Customer Churn Prediction (Pending)",
+      "authors": [
+        "Anthony Hernandez",
+        "Daniel Jones",
+        "Anthony Brown",
+        "Elizabeth Garcia"
+      ],
+      "adviser": "Joseph Rivera",
+      "department": "Management Accounting",
+      "year": 2024,
+      "semester": "2nd Semester",
+      "keywords": [
+        "analytics",
+        "to",
+        "cybersecurity",
+        "ml",
+        "engineering",
+        "learning"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759302180204-665679008.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.887Z",
+      "updatedAt": "2025-10-30T02:32:10.887Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d5c",
+      "title": "A Comparative Study of Large Language Models in Higher Education (Pending)",
+      "authors": [
+        "Joseph Hernandez",
+        "Elizabeth Gonzalez",
+        "Linda Moore",
+        "Nancy Anderson"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Science, Technology, Engineering and Mathematics (STEM)",
+      "year": 2018,
+      "semester": "Summer",
+      "keywords": [
+        "systems",
+        "analytics",
+        "study"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759288179349-606136415.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.880Z",
+      "updatedAt": "2025-10-30T02:32:10.880Z"
+    },
+    {
+      "_id": "6902ce2a2ac31c98919e0d59",
+      "title": "Towards Natural Language Processing for Financial Risk Assessment (Pending)",
+      "authors": [
+        "Karen Smith",
+        "Christopher Martinez",
+        "Susan Smith"
+      ],
+      "adviser": "Victor Flores, Anna Torres",
+      "department": "General Academic Strand (GAS)",
+      "year": 2020,
+      "semester": "Summer",
+      "keywords": [
+        "nlp",
+        "engineering",
+        "data",
+        "cloud",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759213183777-504788864.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "pending",
+      "createdAt": "2025-10-30T02:32:10.867Z",
+      "updatedAt": "2025-10-30T02:32:10.867Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fc6",
+      "title": "A Machine Learning Approach to Distributed Systems in Public Sector Services",
+      "authors": [
+        "Christopher Lopez",
+        "Robert Smith",
+        "William Wilson",
+        "Daniel Gonzalez"
+      ],
+      "adviser": "Robert Mendoza, Anna Torres",
+      "department": "Other",
+      "year": 2021,
+      "semester": "1st Semester",
+      "keywords": [
+        "sector",
+        "services",
+        "approach",
+        "engineering",
+        "nlp"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761564774427-933259939.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.371Z",
+      "updatedAt": "2025-10-30T02:29:31.546Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fc3",
+      "title": "Design and Implementation of Large Language Models in Healthcare",
+      "authors": [
+        "Michael Martin",
+        "Charles Anderson",
+        "Linda Moore"
+      ],
+      "adviser": "Michael Reyes",
+      "department": "Nursing",
+      "year": 2017,
+      "semester": "Summer",
+      "keywords": [
+        "implementation",
+        "data",
+        "security",
+        "large"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761554634825-603904536.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.356Z",
+      "updatedAt": "2025-10-30T02:29:31.540Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fc0",
+      "title": "Towards Predictive Analytics for Smart Cities",
+      "authors": [
+        "Mark Martinez",
+        "Patricia Rodriguez",
+        "Richard Taylor"
+      ],
+      "adviser": "Patricia Ramos, Michael Reyes",
+      "department": "Other",
+      "year": 2017,
+      "semester": "Summer",
+      "keywords": [
+        "ai",
+        "security",
+        "smart",
+        "cities"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761467039405-444788182.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.344Z",
+      "updatedAt": "2025-10-30T02:29:31.535Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fbd",
+      "title": "A Framework for IoT Sensor Networks for Agriculture",
+      "authors": [
+        "Charles Smith",
+        "Robert Brown"
+      ],
+      "adviser": "Joseph Rivera, Robert Mendoza",
+      "department": "General Academic Strand (GAS)",
+      "year": 2025,
+      "semester": "Summer",
+      "keywords": [
+        "for",
+        "security",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761466636306-509980055.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.339Z",
+      "updatedAt": "2025-10-30T02:29:31.528Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fba",
+      "title": "A Machine Learning Approach to A/B Testing Platforms in Resource-Constrained Environments",
+      "authors": [
+        "Joseph Davis",
+        "Michael Martin",
+        "Sarah Brown"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Nursing",
+      "year": 2025,
+      "semester": "Summer",
+      "keywords": [
+        "ml",
+        "testing",
+        "platforms",
+        "b"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761466457081-551902235.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.324Z",
+      "updatedAt": "2025-10-30T02:29:31.519Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fb7",
+      "title": "An Exploratory Analysis of Blockchain-Based Identity at Scale",
+      "authors": [
+        "Sarah Gonzalez",
+        "Patricia Wilson",
+        "Susan Gonzalez"
+      ],
+      "adviser": "Maria Santos, Victor Flores",
+      "department": "Marine Engineering",
+      "year": 2019,
+      "semester": "1st Semester",
+      "keywords": [
+        "security",
+        "analysis",
+        "data",
+        "nlp",
+        "based"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761466360489-184692661.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.308Z",
+      "updatedAt": "2025-10-30T02:29:31.515Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fb4",
+      "title": "A Comparative Study of Distributed Systems for Smart Cities",
+      "authors": [
+        "David Brown",
+        "Robert Jackson",
+        "Christopher Rodriguez"
+      ],
+      "adviser": "Kathline Ventura, Michael Reyes",
+      "department": "Early Childhood Education",
+      "year": 2018,
+      "semester": "1st Semester",
+      "keywords": [
+        "distributed",
+        "ml",
+        "study",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761463282193-139486450.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.290Z",
+      "updatedAt": "2025-10-30T02:29:31.509Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fb1",
+      "title": "Leveraging Large Language Models for Agriculture",
+      "authors": [
+        "Robert Lopez",
+        "David Wilson",
+        "Lisa Jackson",
+        "Sandra Rodriguez"
+      ],
+      "adviser": "Victor Flores",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2017,
+      "semester": "Summer",
+      "keywords": [
+        "iot",
+        "engineering",
+        "data",
+        "agriculture"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761281031987-242587407.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.274Z",
+      "updatedAt": "2025-10-30T02:29:31.503Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fae",
+      "title": "A Framework for Distributed Systems for Customer Churn Prediction",
+      "authors": [
+        "Jessica Rodriguez",
+        "Matthew Johnson",
+        "Charles Martin"
+      ],
+      "adviser": "Joseph Rivera, Angela Garcia",
+      "department": "Early Childhood Education",
+      "year": 2020,
+      "semester": "1st Semester",
+      "keywords": [
+        "ai",
+        "engineering",
+        "distributed"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761274075296-77894627.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.265Z",
+      "updatedAt": "2025-10-30T02:29:31.498Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fab",
+      "title": "An Exploratory Analysis of Recommendation Systems for Agriculture",
+      "authors": [
+        "Anthony Brown",
+        "Sarah Garcia",
+        "William Brown"
+      ],
+      "adviser": "Maria Santos, Robert Mendoza",
+      "department": "Marine Transportation",
+      "year": 2019,
+      "semester": "2nd Semester",
+      "keywords": [
+        "for",
+        "exploratory",
+        "of"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761132564404-859202223.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.258Z",
+      "updatedAt": "2025-10-30T02:29:31.488Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fa8",
+      "title": "An Exploratory Analysis of Predictive Analytics in Higher Education",
+      "authors": [
+        "Susan Miller",
+        "James Jones",
+        "Christopher Garcia",
+        "Charles Johnson"
+      ],
+      "adviser": "Maria Santos, Kathline Ventura",
+      "department": "Marine Transportation",
+      "year": 2024,
+      "semester": "1st Semester",
+      "keywords": [
+        "in",
+        "education",
+        "cloud"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761132410678-62499769.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.252Z",
+      "updatedAt": "2025-10-30T02:29:31.483Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fa5",
+      "title": "Towards IoT Sensor Networks in Healthcare",
+      "authors": [
+        "Mary Garcia",
+        "Elizabeth Gonzalez"
+      ],
+      "adviser": "Patricia Ramos, Maria Santos",
+      "department": "Information System",
+      "year": 2021,
+      "semester": "2nd Semester",
+      "keywords": [
+        "engineering",
+        "in",
+        "nlp"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761132172485-77211822.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.244Z",
+      "updatedAt": "2025-10-30T02:29:31.479Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223fa2",
+      "title": "A Comparative Study of CI/CD Pipelines for Customer Churn Prediction",
+      "authors": [
+        "Patricia Moore",
+        "Margaret Lopez",
+        "Christopher Jackson"
+      ],
+      "adviser": "Kathline Ventura",
+      "department": "Tourism Management",
+      "year": 2023,
+      "semester": "Summer",
+      "keywords": [
+        "prediction",
+        "customer",
+        "nlp",
+        "cd",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761131204054-616328492.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.235Z",
+      "updatedAt": "2025-10-30T02:29:31.472Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f9f",
+      "title": "A Machine Learning Approach to Cybersecurity Protocols in Higher Education",
+      "authors": [
+        "James Anderson",
+        "Mary Gonzalez",
+        "Margaret Brown",
+        "Karen Johnson"
+      ],
+      "adviser": "Robert Mendoza, Kathline Ventura",
+      "department": "Marine Transportation",
+      "year": 2017,
+      "semester": "Summer",
+      "keywords": [
+        "engineering",
+        "cybersecurity",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761130802356-784996108.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.218Z",
+      "updatedAt": "2025-10-30T02:29:31.467Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f9c",
+      "title": "An Exploratory Analysis of Recommendation Systems at Scale",
+      "authors": [
+        "Karen Jackson",
+        "Matthew Davis",
+        "Michael Brown"
+      ],
+      "adviser": "Maria Santos, Victor Flores",
+      "department": "Other",
+      "year": 2019,
+      "semester": "Summer",
+      "keywords": [
+        "scale",
+        "security",
+        "at",
+        "exploratory",
+        "ml",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761130690428-211247318.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.190Z",
+      "updatedAt": "2025-10-30T02:29:31.462Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f99",
+      "title": "An Investigation into Data Warehousing at Scale",
+      "authors": [
+        "Linda Rodriguez",
+        "Anthony Lopez",
+        "Sarah Lopez",
+        "Thomas Williams"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Nursing",
+      "year": 2024,
+      "semester": "1st Semester",
+      "keywords": [
+        "ml",
+        "systems",
+        "scale",
+        "investigation",
+        "into"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761130413936-814390305.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.185Z",
+      "updatedAt": "2025-10-30T02:29:31.452Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f96",
+      "title": "An Exploratory Analysis of Distributed Systems for Customer Churn Prediction",
+      "authors": [
+        "Mary Thomas",
+        "Barbara Hernandez"
+      ],
+      "adviser": "Maria Santos, Joseph Rivera",
+      "department": "Entrepreneurship",
+      "year": 2024,
+      "semester": "2nd Semester",
+      "keywords": [
+        "cloud",
+        "distributed",
+        "churn"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761129809385-538260206.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.174Z",
+      "updatedAt": "2025-10-30T02:29:31.447Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f93",
+      "title": "Towards Privacy-Preserving Data Mining in Higher Education",
+      "authors": [
+        "Christopher Davis",
+        "Margaret Thomas"
+      ],
+      "adviser": "Joseph Rivera",
+      "department": "Criminology",
+      "year": 2021,
+      "semester": "Summer",
+      "keywords": [
+        "cloud",
+        "ml",
+        "engineering",
+        "analytics",
+        "preserving",
+        "in"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761110548862-687413908.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.170Z",
+      "updatedAt": "2025-10-30T02:29:31.441Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f90",
+      "title": "A Machine Learning Approach to CI/CD Pipelines in Resource-Constrained Environments",
+      "authors": [
+        "Margaret Garcia",
+        "Margaret Hernandez",
+        "Margaret Taylor"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "General Academic Strand (GAS)",
+      "year": 2018,
+      "semester": "1st Semester",
+      "keywords": [
+        "cd",
+        "resource",
+        "to",
+        "ai",
+        "pipelines",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761110477937-367746196.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.160Z",
+      "updatedAt": "2025-10-30T02:29:31.436Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f8d",
+      "title": "A Machine Learning Approach to Large Language Models in Healthcare",
+      "authors": [
+        "James Thomas",
+        "Elizabeth Johnson",
+        "Nancy Hernandez"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2024,
+      "semester": "1st Semester",
+      "keywords": [
+        "healthcare",
+        "approach",
+        "large",
+        "ai",
+        "security"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1761107458672-509156283.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.155Z",
+      "updatedAt": "2025-10-30T02:29:31.431Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f8a",
+      "title": "Design and Implementation of A/B Testing Platforms in Resource-Constrained Environments",
+      "authors": [
+        "William Davis",
+        "Jessica Martinez"
+      ],
+      "adviser": "Michael Reyes",
+      "department": "Tourism Management",
+      "year": 2022,
+      "semester": "1st Semester",
+      "keywords": [
+        "systems",
+        "design",
+        "cloud"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760966520824-69811368.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.148Z",
+      "updatedAt": "2025-10-30T02:29:31.424Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f87",
+      "title": "Evaluating the Effectiveness of Predictive Analytics in Public Sector Services",
+      "authors": [
+        "Linda Anderson",
+        "John Brown"
+      ],
+      "adviser": "Angela Garcia, Anna Torres",
+      "department": "General Academic Strand (GAS)",
+      "year": 2020,
+      "semester": "Summer",
+      "keywords": [
+        "public",
+        "engineering",
+        "in"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760966415913-119351989.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.138Z",
+      "updatedAt": "2025-10-30T02:29:31.417Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f84",
+      "title": "Towards Time Series Forecasting for Customer Churn Prediction",
+      "authors": [
+        "Joseph Anderson",
+        "Jessica Smith",
+        "Margaret Rodriguez",
+        "John Davis"
+      ],
+      "adviser": "Patricia Ramos",
+      "department": "Tourism Management",
+      "year": 2020,
+      "semester": "1st Semester",
+      "keywords": [
+        "series",
+        "prediction",
+        "engineering",
+        "forecasting",
+        "systems",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760965904499-286868365.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.129Z",
+      "updatedAt": "2025-10-30T02:29:31.413Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f81",
+      "title": "An Exploratory Analysis of CI/CD Pipelines for Smart Cities",
+      "authors": [
+        "Jessica Garcia",
+        "Nancy Anderson",
+        "Patricia Johnson",
+        "Nancy Garcia"
+      ],
+      "adviser": "Maria Santos",
+      "department": "General Academic Strand (GAS)",
+      "year": 2020,
+      "semester": "1st Semester",
+      "keywords": [
+        "exploratory",
+        "for",
+        "an"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760965785313-258048736.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.122Z",
+      "updatedAt": "2025-10-30T02:29:31.405Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f7e",
+      "title": "Towards Large Language Models in Resource-Constrained Environments",
+      "authors": [
+        "Charles Jones",
+        "Barbara Gonzalez",
+        "Margaret Davis"
+      ],
+      "adviser": "Patricia Ramos",
+      "department": "Humanities and Social Sciences (HUMSS)",
+      "year": 2018,
+      "semester": "Summer",
+      "keywords": [
+        "models",
+        "security",
+        "towards",
+        "ml"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760965614116-681325241.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.115Z",
+      "updatedAt": "2025-10-30T02:29:31.400Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f7b",
+      "title": "Leveraging Predictive Analytics for Smart Cities",
+      "authors": [
+        "Karen Lopez",
+        "Joseph Jones",
+        "Charles Martin"
+      ],
+      "adviser": "Victor Flores, Michael Reyes",
+      "department": "Nursing",
+      "year": 2018,
+      "semester": "2nd Semester",
+      "keywords": [
+        "ml",
+        "predictive",
+        "smart",
+        "security",
+        "systems",
+        "data"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760965564585-607046833.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.105Z",
+      "updatedAt": "2025-10-30T02:29:31.396Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f78",
+      "title": "An Exploratory Analysis of A/B Testing Platforms at Scale",
+      "authors": [
+        "Betty Jones",
+        "Mary Thomas",
+        "John Rodriguez"
+      ],
+      "adviser": "Maria Santos",
+      "department": "Tourism Management",
+      "year": 2023,
+      "semester": "1st Semester",
+      "keywords": [
+        "exploratory",
+        "nlp",
+        "scale",
+        "a",
+        "cloud",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760965502715-419279752.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.089Z",
+      "updatedAt": "2025-10-30T02:29:31.389Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f75",
+      "title": "Design and Implementation of Recommendation Systems for Financial Risk Assessment",
+      "authors": [
+        "Mark Hernandez",
+        "Robert Wilson"
+      ],
+      "adviser": "Michael Reyes, Angela Garcia",
+      "department": "Humanities and Social Sciences (HUMSS)",
+      "year": 2024,
+      "semester": "Summer",
+      "keywords": [
+        "implementation",
+        "design",
+        "data",
+        "and",
+        "for",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760965365685-483379310.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.073Z",
+      "updatedAt": "2025-10-30T02:29:31.384Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f72",
+      "title": "Towards Time Series Forecasting for E-Commerce",
+      "authors": [
+        "Jessica Williams",
+        "Linda Anderson"
+      ],
+      "adviser": "Patricia Ramos",
+      "department": "Science, Technology, Engineering and Mathematics (STEM)",
+      "year": 2024,
+      "semester": "Summer",
+      "keywords": [
+        "commerce",
+        "engineering",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760965340720-143693392.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.059Z",
+      "updatedAt": "2025-10-30T02:29:31.380Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f6f",
+      "title": "Evaluating the Effectiveness of Privacy-Preserving Data Mining at Scale",
+      "authors": [
+        "Anthony Martin",
+        "Mary Garcia",
+        "Barbara Brown",
+        "Betty Garcia"
+      ],
+      "adviser": "Angela Garcia",
+      "department": "Other",
+      "year": 2019,
+      "semester": "1st Semester",
+      "keywords": [
+        "effectiveness",
+        "systems",
+        "ai",
+        "the",
+        "scale",
+        "of"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760965302931-824636367.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.037Z",
+      "updatedAt": "2025-10-30T02:29:31.369Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f6c",
+      "title": "A Machine Learning Approach to Cloud-Native Applications at Scale",
+      "authors": [
+        "Lisa Rodriguez",
+        "Christopher Smith",
+        "Linda Wilson",
+        "Nancy Johnson"
+      ],
+      "adviser": "Robert Mendoza, Victor Flores",
+      "department": "Early Childhood Education",
+      "year": 2021,
+      "semester": "1st Semester",
+      "keywords": [
+        "learning",
+        "at",
+        "applications",
+        "machine",
+        "systems",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760965298590-493726224.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.032Z",
+      "updatedAt": "2025-10-30T02:29:31.364Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f69",
+      "title": "Design and Implementation of Automated Code Generation for Smart Cities",
+      "authors": [
+        "Barbara Martinez",
+        "Margaret Wilson",
+        "William Brown",
+        "Robert Gonzalez"
+      ],
+      "adviser": "Michael Reyes",
+      "department": "Accountancy, Business and Management (ABM)",
+      "year": 2019,
+      "semester": "Summer",
+      "keywords": [
+        "generation",
+        "for",
+        "ml",
+        "data",
+        "nlp"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760965105024-578937270.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.026Z",
+      "updatedAt": "2025-10-30T02:29:31.359Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f66",
+      "title": "An Exploratory Analysis of Blockchain-Based Identity in Resource-Constrained Environments",
+      "authors": [
+        "Mark Jackson",
+        "Patricia Miller"
+      ],
+      "adviser": "Maria Santos",
+      "department": "Criminology",
+      "year": 2022,
+      "semester": "Summer",
+      "keywords": [
+        "systems",
+        "security",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760964942638-549860937.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.020Z",
+      "updatedAt": "2025-10-30T02:29:31.352Z"
+    },
+    {
+      "_id": "6902cac9c13a191079223f63",
+      "title": "Optimization of Predictive Analytics for Financial Risk Assessment",
+      "authors": [
+        "Anthony Wilson",
+        "Lisa Williams"
+      ],
+      "adviser": "Daniel Cruz, Angela Garcia",
+      "department": "Humanities and Social Sciences (HUMSS)",
+      "year": 2018,
+      "semester": "2nd Semester",
+      "keywords": [
+        "nlp",
+        "data",
+        "predictive",
+        "risk",
+        "assessment",
+        "systems"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760964736624-611093100.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:45.013Z",
+      "updatedAt": "2025-10-30T02:29:31.348Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f60",
+      "title": "Optimization of Edge Computing Frameworks for Smart Cities",
+      "authors": [
+        "Mark Smith",
+        "Michael Anderson",
+        "Christopher Thomas"
+      ],
+      "adviser": "Daniel Cruz",
+      "department": "Entrepreneurship",
+      "year": 2023,
+      "semester": "1st Semester",
+      "keywords": [
+        "ai",
+        "data",
+        "ml",
+        "security",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760964682936-728886857.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.993Z",
+      "updatedAt": "2025-10-30T02:29:31.342Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f5d",
+      "title": "A Framework for Large Language Models in Resource-Constrained Environments",
+      "authors": [
+        "Thomas Miller",
+        "James Rodriguez"
+      ],
+      "adviser": "Joseph Rivera",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2018,
+      "semester": "Summer",
+      "keywords": [
+        "analytics",
+        "in",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760964638899-581524267.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.988Z",
+      "updatedAt": "2025-10-30T02:29:31.336Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f5a",
+      "title": "A Framework for Privacy-Preserving Data Mining for E-Commerce",
+      "authors": [
+        "David Wilson",
+        "Sandra Anderson",
+        "Mary Anderson"
+      ],
+      "adviser": "Joseph Rivera",
+      "department": "Tourism Management",
+      "year": 2017,
+      "semester": "2nd Semester",
+      "keywords": [
+        "for",
+        "cloud",
+        "ml",
+        "preserving",
+        "privacy"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760963857516-46776405.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.984Z",
+      "updatedAt": "2025-10-30T02:29:31.330Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f57",
+      "title": "A Comparative Study of Computer Vision Pipelines for Financial Risk Assessment",
+      "authors": [
+        "Jennifer Brown",
+        "Mary Anderson",
+        "David Davis",
+        "Linda Martinez"
+      ],
+      "adviser": "Kathline Ventura, Angela Garcia",
+      "department": "Humanities and Social Sciences (HUMSS)",
+      "year": 2017,
+      "semester": "2nd Semester",
+      "keywords": [
+        "risk",
+        "cloud",
+        "for",
+        "nlp"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760963256736-328420772.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.968Z",
+      "updatedAt": "2025-10-30T02:29:31.319Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f54",
+      "title": "An Exploratory Analysis of Natural Language Processing in Public Sector Services",
+      "authors": [
+        "Karen Jones",
+        "Michael Miller",
+        "Betty Miller",
+        "Joseph Hernandez"
+      ],
+      "adviser": "Maria Santos, Anna Torres",
+      "department": "Accountancy, Business and Management (ABM)",
+      "year": 2025,
+      "semester": "Summer",
+      "keywords": [
+        "analytics",
+        "processing",
+        "public",
+        "sector",
+        "services",
+        "language"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760955885766-531517468.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.952Z",
+      "updatedAt": "2025-10-30T02:29:31.314Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f51",
+      "title": "A Machine Learning Approach to Privacy-Preserving Data Mining in Public Sector Services",
+      "authors": [
+        "Matthew Moore",
+        "Mark Lopez",
+        "Margaret Rodriguez"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Tourism Management",
+      "year": 2024,
+      "semester": "1st Semester",
+      "keywords": [
+        "to",
+        "machine",
+        "engineering",
+        "systems",
+        "privacy",
+        "mining"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760955755517-514218145.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.940Z",
+      "updatedAt": "2025-10-30T02:29:31.306Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f4e",
+      "title": "Design and Implementation of Distributed Systems for Smart Cities",
+      "authors": [
+        "John Martinez",
+        "Daniel Martinez",
+        "Anthony Brown",
+        "Betty Taylor"
+      ],
+      "adviser": "Michael Reyes, Victor Flores",
+      "department": "Criminology",
+      "year": 2025,
+      "semester": "Summer",
+      "keywords": [
+        "ai",
+        "ml",
+        "analytics",
+        "iot",
+        "of",
+        "nlp"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760955616098-692763666.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.936Z",
+      "updatedAt": "2025-10-30T02:29:31.301Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f4b",
+      "title": "Optimization of Computer Vision Pipelines for Smart Cities",
+      "authors": [
+        "Robert Brown",
+        "Susan Rodriguez"
+      ],
+      "adviser": "Daniel Cruz, Michael Reyes",
+      "department": "Marine Engineering",
+      "year": 2022,
+      "semester": "2nd Semester",
+      "keywords": [
+        "for",
+        "security",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760955410912-836019640.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.929Z",
+      "updatedAt": "2025-10-30T02:29:31.267Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f48",
+      "title": "A Framework for Cloud-Native Applications for Customer Churn Prediction",
+      "authors": [
+        "Jessica Miller",
+        "Nancy Lopez",
+        "Betty Johnson",
+        "Matthew Jones"
+      ],
+      "adviser": "Joseph Rivera, Maria Santos",
+      "department": "Other",
+      "year": 2018,
+      "semester": "2nd Semester",
+      "keywords": [
+        "systems",
+        "for",
+        "data",
+        "ai",
+        "framework",
+        "prediction"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760955157047-972670534.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.921Z",
+      "updatedAt": "2025-10-30T02:29:31.254Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f45",
+      "title": "An Exploratory Analysis of Edge Computing Frameworks for Smart Cities",
+      "authors": [
+        "Betty Wilson",
+        "John Thomas",
+        "Patricia Taylor"
+      ],
+      "adviser": "Maria Santos",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2024,
+      "semester": "Summer",
+      "keywords": [
+        "of",
+        "cloud",
+        "computing",
+        "analysis",
+        "exploratory",
+        "for"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760954922949-145565470.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.913Z",
+      "updatedAt": "2025-10-30T02:29:31.248Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f42",
+      "title": "A Framework for Time Series Forecasting in Resource-Constrained Environments",
+      "authors": [
+        "Lisa Moore",
+        "Margaret Wilson",
+        "Sandra Martin"
+      ],
+      "adviser": "Joseph Rivera",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2023,
+      "semester": "Summer",
+      "keywords": [
+        "for",
+        "iot",
+        "environments",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760954922878-56568034.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.903Z",
+      "updatedAt": "2025-10-30T02:29:31.241Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f3f",
+      "title": "Optimization of Automated Code Generation in Higher Education",
+      "authors": [
+        "Michael Johnson",
+        "Sarah Rodriguez",
+        "Christopher Smith"
+      ],
+      "adviser": "Daniel Cruz",
+      "department": "Tourism Management",
+      "year": 2017,
+      "semester": "2nd Semester",
+      "keywords": [
+        "automated",
+        "generation",
+        "optimization",
+        "engineering",
+        "education",
+        "cloud"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953831928-2112286.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.892Z",
+      "updatedAt": "2025-10-30T02:29:31.231Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f3c",
+      "title": "Design and Implementation of Data Warehousing for Agriculture",
+      "authors": [
+        "James Taylor",
+        "Jessica Miller",
+        "Jennifer Moore"
+      ],
+      "adviser": "Michael Reyes",
+      "department": "Management Accounting",
+      "year": 2022,
+      "semester": "2nd Semester",
+      "keywords": [
+        "cloud",
+        "iot",
+        "implementation",
+        "engineering",
+        "design",
+        "systems"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953831926-592474361.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.885Z",
+      "updatedAt": "2025-10-30T02:29:31.185Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f39",
+      "title": "Evaluating the Effectiveness of Cybersecurity Protocols for Customer Churn Prediction",
+      "authors": [
+        "David Moore",
+        "Daniel Smith",
+        "Anthony Smith",
+        "Barbara Rodriguez"
+      ],
+      "adviser": "Angela Garcia, Joseph Rivera",
+      "department": "Other",
+      "year": 2022,
+      "semester": "2nd Semester",
+      "keywords": [
+        "the",
+        "effectiveness",
+        "of",
+        "churn"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953647715-703987796.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.874Z",
+      "updatedAt": "2025-10-30T02:29:31.171Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f36",
+      "title": "A Comparative Study of Privacy-Preserving Data Mining for Financial Risk Assessment",
+      "authors": [
+        "Jennifer Martin",
+        "David Davis",
+        "Matthew Williams",
+        "Daniel Anderson"
+      ],
+      "adviser": "Kathline Ventura",
+      "department": "Accountancy, Business and Management (ABM)",
+      "year": 2020,
+      "semester": "2nd Semester",
+      "keywords": [
+        "a",
+        "security",
+        "financial",
+        "of",
+        "ml",
+        "mining"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953647702-36747321.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.869Z",
+      "updatedAt": "2025-10-30T02:29:31.162Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f33",
+      "title": "Design and Implementation of Cloud-Native Applications for Smart Cities",
+      "authors": [
+        "Linda Taylor",
+        "Nancy Martinez",
+        "Betty Williams"
+      ],
+      "adviser": "Michael Reyes, Angela Garcia",
+      "department": "Science, Technology, Engineering and Mathematics (STEM)",
+      "year": 2020,
+      "semester": "Summer",
+      "keywords": [
+        "of",
+        "systems",
+        "security"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953433442-104371200.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.853Z",
+      "updatedAt": "2025-10-30T02:29:31.135Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f30",
+      "title": "Towards CI/CD Pipelines in Healthcare",
+      "authors": [
+        "William Jackson",
+        "Michael Wilson"
+      ],
+      "adviser": "Patricia Ramos",
+      "department": "Accountancy, Business and Management (ABM)",
+      "year": 2025,
+      "semester": "Summer",
+      "keywords": [
+        "ai",
+        "analytics",
+        "in",
+        "towards",
+        "ml",
+        "healthcare"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953433439-799699067.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.847Z",
+      "updatedAt": "2025-10-30T02:29:31.120Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f2d",
+      "title": "Towards Distributed Systems in Healthcare",
+      "authors": [
+        "Thomas Taylor",
+        "Anthony Thomas",
+        "Thomas Smith",
+        "Lisa Martin"
+      ],
+      "adviser": "Patricia Ramos, Maria Santos",
+      "department": "Information System",
+      "year": 2024,
+      "semester": "Summer",
+      "keywords": [
+        "nlp",
+        "engineering",
+        "systems",
+        "security"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953295303-751455992.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.837Z",
+      "updatedAt": "2025-10-30T02:29:31.107Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f2a",
+      "title": "Towards Large Language Models for Smart Cities",
+      "authors": [
+        "Lisa Rodriguez",
+        "Mark Martin",
+        "Betty Davis"
+      ],
+      "adviser": "Patricia Ramos",
+      "department": "Early Childhood Education",
+      "year": 2023,
+      "semester": "2nd Semester",
+      "keywords": [
+        "smart",
+        "systems",
+        "models"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953295294-943955750.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.819Z",
+      "updatedAt": "2025-10-30T02:29:31.095Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f27",
+      "title": "An Exploratory Analysis of Cybersecurity Protocols for Financial Risk Assessment",
+      "authors": [
+        "Joseph Thomas",
+        "Anthony Smith",
+        "Barbara Gonzalez",
+        "Matthew Taylor"
+      ],
+      "adviser": "Maria Santos, Angela Garcia",
+      "department": "Marine Engineering",
+      "year": 2021,
+      "semester": "2nd Semester",
+      "keywords": [
+        "security",
+        "for",
+        "of",
+        "systems",
+        "ml"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953152393-558243459.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.805Z",
+      "updatedAt": "2025-10-30T02:29:31.086Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f24",
+      "title": "An Exploratory Analysis of CI/CD Pipelines for E-Commerce",
+      "authors": [
+        "William Garcia",
+        "Jennifer Anderson",
+        "Richard Jackson"
+      ],
+      "adviser": "Maria Santos",
+      "department": "Information System",
+      "year": 2019,
+      "semester": "Summer",
+      "keywords": [
+        "cloud",
+        "for",
+        "an",
+        "pipelines",
+        "data"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760953152378-742448341.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.800Z",
+      "updatedAt": "2025-10-30T02:29:31.080Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f21",
+      "title": "A Framework for Data Warehousing for E-Commerce",
+      "authors": [
+        "Nancy Wilson",
+        "James Moore",
+        "Patricia Wilson",
+        "Susan Martinez"
+      ],
+      "adviser": "Joseph Rivera",
+      "department": "Criminology",
+      "year": 2023,
+      "semester": "1st Semester",
+      "keywords": [
+        "for",
+        "a",
+        "data",
+        "framework",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760872433664-101854246.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.789Z",
+      "updatedAt": "2025-10-30T02:29:31.072Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f1e",
+      "title": "A Framework for Distributed Systems for Financial Risk Assessment",
+      "authors": [
+        "Matthew Moore",
+        "Karen Garcia",
+        "Jessica Davis"
+      ],
+      "adviser": "Joseph Rivera, Angela Garcia",
+      "department": "Management Accounting",
+      "year": 2017,
+      "semester": "Summer",
+      "keywords": [
+        "assessment",
+        "nlp",
+        "financial",
+        "analytics",
+        "cloud",
+        "for"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760420312277-873634495.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.773Z",
+      "updatedAt": "2025-10-30T02:29:31.067Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f1b",
+      "title": "An Investigation into Automated Code Generation for Agriculture",
+      "authors": [
+        "Robert Brown",
+        "Richard Miller",
+        "Karen Davis",
+        "Susan Lopez"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Other",
+      "year": 2023,
+      "semester": "1st Semester",
+      "keywords": [
+        "generation",
+        "iot",
+        "security"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760418288669-874540924.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.758Z",
+      "updatedAt": "2025-10-30T02:29:31.063Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f18",
+      "title": "An Exploratory Analysis of Blockchain-Based Identity for Customer Churn Prediction",
+      "authors": [
+        "Susan Davis",
+        "Anthony Rodriguez",
+        "Mark Jackson",
+        "Linda Lopez"
+      ],
+      "adviser": "Maria Santos",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2018,
+      "semester": "2nd Semester",
+      "keywords": [
+        "exploratory",
+        "based",
+        "analysis",
+        "iot",
+        "an",
+        "for"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760418076009-749501508.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.754Z",
+      "updatedAt": "2025-10-30T02:29:31.052Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f15",
+      "title": "Leveraging Data Warehousing at Scale",
+      "authors": [
+        "Thomas Smith",
+        "Mark Taylor",
+        "Christopher Davis",
+        "Nancy Moore"
+      ],
+      "adviser": "Victor Flores",
+      "department": "Tourism Management",
+      "year": 2022,
+      "semester": "2nd Semester",
+      "keywords": [
+        "iot",
+        "warehousing",
+        "nlp",
+        "systems",
+        "leveraging"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760418069677-612568788.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.740Z",
+      "updatedAt": "2025-10-30T02:29:31.048Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f12",
+      "title": "A Machine Learning Approach to Time Series Forecasting for Agriculture",
+      "authors": [
+        "Michael Garcia",
+        "Thomas Garcia",
+        "Nancy Garcia"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2019,
+      "semester": "Summer",
+      "keywords": [
+        "for",
+        "time",
+        "learning",
+        "iot",
+        "security",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760417195132-481356270.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.732Z",
+      "updatedAt": "2025-10-30T02:29:31.038Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f0f",
+      "title": "Design and Implementation of Edge Computing Frameworks for Customer Churn Prediction",
+      "authors": [
+        "Margaret Miller",
+        "Linda Miller",
+        "Richard Miller"
+      ],
+      "adviser": "Michael Reyes",
+      "department": "Early Childhood Education",
+      "year": 2021,
+      "semester": "1st Semester",
+      "keywords": [
+        "churn",
+        "and",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760417041283-592321852.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.722Z",
+      "updatedAt": "2025-10-30T02:29:31.033Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f0c",
+      "title": "An Investigation into Cybersecurity Protocols for Financial Risk Assessment",
+      "authors": [
+        "Patricia Gonzalez",
+        "Mary Davis"
+      ],
+      "adviser": "Anna Torres, Angela Garcia",
+      "department": "Marine Transportation",
+      "year": 2020,
+      "semester": "1st Semester",
+      "keywords": [
+        "financial",
+        "nlp",
+        "engineering",
+        "for"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760417035516-883138881.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.715Z",
+      "updatedAt": "2025-10-30T02:29:31.025Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f09",
+      "title": "Design and Implementation of Computer Vision Pipelines for Financial Risk Assessment",
+      "authors": [
+        "Mark Lopez",
+        "William Jackson",
+        "Joseph Lopez",
+        "Betty Gonzalez"
+      ],
+      "adviser": "Michael Reyes, Angela Garcia",
+      "department": "Tourism Management",
+      "year": 2020,
+      "semester": "1st Semester",
+      "keywords": [
+        "for",
+        "computer",
+        "risk",
+        "security",
+        "and",
+        "implementation"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416921961-653579276.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.705Z",
+      "updatedAt": "2025-10-30T02:29:31.017Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f06",
+      "title": "An Investigation into Computer Vision Pipelines in Public Sector Services",
+      "authors": [
+        "Robert Smith",
+        "Charles Jones",
+        "Charles Anderson",
+        "Sarah Moore"
+      ],
+      "adviser": "Anna Torres, Victor Flores",
+      "department": "Criminology",
+      "year": 2022,
+      "semester": "Summer",
+      "keywords": [
+        "security",
+        "analytics",
+        "into",
+        "systems"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416710108-641002328.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.697Z",
+      "updatedAt": "2025-10-30T02:29:31.011Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f03",
+      "title": "An Exploratory Analysis of Blockchain-Based Identity for Smart Cities",
+      "authors": [
+        "Sandra Moore",
+        "David Martinez",
+        "James Rodriguez",
+        "Matthew Hernandez"
+      ],
+      "adviser": "Maria Santos, Michael Reyes",
+      "department": "Nursing",
+      "year": 2021,
+      "semester": "Summer",
+      "keywords": [
+        "ai",
+        "nlp",
+        "an",
+        "cities"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416579145-357739792.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.686Z",
+      "updatedAt": "2025-10-30T02:29:31.003Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223f00",
+      "title": "Optimization of Computer Vision Pipelines in Healthcare",
+      "authors": [
+        "Nancy Garcia",
+        "Sandra Taylor",
+        "Daniel Jones",
+        "James Smith"
+      ],
+      "adviser": "Daniel Cruz, Maria Santos",
+      "department": "Accountancy, Business and Management (ABM)",
+      "year": 2025,
+      "semester": "2nd Semester",
+      "keywords": [
+        "data",
+        "systems",
+        "healthcare",
+        "analytics",
+        "ml"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416449114-744753196.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.674Z",
+      "updatedAt": "2025-10-30T02:29:30.998Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223efd",
+      "title": "Optimization of Blockchain-Based Identity for Smart Cities",
+      "authors": [
+        "Mark Jones",
+        "Sandra Thomas"
+      ],
+      "adviser": "Daniel Cruz",
+      "department": "Science, Technology, Engineering and Mathematics (STEM)",
+      "year": 2022,
+      "semester": "1st Semester",
+      "keywords": [
+        "of",
+        "based",
+        "ml",
+        "blockchain",
+        "cities"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416223425-16517755.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.669Z",
+      "updatedAt": "2025-10-30T02:29:30.992Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223efa",
+      "title": "A Framework for Distributed Systems for Smart Cities",
+      "authors": [
+        "Lisa Taylor",
+        "Mary Taylor"
+      ],
+      "adviser": "Joseph Rivera, Michael Reyes",
+      "department": "Accountancy, Business and Management (ABM)",
+      "year": 2019,
+      "semester": "1st Semester",
+      "keywords": [
+        "security",
+        "framework",
+        "analytics",
+        "a",
+        "iot"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760416026022-141966289.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.653Z",
+      "updatedAt": "2025-10-30T02:29:30.987Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ef7",
+      "title": "Towards Recommendation Systems in Resource-Constrained Environments",
+      "authors": [
+        "Daniel Miller",
+        "Linda Jones",
+        "Susan Gonzalez"
+      ],
+      "adviser": "Patricia Ramos, Victor Flores",
+      "department": "Criminology",
+      "year": 2025,
+      "semester": "Summer",
+      "keywords": [
+        "resource",
+        "recommendation",
+        "data",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760415822562-845322193.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.635Z",
+      "updatedAt": "2025-10-30T02:29:30.982Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ef4",
+      "title": "An Exploratory Analysis of Edge Computing Frameworks for Smart Cities",
+      "authors": [
+        "Richard Wilson",
+        "William Williams"
+      ],
+      "adviser": "Maria Santos",
+      "department": "Humanities and Social Sciences (HUMSS)",
+      "year": 2022,
+      "semester": "1st Semester",
+      "keywords": [
+        "security",
+        "of",
+        "systems",
+        "engineering",
+        "smart",
+        "cities"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760415586141-466012941.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.620Z",
+      "updatedAt": "2025-10-30T02:29:30.977Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ef1",
+      "title": "Design and Implementation of Cloud-Native Applications in Public Sector Services",
+      "authors": [
+        "Barbara Lopez",
+        "Sandra Taylor",
+        "John Taylor"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Early Childhood Education",
+      "year": 2023,
+      "semester": "Summer",
+      "keywords": [
+        "native",
+        "ai",
+        "in",
+        "iot"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760415414721-175467514.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.603Z",
+      "updatedAt": "2025-10-30T02:29:30.970Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223eee",
+      "title": "Optimization of Privacy-Preserving Data Mining for Financial Risk Assessment",
+      "authors": [
+        "Nancy Rodriguez",
+        "Joseph Rodriguez"
+      ],
+      "adviser": "Daniel Cruz",
+      "department": "Nursing",
+      "year": 2020,
+      "semester": "Summer",
+      "keywords": [
+        "preserving",
+        "optimization",
+        "ai",
+        "iot",
+        "of",
+        "analytics"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760415075796-721251558.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.574Z",
+      "updatedAt": "2025-10-30T02:29:30.960Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223eeb",
+      "title": "Evaluating the Effectiveness of Recommendation Systems in Healthcare",
+      "authors": [
+        "Jessica Williams",
+        "Thomas Rodriguez"
+      ],
+      "adviser": "Angela Garcia, Maria Santos",
+      "department": "Tourism Management",
+      "year": 2017,
+      "semester": "2nd Semester",
+      "keywords": [
+        "the",
+        "engineering",
+        "nlp"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760359389657-625330286.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.560Z",
+      "updatedAt": "2025-10-30T02:29:30.950Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ee8",
+      "title": "Evaluating the Effectiveness of CI/CD Pipelines for Financial Risk Assessment",
+      "authors": [
+        "David Gonzalez",
+        "Christopher Johnson",
+        "Susan Smith",
+        "Susan Moore"
+      ],
+      "adviser": "Angela Garcia",
+      "department": "Criminology",
+      "year": 2020,
+      "semester": "1st Semester",
+      "keywords": [
+        "cd",
+        "financial",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760359322074-723212241.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.543Z",
+      "updatedAt": "2025-10-30T02:29:30.940Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ee5",
+      "title": "An Exploratory Analysis of Cloud-Native Applications for E-Commerce",
+      "authors": [
+        "Thomas Brown",
+        "Matthew Martin",
+        "William Gonzalez"
+      ],
+      "adviser": "Maria Santos, Daniel Cruz",
+      "department": "Management Accounting",
+      "year": 2024,
+      "semester": "2nd Semester",
+      "keywords": [
+        "ml",
+        "engineering",
+        "an",
+        "systems",
+        "security",
+        "for"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760359227071-738671739.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.524Z",
+      "updatedAt": "2025-10-30T02:29:30.931Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ee2",
+      "title": "Evaluating the Effectiveness of Blockchain-Based Identity for Agriculture",
+      "authors": [
+        "Karen Smith",
+        "Sandra Miller",
+        "Betty Wilson",
+        "Betty Anderson"
+      ],
+      "adviser": "Angela Garcia",
+      "department": "Early Childhood Education",
+      "year": 2025,
+      "semester": "Summer",
+      "keywords": [
+        "identity",
+        "security",
+        "cloud",
+        "the"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760359138936-973145709.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.518Z",
+      "updatedAt": "2025-10-30T02:29:30.925Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223edf",
+      "title": "An Investigation into Privacy-Preserving Data Mining in Higher Education",
+      "authors": [
+        "Anthony Jackson",
+        "Michael Hernandez",
+        "Elizabeth Garcia",
+        "Karen Smith"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Nursing",
+      "year": 2023,
+      "semester": "Summer",
+      "keywords": [
+        "data",
+        "engineering",
+        "nlp",
+        "ml",
+        "into"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760351508466-437326391.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.508Z",
+      "updatedAt": "2025-10-30T02:29:30.919Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223edc",
+      "title": "An Exploratory Analysis of Automated Code Generation for Agriculture",
+      "authors": [
+        "James Jones",
+        "Patricia Anderson",
+        "Charles Gonzalez"
+      ],
+      "adviser": "Maria Santos",
+      "department": "General Academic Strand (GAS)",
+      "year": 2023,
+      "semester": "2nd Semester",
+      "keywords": [
+        "agriculture",
+        "exploratory",
+        "automated"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760257463062-205298342.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.503Z",
+      "updatedAt": "2025-10-30T02:29:30.914Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ed9",
+      "title": "Design and Implementation of Time Series Forecasting in Higher Education",
+      "authors": [
+        "Mary Gonzalez",
+        "Christopher Williams"
+      ],
+      "adviser": "Michael Reyes",
+      "department": "Humanities and Social Sciences (HUMSS)",
+      "year": 2018,
+      "semester": "1st Semester",
+      "keywords": [
+        "ai",
+        "time",
+        "of",
+        "series"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760256965642-259516541.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.496Z",
+      "updatedAt": "2025-10-30T02:29:30.907Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ed6",
+      "title": "An Investigation into Data Warehousing in Higher Education",
+      "authors": [
+        "Mark Smith",
+        "Mary Brown"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Entrepreneurship",
+      "year": 2024,
+      "semester": "2nd Semester",
+      "keywords": [
+        "analytics",
+        "ml",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760255334221-325128248.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.487Z",
+      "updatedAt": "2025-10-30T02:29:30.900Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ed3",
+      "title": "An Investigation into Edge Computing Frameworks for Smart Cities",
+      "authors": [
+        "Charles Wilson",
+        "Karen Wilson",
+        "Joseph Hernandez",
+        "David Davis"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Criminology",
+      "year": 2018,
+      "semester": "1st Semester",
+      "keywords": [
+        "security",
+        "investigation",
+        "engineering",
+        "frameworks",
+        "ml"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760255194942-398185833.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.458Z",
+      "updatedAt": "2025-10-30T02:29:30.895Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ed0",
+      "title": "A Machine Learning Approach to Blockchain-Based Identity in Resource-Constrained Environments",
+      "authors": [
+        "John Martin",
+        "Joseph Jackson",
+        "Michael Johnson"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Entrepreneurship",
+      "year": 2019,
+      "semester": "2nd Semester",
+      "keywords": [
+        "security",
+        "learning",
+        "ai",
+        "engineering",
+        "approach",
+        "identity"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760255031396-447552845.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.441Z",
+      "updatedAt": "2025-10-30T02:29:30.888Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ecd",
+      "title": "An Exploratory Analysis of CI/CD Pipelines for Customer Churn Prediction",
+      "authors": [
+        "Richard Davis",
+        "Jennifer Davis",
+        "Nancy Garcia"
+      ],
+      "adviser": "Maria Santos",
+      "department": "Nursing",
+      "year": 2021,
+      "semester": "Summer",
+      "keywords": [
+        "churn",
+        "customer",
+        "an",
+        "nlp",
+        "systems",
+        "ai"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760255020164-389083624.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.434Z",
+      "updatedAt": "2025-10-30T02:29:30.883Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223eca",
+      "title": "An Exploratory Analysis of Data Warehousing for Smart Cities",
+      "authors": [
+        "Charles Wilson",
+        "John Williams",
+        "William Smith"
+      ],
+      "adviser": "Maria Santos",
+      "department": "Other",
+      "year": 2022,
+      "semester": "2nd Semester",
+      "keywords": [
+        "for",
+        "data",
+        "warehousing",
+        "systems"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760253071302-138642467.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.421Z",
+      "updatedAt": "2025-10-30T02:29:30.877Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ec7",
+      "title": "Towards Time Series Forecasting for Agriculture",
+      "authors": [
+        "Mark Hernandez",
+        "Lisa Smith",
+        "Karen Wilson",
+        "John Johnson"
+      ],
+      "adviser": "Victor Flores",
+      "department": "Accountancy, Business and Management (ABM)",
+      "year": 2022,
+      "semester": "Summer",
+      "keywords": [
+        "agriculture",
+        "towards",
+        "iot"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760253057553-153473135.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.404Z",
+      "updatedAt": "2025-10-30T02:29:30.871Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ec4",
+      "title": "Optimization of IoT Sensor Networks for Agriculture",
+      "authors": [
+        "Elizabeth Smith",
+        "Thomas Hernandez"
+      ],
+      "adviser": "Daniel Cruz, Robert Mendoza",
+      "department": "Information System",
+      "year": 2022,
+      "semester": "2nd Semester",
+      "keywords": [
+        "nlp",
+        "analytics",
+        "data"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760251995460-673380998.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.396Z",
+      "updatedAt": "2025-10-30T02:29:30.865Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ec1",
+      "title": "An Investigation into Edge Computing Frameworks in Resource-Constrained Environments",
+      "authors": [
+        "Daniel Garcia",
+        "Barbara Williams",
+        "Daniel Davis",
+        "William Anderson"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Tourism Management",
+      "year": 2017,
+      "semester": "1st Semester",
+      "keywords": [
+        "systems",
+        "ai",
+        "edge",
+        "analytics",
+        "nlp"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1760085201507-974232820.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.381Z",
+      "updatedAt": "2025-10-30T02:29:30.856Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ebe",
+      "title": "A Comparative Study of Cybersecurity Protocols at Scale",
+      "authors": [
+        "Susan Davis",
+        "Betty Gonzalez",
+        "Margaret Williams"
+      ],
+      "adviser": "Kathline Ventura, Victor Flores",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2020,
+      "semester": "Summer",
+      "keywords": [
+        "scale",
+        "comparative",
+        "study",
+        "iot",
+        "engineering"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759303024052-371045134.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.359Z",
+      "updatedAt": "2025-10-30T02:29:30.849Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ebb",
+      "title": "An Exploratory Analysis of IoT Sensor Networks at Scale",
+      "authors": [
+        "Betty Johnson",
+        "Mary Rodriguez"
+      ],
+      "adviser": "Maria Santos, Victor Flores",
+      "department": "Entrepreneurship",
+      "year": 2024,
+      "semester": "Summer",
+      "keywords": [
+        "systems",
+        "an",
+        "ml",
+        "data",
+        "sensor"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759302806959-933674198.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.353Z",
+      "updatedAt": "2025-10-30T02:29:30.839Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223eb8",
+      "title": "A Comparative Study of A/B Testing Platforms for Financial Risk Assessment",
+      "authors": [
+        "Richard Williams",
+        "Margaret Martinez",
+        "Mary Hernandez",
+        "Anthony Jones"
+      ],
+      "adviser": "Kathline Ventura",
+      "department": "Early Childhood Education",
+      "year": 2021,
+      "semester": "1st Semester",
+      "keywords": [
+        "systems",
+        "security",
+        "iot",
+        "data"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759302547348-610899289.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.342Z",
+      "updatedAt": "2025-10-30T02:29:30.833Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223eb5",
+      "title": "A Machine Learning Approach to Cybersecurity Protocols for Customer Churn Prediction",
+      "authors": [
+        "Anthony Hernandez",
+        "Daniel Jones",
+        "Anthony Brown",
+        "Elizabeth Garcia"
+      ],
+      "adviser": "Robert Mendoza, Joseph Rivera",
+      "department": "Marine Transportation",
+      "year": 2024,
+      "semester": "2nd Semester",
+      "keywords": [
+        "data",
+        "analytics",
+        "to"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759302180204-665679008.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.334Z",
+      "updatedAt": "2025-10-30T02:29:30.825Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223eb2",
+      "title": "Leveraging Blockchain-Based Identity at Scale",
+      "authors": [
+        "Jessica Davis",
+        "Joseph Wilson"
+      ],
+      "adviser": "Robert Mendoza",
+      "department": "Management Accounting",
+      "year": 2020,
+      "semester": "Summer",
+      "keywords": [
+        "blockchain",
+        "ai",
+        "engineering",
+        "leveraging"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759301780311-620159129.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.322Z",
+      "updatedAt": "2025-10-30T02:29:30.816Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223eaf",
+      "title": "A Comparative Study of Large Language Models in Higher Education",
+      "authors": [
+        "Joseph Hernandez",
+        "Elizabeth Gonzalez",
+        "Linda Moore",
+        "Nancy Anderson"
+      ],
+      "adviser": "Kathline Ventura",
+      "department": "Technical-Vocational Teacher Education",
+      "year": 2018,
+      "semester": "Summer",
+      "keywords": [
+        "a",
+        "systems",
+        "analytics",
+        "study",
+        "comparative"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759288179349-606136415.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.288Z",
+      "updatedAt": "2025-10-30T02:29:30.804Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223eac",
+      "title": "An Investigation into Large Language Models for Smart Cities",
+      "authors": [
+        "Barbara Taylor",
+        "Sarah Miller",
+        "Susan Brown",
+        "William Thomas"
+      ],
+      "adviser": "Anna Torres",
+      "department": "Information System",
+      "year": 2018,
+      "semester": "2nd Semester",
+      "keywords": [
+        "large",
+        "systems",
+        "for",
+        "investigation"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759288175369-948222843.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.280Z",
+      "updatedAt": "2025-10-30T02:29:30.797Z"
+    },
+    {
+      "_id": "6902cac8c13a191079223ea9",
+      "title": "Towards Natural Language Processing for Financial Risk Assessment",
+      "authors": [
+        "Karen Smith",
+        "Christopher Martinez",
+        "Susan Smith"
+      ],
+      "adviser": "Patricia Ramos, Angela Garcia",
+      "department": "Criminology",
+      "year": 2020,
+      "semester": "Summer",
+      "keywords": [
+        "iot",
+        "nlp",
+        "engineering",
+        "data"
+      ],
+      "pdfFilePath": "uploads\\research\\research-1759213183777-504788864.pdf",
+      "views": 0,
+      "downloads": 0,
+      "status": "approved",
+      "createdAt": "2025-10-30T02:17:44.255Z",
+      "updatedAt": "2025-10-30T02:29:30.773Z"
+    }
+  ]
+}

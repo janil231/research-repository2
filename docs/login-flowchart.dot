@@ -1,0 +1,129 @@
+digraph LoginFlow {
+    rankdir=TB;
+    graph [bgcolor=black, fontsize=14];
+    node [fontcolor=white, color=white, fontsize=12];
+    edge [color=white, fontcolor=white];
+    
+    // Start Node
+    Start [shape=oval, label="START", style=rounded];
+    
+    // Input Phase
+    Start -> LoadPage;
+    LoadPage [shape=rectangle, label="LOAD index.html\nINITIALIZE PAGE"];
+    
+    LoadPage -> DisplayLoginForm;
+    DisplayLoginForm [shape=parallelogram, label="DISPLAY LOGIN PAGE\nWITH FORM FIELDS"];
+    
+    DisplayLoginForm -> WaitUserInput;
+    WaitUserInput [shape=parallelogram, label="WAIT FOR USER INPUT"];
+    
+    WaitUserInput -> UserActionDecision;
+    UserActionDecision [shape=diamond, label="USER ACTION?"];
+    
+    // Decision: Navigation Links
+    UserActionDecision -> ClickRegisterLink [label="T\n(Register)"];
+    UserActionDecision -> ContinueLogin [label="F\n(Login)"];
+    
+    ClickRegisterLink [shape=parallelogram, label="USER CLICKS\nREGISTER LINK"];
+    ClickRegisterLink -> RedirectRegister;
+    RedirectRegister [shape=rectangle, label="REDIRECT TO\nregister.html"];
+    RedirectRegister -> ConnectorA;
+    ConnectorA [shape=circle, label="A", style=filled, fillcolor=white, fontcolor=black];
+    ConnectorA -> End;
+    
+    // Continue with Login Flow
+    ContinueLogin -> EnterCredentials;
+    EnterCredentials [shape=parallelogram, label="USER ENTERS\nCREDENTIALS"];
+    
+    // Process Phase
+    EnterCredentials -> ValidateFields;
+    ValidateFields [shape=rectangle, label="VALIDATE FORM FIELDS"];
+    
+    ValidateFields -> FieldsValidCheck;
+    FieldsValidCheck [shape=diamond, label="ALL FIELDS\nFILLED?"];
+    
+    FieldsValidCheck -> ShowFieldError [label="F"];
+    FieldsValidCheck -> DisableButton [label="T"];
+    
+    ShowFieldError [shape=parallelogram, label="DISPLAY ERROR\n'Fill all fields'"];
+    ShowFieldError -> ConnectorB;
+    ConnectorB [shape=circle, label="B", style=filled, fillcolor=white, fontcolor=black];
+    ConnectorB -> DisplayLoginForm;
+    
+    DisableButton [shape=rectangle, label="DISABLE SUBMIT BUTTON\nSET 'Logging in...'"];
+    
+    DisableButton -> PreparePayload;
+    PreparePayload [shape=rectangle, label="PREPARE LOGIN PAYLOAD\n{loginId, password}"];
+    
+    PreparePayload -> SendAPIRequest;
+    SendAPIRequest [shape=rectangle, label="SEND POST REQUEST\nTO /api/auth/login"];
+    
+    SendAPIRequest -> QueryDatabase;
+    QueryDatabase [shape=rectangle, label="BACKEND QUERIES\nUSER DATABASE"];
+    
+    QueryDatabase -> UserDB;
+    UserDB [shape=cylinder, label="USER DATABASE\n(MongoDB)"];
+    
+    UserDB -> ReceiveResponse;
+    ReceiveResponse [shape=rectangle, label="RECEIVE RESPONSE\nFROM SERVER"];
+    
+    ReceiveResponse -> CheckConnectionStatus;
+    CheckConnectionStatus [shape=diamond, label="CONNECTION\nSUCCESSFUL?"];
+    
+    CheckConnectionStatus -> ShowConnectionError [label="F"];
+    CheckConnectionStatus -> CheckResponseStatus [label="T"];
+    
+    ShowConnectionError [shape=parallelogram, label="DISPLAY ERROR\n'Server connection failed'"];
+    ShowConnectionError -> EnableButton;
+    EnableButton [shape=rectangle, label="ENABLE SUBMIT BUTTON\nRESTORE TEXT"];
+    EnableButton -> ConnectorB;
+    
+    CheckResponseStatus [shape=diamond, label="RESPONSE\nSTATUS OK?"];
+    
+    CheckResponseStatus -> ShowLoginError [label="F"];
+    CheckResponseStatus -> ExtractToken [label="T"];
+    
+    ShowLoginError [shape=parallelogram, label="DISPLAY ERROR\n(Server error message)"];
+    ShowLoginError -> EnableButton;
+    
+    ExtractToken [shape=rectangle, label="EXTRACT TOKEN\nAND USER DATA"];
+    
+    ExtractToken -> StoreToken;
+    StoreToken [shape=rectangle, label="STORE TOKEN IN\nLOCAL STORAGE"];
+    
+    StoreToken -> StoreUserData;
+    StoreUserData [shape=rectangle, label="STORE USER DATA\nIN LOCAL STORAGE"];
+    
+    StoreUserData -> CheckUserData;
+    CheckUserData [shape=diamond, label="USER DATA\nEXISTS?"];
+    
+    CheckUserData -> InvalidDataError [label="F"];
+    CheckUserData -> CheckIsStudent [label="T"];
+    
+    InvalidDataError [shape=parallelogram, label="DISPLAY ERROR\n'Invalid response from server'"];
+    InvalidDataError -> EnableButton;
+    
+    CheckIsStudent [shape=diamond, label="IS ROLE\nSTUDENT?"];
+    
+    CheckIsStudent -> RedirectStudent [label="T"];
+    CheckIsStudent -> CheckIsAdmin [label="F"];
+    
+    CheckIsAdmin [shape=diamond, label="IS ROLE\nADMIN?"];
+    
+    CheckIsAdmin -> RedirectAdmin [label="T"];
+    CheckIsAdmin -> InvalidRoleError [label="F"];
+    
+    InvalidRoleError [shape=parallelogram, label="DISPLAY ERROR\n'Invalid user role'"];
+    InvalidRoleError -> EnableButton;
+    
+    RedirectStudent [shape=rectangle, label="REDIRECT TO\ndashboard.html"];
+    RedirectAdmin [shape=rectangle, label="REDIRECT TO\nadmin-dashboard.html"];
+    
+    RedirectStudent -> ShowSuccess;
+    RedirectAdmin -> ShowSuccess;
+    ShowSuccess [shape=parallelogram, label="DISPLAY MESSAGE\n'Login successful!'"];
+    
+    // Output Phase
+    ShowSuccess -> End;
+    End [shape=oval, label="END", style=rounded];
+}

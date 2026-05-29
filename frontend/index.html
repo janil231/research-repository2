@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Research Repository</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="ecalogo.png">
+</head>
+<body class="login-page">
+  <div class="split-layout">
+    <div class="hero-side" aria-hidden="true">
+      <div class="hero-logo">
+        <img src="ecalogo.png" alt="ECA Logo" class="eca-logo">
+      </div>
+    </div>
+    <div class="content-side">
+      <h1 class="login-title">
+        <i class="fas fa-graduation-cap"></i>
+        Research Repository for Exact Colleges of Asia
+      </h1>
+      <form id="loginForm" class="form">
+        <h2>Login</h2>
+        <div class="form-group">
+          <label for="loginId">Student ID / Username</label>
+          <input type="text" id="loginId" name="loginId" placeholder="Enter your Student ID or Username" required>
+          <small style="display:block;font-size:0.96em;color:#4361c2;margin-top:3px;">Student ID Example: 2023-009865</small>
+        </div>
+        <div class="form-group" style="position: relative;">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required style="padding-right: 36px;">
+          <button type="button" class="toggle-password-visibility" aria-label="Show/Hide password" data-target="loginPassword" style="position: absolute; right: 12px; top: 41px; background: none; border: none; cursor: pointer; color: #6b7280; font-size: 1.1rem; padding: 0; height: 2.2em; width: 2em; display: flex; align-items: center; justify-content: center;"><i class="fas fa-eye"></i></button>
+        </div>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <p>Don't have an account? <a href="register.html"><i class="fas fa-user-plus"></i> Register</a></p>
+        <p><a href="forgot-password.html" class="forgot-link"><i class="fas fa-key"></i> Forgot Password?</a></p>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,282 @@
+digraph RRMS {
+  rankdir=TB;
+  labelloc="t";
+  label="Research Repository Management System - End-to-End Flow";
+  fontname="Arial";
+  fontsize=12;
+
+  node [fontname="Arial", fontsize=12, style=filled];
+  edge [fontname="Arial", fontsize=12, color="#666666"];
+
+  // Shared connectors (off-page)
+  conn_A [label="A", shape=circle, fillcolor="#DDDDDD"];
+  conn_B [label="B", shape=circle, fillcolor="#DDDDDD"];
+  conn_C [label="C", shape=circle, fillcolor="#DDDDDD"];
+  conn_D [label="D", shape=circle, fillcolor="#DDDDDD"];
+  conn_E [label="E", shape=circle, fillcolor="#DDDDDD"];
+  conn_F [label="F", shape=circle, fillcolor="#DDDDDD"];
+  conn_G [label="G", shape=circle, fillcolor="#DDDDDD"];
+  conn_H [label="H", shape=circle, fillcolor="#DDDDDD"];
+
+  // Shared area (outside clusters)
+  subgraph cluster_shared {
+    label="Shared Services & Public Endpoints";
+    color="#BBBBBB"; style="rounded";
+
+    shared_start [label="User Opens App", shape=oval, fillcolor="#EEEEEE"];
+    shared_static_proc [label="Serve Frontend (Express static)\nbackend/server.js", shape=box, style="rounded,filled", fillcolor="#EEEEEE"];
+    shared_login_page [label="Login Page (index.html)", shape=parallelogram, fillcolor="#EEEEEE"];
+
+    shared_public_search_in [label="Public Search Input\n(query params)", shape=parallelogram, fillcolor="#EEEEEE"];
+    shared_public_search_proc [label="Search Approved Research\nGET /api/research/search", shape=box, style="rounded,filled", fillcolor="#EEEEEE"];
+    shared_public_search_out [label="Search Results (Approved Only)", shape=parallelogram, fillcolor="#EEEEEE"];
+
+    shared_list_in [label="Open Approved Research List", shape=parallelogram, fillcolor="#EEEEEE"];
+    shared_list_proc [label="List Approved Research\nGET /api/research", shape=box, style="rounded,filled", fillcolor="#EEEEEE"];
+    shared_list_out [label="Approved Research List", shape=parallelogram, fillcolor="#EEEEEE"];
+
+    shared_has_account [label="Has Account?", shape=diamond, fillcolor="#EEEEEE"];
+
+    shared_start -> shared_static_proc -> shared_login_page;
+    shared_login_page -> shared_has_account;
+    shared_public_search_in -> shared_public_search_proc -> shared_public_search_out;
+    shared_list_in -> shared_list_proc -> shared_list_out;
+
+    // Branch to Student Register via connector
+    shared_has_account -> conn_A [label="No", color="#CC3333", fontcolor="#CC3333"];
+    // Branch to Login via connector (both roles)
+    shared_has_account -> conn_B [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+
+    // Public browse/search entry points
+    shared_login_page -> shared_public_search_in [label="Optional: Explore Public Data"];
+    shared_login_page -> shared_list_in [label="Optional: Browse Approved List"];
+  }
+
+  // Student cluster
+  subgraph cluster_student {
+    label="Student Workflows";
+    color="#9BD69B"; style="filled,rounded"; fillcolor="#DFF0D8";
+    node [fillcolor="#DFF0D8"];
+
+    // Registration (IPO)
+    stud_reg_in [label="Fill Registration Form\n(firstName, lastName, schoolId, department, password)", shape=parallelogram];
+    stud_reg_proc [label="Validate & Create Pending Student\nPOST /api/auth/register\nbackend/controllers/authController.register", shape=box, style="rounded,filled"];
+    stud_reg_out [label="Registration Submitted\nStatus: pending", shape=parallelogram];
+
+    // Login (IPO + decisions)
+    stud_login_in [label="Enter Login ID (schoolId) + Password", shape=parallelogram];
+    stud_login_proc [label="Authenticate (JWT)\nPOST /api/auth/login", shape=box, style="rounded,filled"];
+    stud_login_user_exists [label="User Found?", shape=diamond];
+    stud_login_status_ok [label="Student Approved?", shape=diamond];
+    stud_login_pw_ok [label="Password Match?", shape=diamond];
+    stud_login_error_nf [label="Error: User not found", shape=parallelogram];
+    stud_login_error_pending [label="Error: Pending Approval", shape=parallelogram];
+    stud_login_error_pwd [label="Error: Invalid credentials", shape=parallelogram];
+    stud_login_out [label="Login Success\nJWT + Profile", shape=parallelogram];
+
+    // Student Dashboard Decisions (vertical chain)
+    stud_dec_upload [label="Go to Upload Research?", shape=diamond];
+    stud_dec_search [label="Go to Search Research?", shape=diamond];
+
+    // Upload Research (IPO + validations)
+    stud_upload_in [label="Upload Form Input\n(title, authors, adviser, department, year, semester, keywords, PDF)", shape=parallelogram];
+    stud_upload_proc [label="Validate Fields & PDF\nMulter store, size/type checks\nPOST /api/research", shape=box, style="rounded,filled"];
+    stud_upload_file_ok [label="PDF Provided?", shape=diamond];
+    stud_upload_fields_ok [label="Required Fields Valid?", shape=diamond];
+    stud_upload_year_ok [label="Year Valid?", shape=diamond];
+    stud_upload_err_nofile [label="Error: PDF file is required", shape=parallelogram];
+    stud_upload_err_fields [label="Error: Missing/Invalid fields", shape=parallelogram];
+    stud_upload_err_year [label="Error: Invalid year", shape=parallelogram];
+    stud_upload_out [label="Upload Submitted\nStatus: pending", shape=parallelogram];
+
+    // Search/View/Download (IPO)
+    stud_search_in [label="Search Input (filters, keywords)", shape=parallelogram];
+    stud_search_proc [label="Search Approved Research\nGET /api/research/search", shape=box, style="rounded,filled"];
+    stud_search_out [label="Results (approved)", shape=parallelogram];
+    stud_view_proc [label="Increment View\nPOST /api/research/:id/view", shape=box, style="rounded,filled"];
+    stud_download_proc [label="Increment Download\nPOST /api/research/:id/download", shape=box, style="rounded,filled"];
+    stud_download_out [label="PDF File Served (/uploads)", shape=parallelogram];
+
+    // Forgot Password (IPO)
+    stud_forgot_in [label="Enter School ID\nForgot Password Form", shape=parallelogram];
+    stud_forgot_proc [label="Create Reset Request\nPOST /api/reset/request-reset", shape=box, style="rounded,filled"];
+    stud_forgot_out [label="Reset Request Submitted", shape=parallelogram];
+
+    // Connectors entry
+    conn_A -> stud_reg_in;
+    conn_B -> stud_login_in;
+
+    // Registration flow
+    stud_reg_in -> stud_reg_proc -> stud_reg_out;
+    stud_reg_out -> conn_C [label="Await Admin Approval"];
+
+    // Login flow decisions
+    stud_login_in -> stud_login_proc -> stud_login_user_exists;
+    stud_login_user_exists -> stud_login_error_nf [label="No", color="#CC3333", fontcolor="#CC3333"];
+    stud_login_user_exists -> stud_login_status_ok [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    stud_login_status_ok -> stud_login_error_pending [label="No", color="#CC3333", fontcolor="#CC3333"];
+    stud_login_status_ok -> stud_login_pw_ok [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    stud_login_pw_ok -> stud_login_error_pwd [label="No", color="#CC3333", fontcolor="#CC3333"];
+    stud_login_pw_ok -> stud_login_out [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    stud_login_out -> stud_dec_upload;
+    stud_dec_upload -> stud_upload_in [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    stud_dec_upload -> stud_dec_search [label="No", color="#CC3333", fontcolor="#CC3333"];
+    stud_dec_search -> stud_search_in [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    stud_dec_search -> stud_end [label="No", color="#CC3333", fontcolor="#CC3333"];
+
+    // Upload flow
+    // from decision above to upload_in
+    stud_upload_in -> stud_upload_proc -> stud_upload_file_ok;
+    stud_upload_file_ok -> stud_upload_err_nofile [label="No", color="#CC3333", fontcolor="#CC3333"];
+    stud_upload_file_ok -> stud_upload_fields_ok [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    stud_upload_fields_ok -> stud_upload_err_fields [label="No", color="#CC3333", fontcolor="#CC3333"];
+    stud_upload_fields_ok -> stud_upload_year_ok [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    stud_upload_year_ok -> stud_upload_err_year [label="No", color="#CC3333", fontcolor="#CC3333"];
+    stud_upload_year_ok -> stud_upload_out [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    stud_upload_out -> conn_D [label="Pending Admin Review"];
+
+    // Search/View/Download within student session (from decision)
+    stud_search_in -> stud_search_proc -> stud_search_out;
+    stud_search_out -> stud_view_proc -> stud_download_proc -> stud_download_out;
+
+    // Forgot password submission
+    stud_login_in -> stud_forgot_in [label="Forgot Password?\nlink", style=dashed];
+    stud_forgot_in -> stud_forgot_proc -> stud_forgot_out;
+    stud_forgot_out -> conn_E [label="Wait for Admin Action"];
+  }
+
+  // Admin cluster
+  subgraph cluster_admin {
+    label="Admin Workflows";
+    color="#8CC0EA"; style="filled,rounded"; fillcolor="#D9EDF7";
+    node [fillcolor="#D9EDF7"];
+
+    // Admin Login (IPO)
+    admin_login_in [label="Enter Username + Password", shape=parallelogram];
+    admin_login_proc [label="Authenticate (JWT)\nPOST /api/auth/login", shape=box, style="rounded,filled"];
+    admin_login_user_exists [label="User Found?", shape=diamond];
+    admin_login_pw_ok [label="Password Match?", shape=diamond];
+    admin_login_err_nf [label="Error: User not found", shape=parallelogram];
+    admin_login_err_pwd [label="Error: Invalid credentials", shape=parallelogram];
+    admin_login_out [label="Login Success (Admin)\nJWT + Profile", shape=parallelogram];
+    // Admin Dashboard Decisions (vertical chain)
+    admin_dec_pending [label="Review Pending Research?", shape=diamond];
+    admin_dec_reset [label="View Reset Requests?", shape=diamond];
+    admin_dec_archive [label="Archive/Restore/Delete?", shape=diamond];
+    admin_dec_stats [label="View Statistics?", shape=diamond];
+
+    // Approve Students (IPO + decision)
+    admin_approvals_in [label="Review Pending Students", shape=parallelogram];
+    admin_approvals_dec [label="Approve Student?", shape=diamond];
+    admin_approvals_proc [label="Update Status\nPUT /api/users/:id/approve", shape=box, style="rounded,filled"];
+    admin_approvals_out_ok [label="Student Approved", shape=parallelogram];
+    admin_approvals_out_rej [label="Student Rejected", shape=parallelogram];
+
+    // Research Moderation (IPO + decisions)
+    admin_pending_in [label="Review Pending Research", shape=parallelogram];
+    admin_research_dec [label="Approve Research?", shape=diamond];
+    admin_research_proc_approve [label="Approve\nPUT /api/research/:id/approve", shape=box, style="rounded,filled"];
+    admin_research_proc_reject [label="Reject\nPUT /api/research/:id/reject", shape=box, style="rounded,filled"];
+    admin_research_out_approved [label="Research Approved", shape=parallelogram];
+    admin_research_out_rejected [label="Research Rejected", shape=parallelogram];
+
+    // Archive/Delete/Restore (IPO)
+    admin_archive_in [label="Select Research", shape=parallelogram];
+    admin_archive_proc [label="Archive/Restore/Delete\nPUT /archive | /restore | DELETE /:id", shape=box, style="rounded,filled"];
+    admin_archive_out [label="Repository Updated", shape=parallelogram];
+
+    // Password Reset Handling (IPO + decision)
+    admin_reset_in [label="View Reset Requests\nGET /api/reset/reset-requests", shape=parallelogram];
+    admin_reset_dec [label="Approve Reset?", shape=diamond];
+    admin_reset_proc_ok [label="Approve with New Password\nPUT /api/reset/reset-request/:id", shape=box, style="rounded,filled"];
+    admin_reset_proc_rej [label="Reject Request\nPUT /api/reset/reset-request/:id", shape=box, style="rounded,filled"];
+    admin_reset_out_ok [label="Password Reset Successful", shape=parallelogram];
+    admin_reset_out_rej [label="Reset Request Rejected", shape=parallelogram];
+
+    // Statistics & Reports (IPO)
+    admin_stats_in [label="Select Filters (year, semester)", shape=parallelogram];
+    admin_stats_proc [label="Fetch Analytics\n/overall | /by-department | /by-year | /by-adviser | /top-* | /trends", shape=box, style="rounded,filled"];
+    admin_stats_out [label="Charts & Metrics", shape=parallelogram];
+    admin_export_proc [label="Export PDF Report\nGET /api/statistics/export-pdf", shape=box, style="rounded,filled"];
+    admin_export_out [label="Download PDF", shape=parallelogram];
+
+    // Create Admin (IPO)
+    admin_create_in [label="Enter New Admin Details", shape=parallelogram];
+    admin_create_proc [label="Create Admin (Admin Only)\nPOST /api/auth/admin/create", shape=box, style="rounded,filled"];
+    admin_create_out [label="New Admin Created", shape=parallelogram];
+
+    // Connectors entry
+    conn_B -> admin_login_in;
+
+    // Admin login decisions
+    admin_login_in -> admin_login_proc -> admin_login_user_exists;
+    admin_login_user_exists -> admin_login_err_nf [label="No", color="#CC3333", fontcolor="#CC3333"];
+    admin_login_user_exists -> admin_login_pw_ok [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    admin_login_pw_ok -> admin_login_err_pwd [label="No", color="#CC3333", fontcolor="#CC3333"];
+    admin_login_pw_ok -> admin_login_out [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    admin_login_out -> admin_dec_pending;
+    admin_dec_pending -> admin_pending_in [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    admin_dec_pending -> admin_dec_reset [label="No", color="#CC3333", fontcolor="#CC3333"];
+    admin_dec_reset -> admin_reset_in [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    admin_dec_reset -> admin_dec_archive [label="No", color="#CC3333", fontcolor="#CC3333"];
+    admin_dec_archive -> admin_archive_in [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    admin_dec_archive -> admin_dec_stats [label="No", color="#CC3333", fontcolor="#CC3333"];
+    admin_dec_stats -> admin_stats_in [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    admin_dec_stats -> admin_end [label="No", color="#CC3333", fontcolor="#CC3333"];
+
+    // Approve students flow (can be accessed anywhere admin chooses)
+    admin_stats_out -> admin_approvals_in [style=dashed, label="Go Manage Students"];
+    admin_approvals_dec -> admin_approvals_proc [label="Yes", color="#2E8540", fontcolor="#2E8540"];
+    admin_approvals_proc -> admin_approvals_out_ok;
+    admin_approvals_dec -> admin_approvals_out_rej [label="No", color="#CC3333", fontcolor="#CC3333"];
+    admin_approvals_out_ok -> conn_C [label="Student can login now"];
+
+    // Research moderation from decision chain
+    admin_pending_in -> admin_research_dec;
+    admin_research_dec -> admin_research_proc_approve [label="Approve", color="#2E8540", fontcolor="#2E8540"];
+    admin_research_dec -> admin_research_proc_reject [label="Reject", color="#CC3333", fontcolor="#CC3333"];
+    admin_research_proc_approve -> admin_research_out_approved;
+    admin_research_proc_reject -> admin_research_out_rejected;
+    admin_research_out_approved -> conn_D [label="Visible to Students"];
+
+    // Archive/Delete/Restore
+    admin_archive_in -> admin_archive_proc -> admin_archive_out;
+
+    // Password reset handling from decision chain
+    admin_reset_in -> admin_reset_dec;
+    admin_reset_dec -> admin_reset_proc_ok [label="Approve", color="#2E8540", fontcolor="#2E8540"];
+    admin_reset_dec -> admin_reset_proc_rej [label="Reject", color="#CC3333", fontcolor="#CC3333"];
+    admin_reset_proc_ok -> admin_reset_out_ok -> conn_F [label="Student uses new password"];
+    admin_reset_proc_rej -> admin_reset_out_rej -> conn_E [label="Notify Student"];
+
+    // Statistics & Reports
+    admin_stats_in -> admin_stats_proc -> admin_stats_out;
+    admin_stats_in -> admin_export_proc -> admin_export_out;
+
+    // Create Admin
+    admin_dash_proc -> admin_create_in -> admin_create_proc -> admin_create_out;
+  }
+
+  // Cross-area connectors
+  // Student waiting for approval -> Admin approvals
+  conn_C -> admin_approvals_in;
+  // Student upload pending -> Admin review
+  conn_D -> admin_pending_in;
+  // Student forgot password -> Admin reset request list
+  conn_E -> admin_reset_in;
+  // After admin reset approved -> Student login input
+  conn_F -> stud_login_in;
+
+  // Session end nodes
+  shared_end [label="End", shape=oval, fillcolor="#EEEEEE"];
+  stud_end [label="End", shape=oval, fillcolor="#DFF0D8"];
+  admin_end [label="End", shape=oval, fillcolor="#D9EDF7"];
+
+  // Graceful ends
+  stud_download_out -> stud_end;
+  admin_export_out -> admin_end;
+  shared_public_search_out -> shared_end;
+  shared_list_out -> shared_end;
+}
+
+

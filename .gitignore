@@ -1,0 +1,7 @@
+node_modules/
+.env
+uploads/research/
+uploads/backups/
+venv/
+nul
+nul.pdf

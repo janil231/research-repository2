@@ -1,0 +1,319 @@
+digraph ResearchRepositorySystem {
+    rankdir=TB;
+    graph [bgcolor=black, fontsize=14];
+    node [fontcolor=white, color=white, fontsize=12];
+    edge [color=white, fontcolor=white];
+    
+    // Start Node
+    Start [shape=oval, label="START", style=rounded];
+    
+    // Registration Flow
+    Start -> RegDecision [label="New User?"];
+    RegDecision [shape=diamond, label="REGISTRATION?"];
+    
+    RegDecision -> EnterUserData [label="T"];
+    EnterUserData [shape=parallelogram, label="ENTER USER DATA\n(First Name, Last Name, etc.)"];
+    
+    EnterUserData -> CheckUserType;
+    CheckUserType [shape=diamond, label="USER TYPE?"];
+    
+    CheckUserType -> StudentReg [label="STUDENT"];
+    CheckUserType -> AdminReg [label="ADMIN"];
+    
+    StudentReg [shape=rectangle, label="VALIDATE STUDENT DATA\n(School ID, Department)"];
+    StudentReg -> CheckStudentExists;
+    CheckStudentExists [shape=diamond, label="SCHOOL ID\nEXISTS?"];
+    
+    CheckStudentExists -> RegError [label="T"];
+    CheckStudentExists -> HashPassword [label="F"];
+    
+    RegError [shape=parallelogram, label="DISPLAY ERROR\n'ID Already Registered'"];
+    RegError -> ConnectorA;
+    
+    HashPassword [shape=rectangle, label="HASH PASSWORD"];
+    HashPassword -> SaveStudent;
+    SaveStudent [shape=rectangle, label="SAVE TO DATABASE\nStatus: Pending"];
+    SaveStudent -> UserDB;
+    UserDB [shape=cylinder, label="USER DATABASE\n(MongoDB)"];
+    UserDB -> PendingMessage;
+    PendingMessage [shape=parallelogram, label="DISPLAY MESSAGE\n'Waiting for Admin Approval'"];
+    PendingMessage -> ConnectorA;
+    
+    AdminReg [shape=rectangle, label="VALIDATE ADMIN DATA\n(Username, Secret Key)"];
+    AdminReg -> CheckSecretKey;
+    CheckSecretKey [shape=diamond, label="SECRET KEY\nVALID?"];
+    
+    CheckSecretKey -> SecretError [label="F"];
+    SecretError [shape=parallelogram, label="DISPLAY ERROR\n'Invalid Secret Key'"];
+    SecretError -> ConnectorA;
+    
+    CheckSecretKey -> CheckUsernameExists [label="T"];
+    CheckUsernameExists [shape=diamond, label="USERNAME\nEXISTS?"];
+    
+    CheckUsernameExists -> UsernameError [label="T"];
+    UsernameError [shape=parallelogram, label="DISPLAY ERROR\n'Username Taken'"];
+    UsernameError -> ConnectorA;
+    
+    CheckUsernameExists -> HashAdminPassword [label="F"];
+    HashAdminPassword [shape=rectangle, label="HASH PASSWORD"];
+    HashAdminPassword -> SaveAdmin;
+    SaveAdmin [shape=rectangle, label="SAVE TO DATABASE\nStatus: Approved"];
+    SaveAdmin -> UserDB;
+    UserDB -> AdminSuccess;
+    AdminSuccess [shape=parallelogram, label="DISPLAY MESSAGE\n'Admin Registered Successfully'"];
+    AdminSuccess -> ConnectorA;
+    
+    // Login Flow
+    RegDecision -> LoginPage [label="F"];
+    LoginPage [shape=parallelogram, label="DISPLAY LOGIN PAGE"];
+    
+    LoginPage -> EnterCredentials;
+    EnterCredentials [shape=parallelogram, label="ENTER LOGIN CREDENTIALS\n(School ID/Username, Password)"];
+    
+    EnterCredentials -> FindUser;
+    FindUser [shape=rectangle, label="QUERY USER DATABASE"];
+    FindUser -> UserDB;
+    UserDB -> CheckUserFound;
+    CheckUserFound [shape=diamond, label="USER\nFOUND?"];
+    
+    CheckUserFound -> LoginError [label="F"];
+    LoginError [shape=parallelogram, label="DISPLAY ERROR\n'User Not Found'"];
+    LoginError -> ConnectorA;
+    
+    CheckUserFound -> CheckPassword [label="T"];
+    CheckPassword [shape=rectangle, label="VERIFY PASSWORD\n(bcrypt.compare)"];
+    CheckPassword -> PasswordValid;
+    PasswordValid [shape=diamond, label="PASSWORD\nVALID?"];
+    
+    PasswordValid -> LoginError2 [label="F"];
+    LoginError2 [shape=parallelogram, label="DISPLAY ERROR\n'Invalid Credentials'"];
+    LoginError2 -> ConnectorA;
+    
+    PasswordValid -> CheckUserStatus [label="T"];
+    CheckUserStatus [shape=diamond, label="USER STATUS\nAPPROVED?"];
+    
+    CheckUserStatus -> PendingError [label="F"];
+    PendingError [shape=parallelogram, label="DISPLAY ERROR\n'Account Pending Approval'"];
+    PendingError -> ConnectorA;
+    
+    CheckUserStatus -> GenerateJWT [label="T"];
+    GenerateJWT [shape=rectangle, label="GENERATE JWT TOKEN"];
+    GenerateJWT -> StoreToken;
+    StoreToken [shape=rectangle, label="STORE TOKEN IN\nLOCAL STORAGE"];
+    StoreToken -> CheckUserRole;
+    CheckUserRole [shape=diamond, label="USER ROLE?"];
+    
+    CheckUserRole -> StudentDashboard [label="STUDENT"];
+    CheckUserRole -> AdminDashboard [label="ADMIN"];
+    
+    StudentDashboard [shape=parallelogram, label="REDIRECT TO\nSTUDENT DASHBOARD"];
+    AdminDashboard [shape=parallelogram, label="REDIRECT TO\nADMIN DASHBOARD"];
+    
+    StudentDashboard -> ConnectorB;
+    AdminDashboard -> ConnectorC;
+    
+    // Research Upload Flow (Student)
+    ConnectorB -> UploadSection;
+    UploadSection [shape=parallelogram, label="USER CLICKS\nUPLOAD RESEARCH"];
+    
+    UploadSection -> Step1Basic;
+    Step1Basic [shape=rectangle, label="STEP 1: ENTER BASIC INFO\n(Title, Adviser, Year, Semester, Department)"];
+    Step1Basic -> Step2Details;
+    Step2Details [shape=rectangle, label="STEP 2: ENTER DETAILS\n(Authors, Keywords)"];
+    Step2Details -> Step3File;
+    Step3File [shape=parallelogram, label="STEP 3: SELECT PDF FILE"];
+    Step3File -> ValidateForm;
+    ValidateForm [shape=rectangle, label="VALIDATE FORM DATA"];
+    ValidateForm -> ValidateFile;
+    ValidateFile [shape=diamond, label="FILE VALID\n(PDF, <200MB)?"];
+    
+    ValidateFile -> FileError [label="F"];
+    FileError [shape=parallelogram, label="DISPLAY ERROR\n'Invalid File'"];
+    FileError -> ConnectorB;
+    
+    ValidateFile -> CreateResearchDoc [label="T"];
+    CreateResearchDoc [shape=rectangle, label="CREATE RESEARCH DOCUMENT"];
+    CreateResearchDoc -> SaveFile;
+    SaveFile [shape=rectangle, label="SAVE PDF TO\nuploads/research/"];
+    SaveFile -> ResearchDB;
+    ResearchDB [shape=cylinder, label="RESEARCH DATABASE\n(MongoDB)"];
+    ResearchDB -> CheckUploaderRole;
+    CheckUploaderRole [shape=diamond, label="UPLOADER ROLE?"];
+    
+    CheckUploaderRole -> SetPendingStatus [label="STUDENT"];
+    CheckUploaderRole -> SetApprovedStatus [label="ADMIN/TEACHER"];
+    
+    SetPendingStatus [shape=rectangle, label="SET STATUS: Pending"];
+    SetApprovedStatus [shape=rectangle, label="SET STATUS: Approved"];
+    
+    SetPendingStatus -> UploadSuccess;
+    SetApprovedStatus -> UploadSuccess;
+    UploadSuccess [shape=parallelogram, label="DISPLAY MESSAGE\n'Research Uploaded Successfully'"];
+    UploadSuccess -> ConnectorB;
+    
+    // Search Flow
+    ConnectorB -> SearchSection;
+    SearchSection [shape=parallelogram, label="USER CLICKS\nSEARCH RESEARCH"];
+    
+    SearchSection -> EnterSearchTerms;
+    EnterSearchTerms [shape=parallelogram, label="ENTER SEARCH KEYWORDS\nAND FILTERS"];
+    
+    EnterSearchTerms -> BuildQuery;
+    BuildQuery [shape=rectangle, label="BUILD DATABASE QUERY\n(Keywords, Department, Year, Semester)"];
+    BuildQuery -> ExecuteSearch;
+    ExecuteSearch [shape=rectangle, label="QUERY RESEARCH DATABASE"];
+    ExecuteSearch -> ResearchDB;
+    ResearchDB -> CheckResults;
+    CheckResults [shape=diamond, label="RESULTS\nFOUND?"];
+    
+    CheckResults -> NoResults [label="F"];
+    NoResults [shape=parallelogram, label="DISPLAY\n'No Results Found'"];
+    NoResults -> ConnectorB;
+    
+    CheckResults -> DisplayResults [label="T"];
+    DisplayResults [shape=parallelogram, label="DISPLAY RESEARCH PAPERS\n(Grid View with Pagination)"];
+    DisplayResults -> ViewPDF;
+    ViewPDF [shape=diamond, label="USER CLICKS\nVIEW PDF?"];
+    
+    ViewPDF -> IncrementViews [label="T"];
+    IncrementViews [shape=rectangle, label="INCREMENT VIEW COUNT"];
+    IncrementViews -> ResearchDB;
+    ResearchDB -> ShowPDF;
+    ShowPDF [shape=parallelogram, label="DISPLAY PDF\nIN BROWSER"];
+    ShowPDF -> ConnectorB;
+    
+    ViewPDF -> ConnectorB [label="F"];
+    
+    // Admin Management Flow
+    ConnectorC -> AdminSection;
+    AdminSection [shape=diamond, label="ADMIN SECTION?"];
+    
+    AdminSection -> UserMgmt [label="USER MANAGEMENT"];
+    AdminSection -> ResearchMgmt [label="RESEARCH MANAGEMENT"];
+    AdminSection -> Statistics [label="STATISTICS"];
+    
+    // User Management
+    UserMgmt -> LoadUsers;
+    LoadUsers [shape=rectangle, label="LOAD ALL USERS\nFROM DATABASE"];
+    LoadUsers -> UserDB;
+    UserDB -> DisplayUserTable;
+    DisplayUserTable [shape=parallelogram, label="DISPLAY USER TABLE\n(Students, Admins, Reset Requests)"];
+    DisplayUserTable -> UserAction;
+    UserAction [shape=diamond, label="ADMIN ACTION?"];
+    
+    UserAction -> ApproveUser [label="APPROVE USER"];
+    UserAction -> RejectUser [label="REJECT USER"];
+    UserAction -> DeleteUser [label="DELETE USER"];
+    UserAction -> HandleReset [label="HANDLE RESET"];
+    
+    ApproveUser [shape=rectangle, label="UPDATE USER STATUS\nTO 'Approved'"];
+    RejectUser [shape=rectangle, label="UPDATE USER STATUS\nTO 'Rejected'"];
+    DeleteUser [shape=rectangle, label="DELETE USER FROM DATABASE"];
+    HandleReset [shape=rectangle, label="RESET PASSWORD\nTO SCHOOL ID"];
+    
+    ApproveUser -> UserDB;
+    RejectUser -> UserDB;
+    DeleteUser -> UserDB;
+    HandleReset -> UserDB;
+    UserDB -> RefreshTable;
+    RefreshTable [shape=rectangle, label="REFRESH USER TABLE"];
+    RefreshTable -> ConnectorC;
+    
+    // Research Management
+    ResearchMgmt -> LoadPending;
+    LoadPending [shape=rectangle, label="LOAD PENDING RESEARCH\nFROM DATABASE"];
+    LoadPending -> ResearchDB;
+    ResearchDB -> DisplayPending;
+    DisplayPending [shape=parallelogram, label="DISPLAY PENDING RESEARCH\nTABLE"];
+    DisplayPending -> ResearchAction;
+    ResearchAction [shape=diamond, label="ADMIN ACTION?"];
+    
+    ResearchAction -> ApproveResearch [label="APPROVE"];
+    ResearchAction -> RejectResearch [label="REJECT"];
+    ResearchAction -> ArchiveResearch [label="ARCHIVE"];
+    ResearchAction -> DeleteResearch [label="DELETE"];
+    
+    ApproveResearch [shape=rectangle, label="UPDATE STATUS\nTO 'Approved'"];
+    RejectResearch [shape=rectangle, label="UPDATE STATUS\nTO 'Rejected'"];
+    ArchiveResearch [shape=rectangle, label="UPDATE STATUS\nTO 'Archived'"];
+    DeleteResearch [shape=rectangle, label="DELETE RESEARCH\nAND PDF FILE"];
+    
+    ApproveResearch -> ResearchDB;
+    RejectResearch -> ResearchDB;
+    ArchiveResearch -> ResearchDB;
+    DeleteResearch -> ResearchDB;
+    ResearchDB -> RefreshResearch;
+    RefreshResearch [shape=rectangle, label="REFRESH RESEARCH TABLE"];
+    RefreshResearch -> ConnectorC;
+    
+    // Statistics Flow
+    Statistics -> LoadStats;
+    LoadStats [shape=rectangle, label="QUERY STATISTICS\nFROM DATABASE"];
+    LoadStats -> ResearchDB;
+    LoadDBUsers [shape=rectangle, label="QUERY USER STATISTICS"];
+    LoadDBUsers -> UserDB;
+    ResearchDB -> CalculateStats;
+    UserDB -> CalculateStats;
+    CalculateStats [shape=rectangle, label="CALCULATE METRICS\n(Total Research, Views, Downloads,\nBy Department, By Year)"];
+    CalculateStats -> DisplayCharts;
+    DisplayCharts [shape=parallelogram, label="DISPLAY CHARTS\n(Pie, Bar, Line Charts)"];
+    DisplayCharts -> ExportOption;
+    ExportOption [shape=diamond, label="EXPORT\nREPORT?"];
+    
+    ExportOption -> ApplyFilters [label="T"];
+    ExportOption -> ConnectorC [label="F"];
+    
+    ApplyFilters [shape=rectangle, label="APPLY YEAR/SEMESTER\nFILTERS"];
+    ApplyFilters -> GeneratePDF;
+    GeneratePDF [shape=rectangle, label="CALL PYTHON SCRIPT\n(generate_pdf.py)"];
+    GeneratePDF -> PDFOutput;
+    PDFOutput [shape=parallelogram, label="DOWNLOAD PDF REPORT\nWITH STATISTICS"];
+    PDFOutput -> ConnectorC;
+    
+    // Password Reset Flow
+    ConnectorA -> ResetOption;
+    ResetOption [shape=diamond, label="PASSWORD RESET?"];
+    
+    ResetOption -> EnterResetData [label="T"];
+    ResetOption -> ConnectorA;
+    
+    EnterResetData [shape=parallelogram, label="ENTER RESET DATA\n(Student: School ID\nAdmin: Username + Color)"];
+    EnterResetData -> CheckResetType;
+    CheckResetType [shape=diamond, label="ACCOUNT TYPE?"];
+    
+    CheckResetType -> CreateResetRequest [label="STUDENT"];
+    CheckResetRequest [shape=rectangle, label="CREATE RESET REQUEST\nIN DATABASE"];
+    CheckResetRequest -> ResetRequestDB;
+    ResetRequestDB [shape=cylinder, label="RESET REQUEST\nDATABASE"];
+    ResetRequestDB -> ResetPending;
+    ResetPending [shape=parallelogram, label="DISPLAY MESSAGE\n'Waiting for Admin Approval'"];
+    ResetPending -> ConnectorA;
+    
+    CheckResetType -> VerifyColor [label="ADMIN"];
+    VerifyColor [shape=rectangle, label="VERIFY FAVORITE COLOR"];
+    VerifyColor -> ColorMatch;
+    ColorMatch [shape=diamond, label="COLOR\nMATCHES?"];
+    
+    ColorMatch -> ColorError [label="F"];
+    ColorError [shape=parallelogram, label="DISPLAY ERROR\n'Incorrect Color'"];
+    ColorError -> ConnectorA;
+    
+    ColorMatch -> ResetAdminPassword [label="T"];
+    ResetAdminPassword [shape=rectangle, label="HASH NEW PASSWORD\nAND UPDATE"];
+    ResetAdminPassword -> UserDB;
+    UserDB -> ResetSuccess;
+    ResetSuccess [shape=parallelogram, label="DISPLAY MESSAGE\n'Password Reset Successfully'"];
+    ResetSuccess -> ConnectorA;
+    
+    // Off-Page Connectors
+    ConnectorA [shape=circle, label="A", style=filled, fillcolor=white, fontcolor=black];
+    ConnectorB [shape=circle, label="B", style=filled, fillcolor=white, fontcolor=black];
+    ConnectorC [shape=circle, label="C", style=filled, fillcolor=white, fontcolor=black];
+    
+    // End Node
+    ConnectorA -> End;
+    ConnectorB -> End;
+    ConnectorC -> End;
+    End [shape=oval, label="END", style=rounded];
+}
+
