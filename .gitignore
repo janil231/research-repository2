@@ -1,7 +1,9 @@
 node_modules/
 .env
-uploads/research/
-uploads/backups/
+uploads/
+backend/uploads/
 venv/
 nul
 nul.pdf
+backup/
+.vscode/
